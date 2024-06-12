@@ -1,0 +1,3 @@
+[submodule "main/experiments/HyenaDNA_ETGP_CMP_eQTLP"]
+	path = main/experiments/HyenaDNA_ETGP_CMP_eQTLP
+	url = git@github.com:JocelynSong/Long_Range_DNA.git
