@@ -31,13 +31,13 @@ We recommend installing DNALongBench in a conda environment with Python 3.8.
    python scripts/download_data.py
    ```
 ## Data Loaders
-We provide data loaders for each task in data_loaders.py.
+We provide data loaders for each task in scripts/data_loaders.py.
 
 ## Experiments
 ### HyenaDNA
 
 ### CNN
-
+We provide the CNN model for each task in experiments/CNN/SimpleCNN.ipynb.
 
 ## Citation 
 The datasets included in DNALongBench were collected from various sources. Citing the corresponding original sources is required when using the data provided with DNALongBench.
