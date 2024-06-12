@@ -9,11 +9,11 @@ All data is available for download at [this link](https://cmu.app.box.com/s/cyn3
 The data can be downloaded via a script, see below.
 
 ## Setup
-We recommend installing DNALongBench in a conda environment with Python 3.9.
+We recommend installing DNALongBench in a conda environment with Python 3.8.
 
 1. Clone the GitHub repository:
    ```bash
-   git clone https://github.com/frederikkemarin/BEND.git
+   git clone https://github.com/wenduocheng/DNALongBench.git
     ```
 
 2. Change to the directory:
