@@ -1,5 +1,8 @@
 # DNALongBench: A Benchmark Suite for Long-Range DNA Prediction Tasks
 
+The DNALongBench is a collection of realistic and biologically meaningful genomic DNA prediction tasks that require long-range sequence input and involve long-range dependencies.
+This GitHub repository is under active construction.
+
 ## Data
 All data is available for download at [this link](https://cmu.app.box.com/s/cyn3tqfej3v4tg4xwv1god3jemq7916y).
 
@@ -23,10 +26,12 @@ We recommend installing DNALongBench in a conda environment with Python 3.9.
    pip install -r requirements.txt
    ```
 
-7. Download the data:
+4. Download the data:
    ```bash
    python scripts/download_data.py
    ```
+## Data Loaders
+We provide data loaders for each task in data_loaders.py.
 
 ## Citation 
 The datasets included in DNALongBench were collected from various sources. Citing the corresponding original sources is required when using the data provided with DNALongBench.
