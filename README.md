@@ -16,10 +16,17 @@ We recommend installing DNALongBench in a conda environment with Python 3.9.
 2. Change to the directory:
    ```bash
    cd DNALongBench
+   ```
 
-5. Install the requirements: pip install -r requirements.txt
+3. Install the requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-6. Download the data: python scripts/download_data.py
+7. Download the data:
+   ```bash
+   python scripts/download_data.py
+   ```
 
 ## Citation 
 The datasets included in DNALongBench were collected from various sources. Citing the corresponding original sources is required when using the data provided with DNALongBench.
@@ -36,6 +43,7 @@ The datasets included in DNALongBench were collected from various sources. Citin
   year={2020},
   publisher={Nature Publishing Group US New York}
 }
+```
 
 ### Transcription Initiation Signal Prediction
 ```bibtex
@@ -49,4 +57,5 @@ The datasets included in DNALongBench were collected from various sources. Citin
   year={2024},
   publisher={American Association for the Advancement of Science}
 }
+```
 
