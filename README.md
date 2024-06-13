@@ -54,6 +54,21 @@ The datasets included in DNALongBench were collected from various sources. Citin
   year={2020},
   publisher={Nature Publishing Group US New York}
 }
+
+```
+### Regulatory Sequence Activity Prediction
+```bibtex
+@article{avsec2021effective,
+  title={Effective gene expression prediction from sequence by integrating long-range interactions},
+  author={Avsec, {\v{Z}}iga and Agarwal, Vikram and Visentin, Daniel and Ledsam, Joseph R and Grabska-Barwinska, Agnieszka and Taylor, Kyle R and Assael, Yannis and Jumper, John and Kohli, Pushmeet and Kelley, David R},
+  journal={Nature methods},
+  volume={18},
+  number={10},
+  pages={1196--1203},
+  year={2021},
+  publisher={Nature Publishing Group US New York}
+}
+
 ```
 
 ### Transcription Initiation Signal Prediction
