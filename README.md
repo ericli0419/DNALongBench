@@ -18,7 +18,7 @@ This GitHub repository is under active construction.
 ## Setup
 We recommend installing DNALongBench in a conda environment with Python 3.8.
 
-1. Clone the GitHub repository:
+1. Clone the GitHub repository
 
 2. Change to the directory:
    ```bash
