@@ -4,17 +4,21 @@ The DNALongBench is a collection of realistic and biologically meaningful genomi
 This GitHub repository is under active construction. 
 
 ## Data
-All data is available for download at [this link](https://cmu.app.box.com/s/cyn3tqfej3v4tg4xwv1god3jemq7916y).
+### 1. [Regulatory Sequence Activity Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=4c6b250c-26fc-412a-b3e1-bc15f1332f0c)
 
-The data can be downloaded via a script, see below.
+### 2. [Transcription Initiation Signal Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=9810103a-b8b8-4a4d-95c4-b26b6e153446)
+
+### 3. [Enhancer-Target Gene Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=c238c0dd-528f-4d04-a3c8-0ff1eee1d651)
+
+### 4. [Contact Map Data](https://dataverse.harvard.edu/privateurl.xhtml?token=a990b515-d76e-4b63-ba74-5c78c469ae53)
+
+### 5. [eQTL Data](https://dataverse.harvard.edu/privateurl.xhtml?token=93d446a5-9c75-44bf-be1c-7622563c48d0)
+
 
 ## Setup
 We recommend installing DNALongBench in a conda environment with Python 3.8.
 
 1. Clone the GitHub repository:
-   ```bash
-   git clone https://github.com/wenduocheng/DNALongBench.git
-    ```
 
 2. Change to the directory:
    ```bash
