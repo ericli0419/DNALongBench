@@ -681,9 +681,6 @@ def train(config):
         pl.seed_everything(config.train.seed, workers=True)
     trainer = create_trainer(config)
     model = SequenceLightningModule(config)
-    # model = LMBackbone(256, 2, 4*256, 12)
-    # model.load_state_dict(torch.load('/mnt/taurus/data2/zhenqiaosong/HyenaDNA/pretrained_models/weights.ckpt'),
-    #                       strict=False)
 
     # Load pretrained_model if specified
     if config.train.get("pretrained_model_path", None) is not None:
