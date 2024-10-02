@@ -544,12 +544,6 @@ class SequenceLightningModule(pl.LightningModule):
         return [optimizer], [scheduler]
 
     def train_dataloader(self):
-
-        # return get_dataloader("Whole_Blood", "train")
-        # return get_dataloader("/mnt/aries/data4/danqingwang/workspace/clone/hyena-dna/data/Enformer/mm10.ml.fa",
-        #                       "mouse", "train")
-        # return get_dataloader("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/train-*.tfr",
-        # cell_type)
         return get_dataloader("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI", "train")
         # return self.dataset.train_dataloader(**self.hparams.loader)
 
