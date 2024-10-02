@@ -561,8 +561,6 @@ class SequenceLightningModule(pl.LightningModule):
     def _eval_dataloaders(self):
 
         # Return all val + test loaders
-        # val_loaders =  get_dataloader("/mnt/aries/data4/danqingwang/workspace/clone/hyena-dna/data/Enformer/mm10.ml.fa",
-        #                       "mouse", "valid")
         # val_loaders = get_dataloader("Whole_Blood", "valid")
         # test_loaders = get_dataloader("Whole_Blood", "test")
         val_loaders = get_dataloader("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI", "valid")
