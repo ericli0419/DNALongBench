@@ -8,7 +8,7 @@ oauth = OAuth2(client_id=client_id, client_secret=client_secret, access_token=ac
 client = Client(oauth)
 
 folder_id = "262082723696"
-fold_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna"
+fold_path = "HyenaDNA/data_long_range_dna"
 folder = client.folder(folder_id=folder_id).get()
 
 for item in folder.get_items():
