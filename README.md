@@ -81,6 +81,16 @@ When meeting issues, please use the similar solutions as suggested in HyenaDNA e
 
 The backbone model of Caduceus is similar to HyenaDNA. Please follow the similar training script with pretrained model replaced with Caduceus. 
 
+<h2>Citation</h2>
+If you find our work helpful, please consider citing our paper.
+
+```
+@inproceedings{wendna,
+  title={DNALongBench: A Benchmark Suite for Long-Range DNA Prediction Tasks},
+  author={Cheng, Wenduo and Song, Zhenqiao and Zhang, Yang and Wang, Shike and Wang, Danqing and Yang, Muyu and Li, Lei and Ma, Jian}
+}
+```
+
 <!--
 ## Setup
 We recommend installing DNALongBench in a conda environment with Python 3.8.
