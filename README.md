@@ -37,9 +37,9 @@ git clone git@github.com:wenduocheng/DNALongBench.git
 cd DNALongBench
 ```
 
-<h3>CNN</h3>
+<h2>CNN</h2>
 
-<h4>Environment Setup</h4>
+<h3>Environment Setup</h3>
 
 The dependencies can be set up using the following commands:
 
@@ -49,19 +49,19 @@ conda activate cnn
 bash setup.sh 
 ```
 
-<h4>Training</h4>
+<h3>Training</h3>
 
 Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
 
-<h3>HyenaDNA</h3>
+<h2>HyenaDNA</h2>
 
-<h4>Environment Setup</h4>
+<h3>Environment Setup</h3>
 
-We used the official code provided by HyenaDNA. The environment setup can be found at <a href="https://github.com/HazyResearch/hyena-dna?tab=readme-ov-file#dependencies">HyenaDNA Enviroment Eetup</a>.
+We used the official code of HyenaDNA. The environment setup can be found at <a href="https://github.com/HazyResearch/hyena-dna?tab=readme-ov-file#dependencies">HyenaDNA Enviroment Eetup</a>.
 
 Be careful if you would like to use flash attention. Sometimes there are some issues when installing flash attention. We recommend first setup the environment, then activate the enviroment, and finally install flash attention inside the environment. 
 
-<h4>Training</h4>
+<h3>Training</h3>
 
 To finetune the model on ETGP task: 
 
@@ -69,6 +69,17 @@ To finetune the model on ETGP task:
 bash experiments/HyenaDNA_ETGP_CMP_eQTLP/train.sh
 ```
 
+<h2>Caduceus</h2>
+
+<h3>Environment Setup</h3>
+
+We used the offical code of Caduceus. The environment setup can be found at <a href="https://github.com/kuleshov-group/caduceus?tab=readme-ov-file#getting-started-in-this-repository">Caduceus Enviroment Eetup</a>.
+
+When meeting issues, please use the similar solutions as suggested in HyenaDNA enviroment setup.
+
+<h3>Training</h3>
+
+The backbone model of Caduceus is similar to HyenaDNA. Please follow the similar training script with pretrained model replaced with Caduceus. 
 
 <!--
 ## Setup
