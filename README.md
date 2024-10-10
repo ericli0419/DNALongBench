@@ -28,6 +28,31 @@ We've provided the performance of three types of models, which are Expert Model,
 |:---------------|:---------:|:---------:|:---------:|:---------:|:----------:|
 | ETGP        |   **0.926**   |  0.797   |   0.828    |   0.826    |   0.821    |   
 
+<Download Code>
+
+Following the commands below to download our code:
+
+```ruby
+git clone git@github.com:wenduocheng/DNALongBench.git
+cd DNALongBench
+```
+
+<h3>CNN</h3>
+
+<h4>Environment Setup</h4>
+
+The dependencies can be set up using the following commands:
+
+```ruby
+conda create -n cnn python=3.8 -y 
+conda activate cnn 
+bash setup.sh 
+```
+
+<h4>Training</h4>
+
+Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
+
 ## Setup
 We recommend installing DNALongBench in a conda environment with Python 3.8.
 
