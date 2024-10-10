@@ -70,7 +70,7 @@ bash experiments/HyenaDNA_ETGP_CMP_eQTLP/train.sh
 ```
 
 
-<!-
+<!--
 ## Setup
 We recommend installing DNALongBench in a conda environment with Python 3.8.
 
@@ -172,5 +172,5 @@ The datasets included in DNALongBench were collected from various sources. Citin
   publisher={American Association for the Advancement of Science}
 }
 ```
-->
+-->
 
