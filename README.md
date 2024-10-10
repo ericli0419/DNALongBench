@@ -18,6 +18,8 @@ The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.
 
 <h4>Data Details</h4>
 
+We provide the sequences.bed, statistics.json, hg38.ml.fa.fai and hg38.ml.fa.gz files, and reformulate these data into train*/valid*/test*.tfr. The only files you needed are the corresponding tfr files.
+
 <h3>Transcription Initiation Signal Prediction</h3>
 
 <h4>Data Link</h4>
@@ -25,6 +27,8 @@ The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.
 The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=9810103a-b8b8-4a4d-95c4-b26b6e153446">Transcription Initiation Signal Prediction</a>. 
 
 <h4>Data Details</h4>
+
+We provide all the correspoding bed files.
 
 <h3>Enhancer-Target Gene Prediction</h3>
 
@@ -34,6 +38,8 @@ The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.
 
 <h4>Data Details</h4>
 
+The sequences, fa and metrics data are provided.
+
 <h3>Contact Map Prediction</h3>
 
 <h4>Data Link</h4>
@@ -42,6 +48,8 @@ The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.
 
 <h4>Data Details</h4>
 
+We provide the well-split train/valid/test files.
+
 <h3>eQTL</h3>
 
 <h4>Data Link</h4>
@@ -49,6 +57,8 @@ The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.
 The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=93d446a5-9c75-44bf-be1c-7622563c48d0">eQTL</a>. 
 
 <h4>Data Details</h4>
+
+The corresponding bed files are provided. 
 
 
 <!--
