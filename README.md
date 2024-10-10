@@ -53,6 +53,24 @@ bash setup.sh
 
 Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
 
+<h3>HyenaDNA</h3>
+
+<h4>Environment Setup</h4>
+
+We used the official code provided by HyenaDNA. The environment setup can be found at <a href="https://github.com/HazyResearch/hyena-dna?tab=readme-ov-file#dependencies">HyenaDNA Enviroment Eetup</a>.
+
+Be careful if you would like to use flash attention. Sometimes there are some issues when installing flash attention. We recommend first setup the environment, then activate the enviroment, and finally install flash attention inside the environment. 
+
+<h4>Training</h4>
+
+To finetune the model on ETGP task: 
+
+```ruby
+bash experiments/HyenaDNA_ETGP_CMP_eQTLP/train.sh
+```
+
+
+<!-
 ## Setup
 We recommend installing DNALongBench in a conda environment with Python 3.8.
 
@@ -154,4 +172,5 @@ The datasets included in DNALongBench were collected from various sources. Citin
   publisher={American Association for the Advancement of Science}
 }
 ```
+->
 
