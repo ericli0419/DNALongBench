@@ -76,7 +76,7 @@ The corresponding bed files are provided.
 
 <h2>Experiments</h2>
 
-We've provided the performance of three types of models, which are Expert Model, a lightweight CNN baseline, and a finetuned DNA foundation model (HyenaDNA, Caduceus-Ph and Caduceus-PS). We'll introduce below how to run these models by taking the task of Enhancer-Target Gene Prediction (ETGP).
+We've provided the performance of three types of models, which are Expert Model, a lightweight CNN baseline, and a finetuned DNA foundation model (HyenaDNA, Caduceus-Ph and Caduceus-PS). We'll introduce below how to run these models by taking the task of Enhancer-Target Gene Prediction (ETGP) as an example.
 
 | Model |   Expert Model   |  CNN   |  HyenaDNA  |  Caduceus-Ph  |   Caduceus-PS    |   
 |:---------------|:---------:|:---------:|:---------:|:---------:|:----------:|
