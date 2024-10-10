@@ -8,6 +8,8 @@ DNALongBench is a benchmark of realistic and biologically meaningful genomic DNA
 
 <h2>Data Download</h2>
 
+The data for each task could be downloaded via the following link, and the corresponding dataloader file is also provided. Therefore, you could run your own experiments by just replacing the dataloader files. 
+
 ### 1. [Regulatory Sequence Activity Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=4c6b250c-26fc-412a-b3e1-bc15f1332f0c)
 
 ### 2. [Transcription Initiation Signal Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=9810103a-b8b8-4a4d-95c4-b26b6e153446)
