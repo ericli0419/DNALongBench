@@ -139,7 +139,7 @@ The backbone model of Caduceus is similar to HyenaDNA. Please follow the similar
 If you find our work helpful, please consider citing our paper.
 
 ```
-@inproceedings{wendna,
+@inproceedings{chengdna,
   title={DNALongBench: A Benchmark Suite for Long-Range DNA Prediction Tasks},
   author={Cheng, Wenduo and Song, Zhenqiao and Zhang, Yang and Wang, Shike and Wang, Danqing and Yang, Muyu and Li, Lei and Ma, Jian}
 }
