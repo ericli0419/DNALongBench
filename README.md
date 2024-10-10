@@ -20,6 +20,13 @@ The data for each task could be downloaded via the following link, and the corre
 
 ### 5. [eQTL Data](https://dataverse.harvard.edu/privateurl.xhtml?token=93d446a5-9c75-44bf-be1c-7622563c48d0)
 
+<h2>Experiments</h2>
+
+We've provided the performance of three types of models, which are Expert Model, a lightweight CNN baseline, and a finetuned DNA foundation model (HyenaDNA, Caduceus-Ph and Caduceus-PS). We'll introduce below how to run these models by taking the task of Enhancer-Target Gene Prediction (ETGP).
+
+| Model |   Expert Model   |  CNN   |  HyenaDNA  |  Caduceus-Ph  |   Caduceus-PS    |   
+|:---------------|:---------:|:---------:|:---------:|:---------:|:----------:|
+| ETGP        |   **0.926**   |  0.797   |   0.828    |   0.826    |   0.821    |   
 
 ## Setup
 We recommend installing DNALongBench in a conda environment with Python 3.8.
