@@ -10,6 +10,48 @@ DNALongBench is a benchmark of realistic and biologically meaningful genomic DNA
 
 The data for each task could be downloaded via the following link, and the corresponding dataloader file is also provided. Therefore, you could run your own experiments by just replacing the dataloader files. 
 
+<h2>Regulatory Sequence Activity Prediction</h2>
+
+<h3>Data link</h3>
+
+The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=4c6b250c-26fc-412a-b3e1-bc15f1332f0c">Regulatory Sequence Activity Prediction</a>. 
+
+<h3>Data Details</h3>
+
+<h2>Transcription Initiation Signal Prediction</h2>
+
+<h3>Data link</h3>
+
+The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=9810103a-b8b8-4a4d-95c4-b26b6e153446">Transcription Initiation Signal Prediction</a>. 
+
+<h3>Data Details</h3>
+
+<h2>Enhancer-Target Gene Prediction</h2>
+
+<h3>Data link</h3>
+
+The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=c238c0dd-528f-4d04-a3c8-0ff1eee1d651">Enhancer-Target Gene Prediction</a>. 
+
+<h3>Data Details</h3>
+
+<h2>Contact Map Prediction</h2>
+
+<h3>Data link</h3>
+
+The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=a990b515-d76e-4b63-ba74-5c78c469ae53">Contact Map Prediction</a>. 
+
+<h3>Data Details</h3>
+
+<h2>eQTL</h2>
+
+<h3>Data link</h3>
+
+The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=93d446a5-9c75-44bf-be1c-7622563c48d0">eQTL</a>. 
+
+<h3>Data Details</h3>
+
+
+<!--
 ### 1. [Regulatory Sequence Activity Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=4c6b250c-26fc-412a-b3e1-bc15f1332f0c)
 
 ### 2. [Transcription Initiation Signal Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=9810103a-b8b8-4a4d-95c4-b26b6e153446)
@@ -19,6 +61,8 @@ The data for each task could be downloaded via the following link, and the corre
 ### 4. [Contact Map Data](https://dataverse.harvard.edu/privateurl.xhtml?token=a990b515-d76e-4b63-ba74-5c78c469ae53)
 
 ### 5. [eQTL Data](https://dataverse.harvard.edu/privateurl.xhtml?token=93d446a5-9c75-44bf-be1c-7622563c48d0)
+-->
+
 
 <h2>Experiments</h2>
 
