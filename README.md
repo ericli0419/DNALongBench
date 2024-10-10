@@ -1,7 +1,8 @@
 # DNALongBench: A Benchmark Suite for Long-Range DNA Prediction Tasks
 
-DNALongBench is a collection of realistic and biologically meaningful genomic DNA prediction tasks that require long-range sequence input and involve long-range dependencies.
-This GitHub repository is under active construction. 
+DNALongBench is a benchmark of realistic and biologically meaningful genomic DNA prediction tasks that require long-range sequence input and involve long-range dependencies. There are five tasks in our DNALongBench.
+
+![image](./Figure1.v1.png)
 
 ## Data
 ### 1. [Regulatory Sequence Activity Prediction](https://dataverse.harvard.edu/privateurl.xhtml?token=4c6b250c-26fc-412a-b3e1-bc15f1332f0c)
