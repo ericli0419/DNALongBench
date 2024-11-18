@@ -147,7 +147,7 @@ If you find our work helpful, please consider citing our paper.
 
 <!--
 ## Setup
-We recommend installing DNALongBench in a conda environment with Python 3.8.
+We recommend installing DNALongBench in a conda environment with Python 3.9.
 
 1. Clone the GitHub repository
 
@@ -158,13 +158,10 @@ We recommend installing DNALongBench in a conda environment with Python 3.8.
 
 3. To run the code, install the dependencies:
    ```bash
-   sh setup.sh 
+   pip install .
    ```
 
-4. Download the data:
-   ```bash
-   python scripts/download_data.py
-   ```
+
 ## Data Loaders
 We provide data loaders for each task in scripts/data_loaders.py.
 
