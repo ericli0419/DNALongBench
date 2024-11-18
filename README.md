@@ -87,7 +87,7 @@ We've provided the performance of three types of models, which are Expert Model,
 Following the commands below to download our code:
 
 ```ruby
-git clone git@github.com:wenduocheng/DNALongBench.git
+git clone https://github.com/wenduocheng/DNALongBench.git
 ```
 
 <h2>CNN</h2>
