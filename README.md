@@ -88,7 +88,6 @@ Following the commands below to download our code:
 
 ```ruby
 git clone git@github.com:wenduocheng/DNALongBench.git
-cd DNALongBench
 ```
 
 <h2>CNN</h2>
@@ -98,9 +97,9 @@ cd DNALongBench
 The dependencies can be set up using the following commands:
 
 ```ruby
-conda create -n cnn python=3.8 -y 
-conda activate cnn 
-bash setup.sh 
+conda create -n dnalongbench python=3.8 -y 
+conda activate dnalongbench
+pip install .
 ```
 
 <h3>Training</h3>
