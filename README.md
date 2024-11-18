@@ -97,7 +97,7 @@ git clone https://github.com/wenduocheng/DNALongBench.git
 The dependencies can be set up using the following commands:
 
 ```ruby
-conda create -n dnalongbench python=3.8 -y 
+conda create -n dnalongbench python=3.9 -y 
 conda activate dnalongbench
 pip install .
 ```
