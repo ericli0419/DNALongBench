@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=75.5", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dnalongbench"
+version = "0.1.0"
+description = "A Benchmark Suite for Long-Range DNA Prediction Tasks"
+authors = [
+    {name = "X", email = "email@example.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+    "selene-sdk,
+    "torchmetrics",
+    "kipoiseq==0.5.2",
+    "biopython",
+    "pandas==2.1.4",
+    "cython",
+    "scipy==1.12.0",
+    "matplotlib==3.8",
+    "pyBigWig",
+    "tensorflow==2.12.0",
+    "typing_extensions==4.12.2",
+    "torch==2.1.0",
+    "torchvision==0.16.0",
+    "torchaudio==2.1.0",
+    "torchtext==0.16.0",
+    "numpy==1.26.4",
+    "natsort",
+    "pytabix",
+    "tqdm"
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Creative Commons Attribution 4.0 International License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+keywords = [
+    "Benchmark",
+    "Bioinformatics",
+    "Machine Learning",
+    "Long-range",
+    "Foundation Models",
+]
+
+[tool.setuptools.package-data]
+# If you have data files like JSON, text, etc., specify them here
+dnalongbench = ["*.txt", "*.json"]
+
+[tool.setuptools.dynamic]
+long_description = {file = "README.md", content-type = "text/markdown"}
+
+
