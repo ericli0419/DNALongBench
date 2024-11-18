@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=75.5", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,9 +10,9 @@ authors = [
     {name = "X", email = "email@example.com"}
 ]
 readme = "README.md"
-license = {text = "MIT"}
+license = {text = "CC BY 4.0"}
 dependencies = [
-    "selene-sdk,
+    "selene-sdk",
     "torchmetrics",
     "kipoiseq==0.5.2",
     "biopython",
@@ -50,11 +50,5 @@ keywords = [
     "Foundation Models",
 ]
 
-[tool.setuptools.package-data]
-# If you have data files like JSON, text, etc., specify them here
-dnalongbench = ["*.txt", "*.json"]
-
-[tool.setuptools.dynamic]
-long_description = {file = "README.md", content-type = "text/markdown"}
 
 
