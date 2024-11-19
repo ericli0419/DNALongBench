@@ -110,7 +110,7 @@ Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
 
 <h3>Environment Setup</h3>
 
-We used the official code of HyenaDNA. The environment setup can be found at <a href="https://github.com/HazyResearch/hyena-dna?tab=readme-ov-file#dependencies">HyenaDNA Enviroment Eetup</a>.
+We used the official code of HyenaDNA. The environment setup can be found at <a href="https://github.com/HazyResearch/hyena-dna?tab=readme-ov-file#dependencies">HyenaDNA Enviroment Setup</a>.
 
 Be careful if you would like to use flash attention. Sometimes there are some issues when installing flash attention. We recommend first setup the environment, then activate the enviroment, and finally install flash attention inside the environment. 
 
@@ -126,7 +126,7 @@ bash experiments/HyenaDNA_ETGP_CMP_eQTLP/train.sh
 
 <h3>Environment Setup</h3>
 
-We used the offical code of Caduceus. The environment setup can be found at <a href="https://github.com/kuleshov-group/caduceus?tab=readme-ov-file#getting-started-in-this-repository">Caduceus Enviroment Eetup</a>.
+We used the offical code of Caduceus. The environment setup can be found at <a href="https://github.com/kuleshov-group/caduceus?tab=readme-ov-file#getting-started-in-this-repository">Caduceus Enviroment Setup</a>.
 
 When meeting issues, please use the similar solutions as suggested in HyenaDNA enviroment setup.
 
