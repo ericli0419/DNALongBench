@@ -107,7 +107,7 @@ pip install .
 Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
 ```ruby
 import dnalongbench
-from dnalongbench.scripts import load_data
+from dnalongbench.utils import load_data
 train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
 ```
 
