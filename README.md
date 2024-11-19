@@ -90,6 +90,16 @@ Following the commands below to download our code:
 git clone https://github.com/wenduocheng/DNALongBench.git
 ```
 
+<Load Data>
+
+```python
+import dnalongbench
+from dnalongbench.utils import load_data
+train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
+```
+
+We also provide data loaders for each task in scripts/data_loaders.ipynb.
+
 <h2>CNN</h2>
 
 <h3>Environment Setup</h3>
@@ -105,11 +115,7 @@ pip install .
 <h3>Training</h3>
 
 Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
-```ruby
-import dnalongbench
-from dnalongbench.utils import load_data
-train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
-```
+
 
 <h2>HyenaDNA</h2>
 
