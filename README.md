@@ -172,7 +172,7 @@ We recommend installing DNALongBench in a conda environment with Python 3.9.
 
 ## Data Loaders
 Example usage:
-```bash
+```python
    from dnalongbench.utils import load_data
 
    train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
