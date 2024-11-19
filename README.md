@@ -171,13 +171,13 @@ We recommend installing DNALongBench in a conda environment with Python 3.9.
 
 
 ## Data Loaders
-We provide data loaders for each task in scripts/data_loaders.ipynb.
 Example usage:
 ```bash
-   import dnalongbench
    from dnalongbench.utils import load_data
+
    train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
-   ```
+  ```
+We also provide data loaders for each task in scripts/data_loaders.ipynb.
 
 ## Leaderboard
 We create a leaderboard.
