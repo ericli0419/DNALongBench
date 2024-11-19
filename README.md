@@ -105,6 +105,11 @@ pip install .
 <h3>Training</h3>
 
 Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
+```ruby
+import dnalongbench
+from dnalongbench.scripts import load_data
+train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
+```
 
 <h2>HyenaDNA</h2>
 
@@ -133,6 +138,10 @@ When meeting issues, please use the similar solutions as suggested in HyenaDNA e
 <h3>Training</h3>
 
 The backbone model of Caduceus is similar to HyenaDNA. Please follow the similar training script with pretrained model replaced with Caduceus. 
+
+<h2>Leaderboard</h2>
+[Visit the leaderboard here.](https://dnalongbench.github.io/DNALongBench/)
+
 
 <h2>Citation</h2>
 If you find our work helpful, please consider citing our paper.
