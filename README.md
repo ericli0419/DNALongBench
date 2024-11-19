@@ -96,7 +96,7 @@ Use the following Python code to load data for a specific task:
 ```python
 import dnalongbench
 from dnalongbench.utils import load_data
-train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
+train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=1048576)
 ```
 
 We also provide data loaders for each task in scripts/data_loaders.ipynb.
