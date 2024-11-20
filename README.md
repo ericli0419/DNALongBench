@@ -87,7 +87,11 @@ We've provided the performance of three types of models, which are Expert Model,
 Following the commands below to download our code:
 
 ```ruby
+conda create -n dnalongbench python=3.9 -y 
+conda activate dnalongbench
+
 git clone https://github.com/wenduocheng/DNALongBench.git
+pip install .
 ```
 
 <Load Data>
@@ -103,17 +107,6 @@ We also provide data loaders for each task in scripts/data_loaders.ipynb.
 
 <h2>CNN</h2>
 
-<h3>Environment Setup</h3>
-
-The dependencies can be set up using the following commands:
-
-```ruby
-conda create -n dnalongbench python=3.9 -y 
-conda activate dnalongbench
-pip install .
-```
-
-<h3>Training</h3>
 
 Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
 
