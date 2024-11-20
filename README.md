@@ -8,6 +8,14 @@ DNALongBench is a benchmark of realistic and biologically meaningful genomic DNA
 
 <h2>Data Download</h2>
 
+| LR Tasks                       | LR Type                          | Input Length | Output Shape                                    | # Samples               | Metric    |
+|--------------------------------|----------------------------------|--------------|-------------------------------------------------|-------------------------|-----------|
+| Enhancer-target Gene           | Binary Classification            | 450,000      | 1                                               | 2,602                   | AUROC     |
+| eQTL                           | Binary Classification            | 450,000      | 1                                               | 31,282                  | AUROC     |
+| Contact Map                    | Binned (2048bp) 2D Regression    | 1,048,576    | 99,681                                          | 7,840                   | SCC & PCC |
+| Regulatory Sequence Activity   | Binned (128bp) 1D Regression     | 196,608      | Human: (896, 5,313)<br>Mouse: (896, 1,643)      | Human: 38,171<br>Mouse: 33,521 | PCC       |
+| Transcription Initiation Signal | Nucleotide-wise 1D Regression    | 100,000      | (100,000, 10)                                   | 100,000\*               | PCC       |
+
 The data for each task could be downloaded via the following link, and the corresponding dataloader file is also provided. Therefore, you could run your own experiments by just replacing the dataloader files. 
 
 <h3>Regulatory Sequence Activity Prediction</h3>
