@@ -25,7 +25,7 @@ from tqdm import tqdm
 import tabix
 import pyBigWig
 import kipoiseq
-
+from torch.utils.data import Dataset, DataLoader
 
 def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activity', organism = 'human', cell_type='HFF', batch_size=16, sequence_length=196608):
     if task_name == 'regulatory_sequence_activity':
@@ -99,7 +99,118 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         )
         sampler.mode="train"
         train_loader = SamplerDataLoader(sampler, num_workers=1, batch_size=16, seed=3)
-        return train_loader, None, None
+
+        validseq = noblacklist_genome.get_encoding_from_coords("chr10", 0, 114364328)
+        validcage = tfeature.get_feature_data("chr10", 0, 114364328)
+        class ValidDataset(Dataset):
+            def __init__(self, seq, cage, window_size=100000, step_size=50000):
+                """
+                seq: (N, 4) numpy array, the one-hot-encoded genomic sequence
+                cage: (10, N) numpy array, the target features
+                window_size: int, size of the sliding window
+                step_size: int, step size for the sliding window
+                """
+                self.seq = seq
+                self.cage = cage
+                self.window_size = window_size
+                self.step_size = step_size
+                self.num_windows = (seq.shape[0] - window_size) // step_size + 1
+
+            def __len__(self):
+                return self.num_windows
+
+            def __getitem__(self, idx):
+                """
+                Returns a tuple (input_sequence, target_features) for the idx-th window.
+                """
+                start = idx * self.step_size
+                end = start + self.window_size
+                input_seq = self.seq[start:end, :]  # Shape: (window_size, 4)
+                target_cage = self.cage[:, start:end]  # Shape: (10, window_size)
+                return input_seq, target_cage
+
+
+        # Create the validation dataset
+        valid_dataset = ValidDataset(validseq, validcage, window_size=100000, step_size=50000)
+
+        # Create the validation DataLoader
+        valid_loader = DataLoader(valid_dataset, batch_size=16, shuffle=False, num_workers=4)
+
+        chr8_seq = genome.get_encoding_from_coords('chr8',0, 145138636) 
+        chr8_cage = tfeature.get_feature_data('chr8',0, 145138636)
+
+        chr9_seq = genome.get_encoding_from_coords('chr9',0, 138394717) 
+        chr9_cage = tfeature.get_feature_data('chr9',0, 138394717)
+        class TestDataset(Dataset):
+            def __init__(self, seq, cage, window_size=100000, step_size=50000):
+                """
+                seq: (N, 4) numpy array, the one-hot-encoded genomic sequence
+                cage: (10, N) numpy array, the target features
+                window_size: int, size of the sliding window
+                step_size: int, step size for the sliding window
+                """
+                self.seq = seq
+                self.cage = cage
+                self.window_size = window_size
+                self.step_size = step_size
+                self.num_windows = (seq.shape[0] - window_size) // step_size + 1
+
+            def __len__(self):
+                return self.num_windows
+
+            def __getitem__(self, idx):
+                """
+                Returns a tuple (input_sequence, target_features) for the idx-th window.
+                """
+                start = idx * self.step_size
+                end = start + self.window_size
+                input_seq = self.seq[start:end, :]  # Shape: (window_size, 4)
+                target_cage = self.cage[:, start:end]  # Shape: (10, window_size)
+                return input_seq, target_cage
+
+
+        # Combine the data for chr8 and chr9 into a single dataset
+        class CombinedTestDataset(Dataset):
+            def __init__(self, seqs, cages, window_size=100000, step_size=50000):
+                """
+                seqs: List of numpy arrays, each with shape (N, 4).
+                cages: List of numpy arrays, each with shape (10, N).
+                window_size: int, size of the sliding window.
+                step_size: int, step size for the sliding window.
+                """
+                self.datasets = []
+                for seq, cage in zip(seqs, cages):
+                    self.datasets.append(TestDataset(seq, cage, window_size, step_size))
+
+                # Calculate the cumulative number of windows for indexing
+                self.cumulative_sizes = np.cumsum([len(dataset) for dataset in self.datasets])
+
+            def __len__(self):
+                return self.cumulative_sizes[-1]
+
+            def __getitem__(self, idx):
+                """
+                Identifies the appropriate dataset and retrieves the corresponding item.
+                """
+                # Determine which dataset the idx belongs to
+                for i, size in enumerate(self.cumulative_sizes):
+                    if idx < size:
+                        dataset_idx = i
+                        if i > 0:
+                            idx -= self.cumulative_sizes[i - 1]
+                        break
+
+                # Get the item from the appropriate dataset
+                return self.datasets[dataset_idx][idx]
+
+
+        # Combine the data into the test dataset
+        test_dataset = CombinedTestDataset([chr8_seq, chr9_seq], [chr8_cage, chr9_cage], window_size=100000, step_size=50000)
+
+        # Create the test DataLoader
+        test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False, num_workers=4)
+
+        return train_loader, valid_loader, test_loader
     
     elif task_name == 'enhancer_target_gene_prediction':
         ETGP_config_file = os.path.join(root, "enhancer_target_gene", "config", "CRISPRi_EPI_K562_hg19.config")
