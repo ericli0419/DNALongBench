@@ -147,9 +147,6 @@ When meeting issues, please use the similar solutions as suggested in HyenaDNA e
 
 The backbone model of Caduceus is similar to HyenaDNA. Please follow the similar training script with pretrained model replaced with Caduceus. 
 
-<h2>Leaderboard</h2>
-[Visit the leaderboard here.](https://dnalongbench.github.io/DNALongBench/)
-
 
 <h2>Citation</h2>
 If you find our work helpful, please consider citing our paper.
