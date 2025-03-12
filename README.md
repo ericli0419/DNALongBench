@@ -187,9 +187,6 @@ Example usage:
   ```
 We also provide data loaders for each task in scripts/data_loaders.ipynb.
 
-## Leaderboard
-We create a leaderboard.
-[Visit the leaderboard here.](https://dnalongbench.github.io/DNALongBench/)
 
 ## Experiments
 ### HyenaDNA
