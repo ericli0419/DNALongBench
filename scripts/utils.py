@@ -43,6 +43,13 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         train_dataset = BasenjiDataSet(data_path, organism, 'train', sequence_length, fasta_path)
         valid_dataset = BasenjiDataSet(data_path, organism, 'valid', sequence_length, fasta_path)
         test_dataset = BasenjiDataSet(data_path, organism, 'test', sequence_length, fasta_path)
+
+        def custom_collate(batch):
+            x, y = zip(*batch)
+            x = torch.tensor(np.stack(x), dtype=torch.float32)
+            y = torch.tensor(np.stack(y), dtype=torch.float32)
+            return x, y
+
         
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, num_workers=0)
         valid_loader = torch.utils.data.DataLoader(valid_dataset, batch_size=batch_size, num_workers=0)
@@ -82,8 +89,6 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
                                        (100000,),
                                        [root+"transcription_initiation_signal_prediction/targets/blacklists/fantom.blacklist8.plus.bed.gz",root+"transcription_initiation_signal_prediction/targets/blacklists/fantom.blacklist8.minus.bed.gz"],
                                        [0,9], [1,8], [0.61357, 0.61357])
-
-
         
         sampler = RandomPositionsSampler(
                         reference_sequence = genome,
@@ -98,7 +103,7 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
                         random_strand=False
         )
         sampler.mode="train"
-        train_loader = SamplerDataLoader(sampler, num_workers=1, batch_size=16, seed=3)
+        train_loader = SamplerDataLoader(sampler, num_workers=0, batch_size=batch_size, seed=3)
 
         validseq = noblacklist_genome.get_encoding_from_coords("chr10", 0, 114364328)
         validcage = tfeature.get_feature_data("chr10", 0, 114364328)
@@ -134,7 +139,7 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         valid_dataset = ValidDataset(validseq, validcage, window_size=100000, step_size=50000)
 
         # Create the validation DataLoader
-        valid_loader = DataLoader(valid_dataset, batch_size=16, shuffle=False, num_workers=4)
+        valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
         chr8_seq = genome.get_encoding_from_coords('chr8',0, 145138636) 
         chr8_cage = tfeature.get_feature_data('chr8',0, 145138636)
@@ -208,7 +213,7 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         test_dataset = CombinedTestDataset([chr8_seq, chr9_seq], [chr8_cage, chr9_cage], window_size=100000, step_size=50000)
 
         # Create the test DataLoader
-        test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False, num_workers=4)
+        test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
         return train_loader, valid_loader, test_loader
     
@@ -413,7 +418,7 @@ class BasenjiDataSet(torch.utils.data.IterableDataset):
             #     "sequence": sequence_one_hot,
             #     "target": records["target"],
             # }
-            yield sequence_one_hot, records["target"]
+            yield sequence_one_hot.copy(), records["target"].copy()
 
 
 

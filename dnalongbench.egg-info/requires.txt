@@ -17,3 +17,4 @@ numpy==1.26.4
 natsort
 pytabix
 tqdm
+attrs==24.2.0

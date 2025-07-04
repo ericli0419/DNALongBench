@@ -412,7 +412,7 @@ class BasenjiDataSet(torch.utils.data.IterableDataset):
             #     "sequence": sequence_one_hot,
             #     "target": records["target"],
             # }
-            yield sequence_one_hot.copy(), records["target"].copy()
+            yield sequence_one_hot, records["target"]
 
 
 

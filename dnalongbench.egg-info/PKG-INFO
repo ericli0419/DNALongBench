@@ -1,4 +1,4 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: dnalongbench
 Version: 0.1.0
 Summary: A Benchmark Suite for Long-Range DNA Prediction Tasks
@@ -31,6 +31,7 @@ Requires-Dist: numpy==1.26.4
 Requires-Dist: natsort
 Requires-Dist: pytabix
 Requires-Dist: tqdm
+Requires-Dist: attrs==24.2.0
 
 <h1>DNALongBench: A Benchmark Suite for Long-Range DNA Prediction Tasks</h1>
 
@@ -41,6 +42,14 @@ DNALongBench is a benchmark of realistic and biologically meaningful genomic DNA
 ![image](./Figure1.v1.png)
 
 <h2>Data Download</h2>
+
+| LR Tasks                       | LR Type                          | Input Length | Output Shape                                    | # Samples               | Metric    |
+|--------------------------------|----------------------------------|--------------|-------------------------------------------------|-------------------------|-----------|
+| Enhancer-target Gene           | Binary Classification            | 450,000      | 1                                               | 2,602                   | AUROC     |
+| eQTL                           | Binary Classification            | 450,000      | 1                                               | 31,282                  | AUROC     |
+| Contact Map                    | Binned (2048bp) 2D Regression    | 1,048,576    | 99,681                                          | 7,840                   | SCC & PCC |
+| Regulatory Sequence Activity   | Binned (128bp) 1D Regression     | 196,608      | Human: (896, 5,313)<br>Mouse: (896, 1,643)      | Human: 38,171<br>Mouse: 33,521 | PCC       |
+| Transcription Initiation Signal | Nucleotide-wise 1D Regression    | 100,000      | (100,000, 10)                                   | 100,000\*               | PCC       |
 
 The data for each task could be downloaded via the following link, and the corresponding dataloader file is also provided. Therefore, you could run your own experiments by just replacing the dataloader files. 
 
@@ -121,30 +130,35 @@ We've provided the performance of three types of models, which are Expert Model,
 Following the commands below to download our code:
 
 ```ruby
-git clone https://github.com/wenduocheng/DNALongBench.git
-```
-
-<h2>CNN</h2>
-
-<h3>Environment Setup</h3>
-
-The dependencies can be set up using the following commands:
-
-```ruby
 conda create -n dnalongbench python=3.9 -y 
 conda activate dnalongbench
+
+git clone https://github.com/wenduocheng/DNALongBench.git
 pip install .
 ```
 
-<h3>Training</h3>
+<Load Data>
+Use the following Python code to load data for a specific task:
+
+```python
+import dnalongbench
+from dnalongbench.utils import load_data
+train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=1048576)
+```
+
+We also provide data loaders for each task in scripts/data_loaders.ipynb.
+
+<h2>CNN</h2>
+
 
 Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
+
 
 <h2>HyenaDNA</h2>
 
 <h3>Environment Setup</h3>
 
-We used the official code of HyenaDNA. The environment setup can be found at <a href="https://github.com/HazyResearch/hyena-dna?tab=readme-ov-file#dependencies">HyenaDNA Enviroment Eetup</a>.
+We used the official code of HyenaDNA. The environment setup can be found at <a href="https://github.com/HazyResearch/hyena-dna?tab=readme-ov-file#dependencies">HyenaDNA Enviroment Setup</a>.
 
 Be careful if you would like to use flash attention. Sometimes there are some issues when installing flash attention. We recommend first setup the environment, then activate the enviroment, and finally install flash attention inside the environment. 
 
@@ -160,13 +174,14 @@ bash experiments/HyenaDNA_ETGP_CMP_eQTLP/train.sh
 
 <h3>Environment Setup</h3>
 
-We used the offical code of Caduceus. The environment setup can be found at <a href="https://github.com/kuleshov-group/caduceus?tab=readme-ov-file#getting-started-in-this-repository">Caduceus Enviroment Eetup</a>.
+We used the offical code of Caduceus. The environment setup can be found at <a href="https://github.com/kuleshov-group/caduceus?tab=readme-ov-file#getting-started-in-this-repository">Caduceus Enviroment Setup</a>.
 
 When meeting issues, please use the similar solutions as suggested in HyenaDNA enviroment setup.
 
 <h3>Training</h3>
 
 The backbone model of Caduceus is similar to HyenaDNA. Please follow the similar training script with pretrained model replaced with Caduceus. 
+
 
 <h2>Citation</h2>
 If you find our work helpful, please consider citing our paper.
@@ -196,7 +211,14 @@ We recommend installing DNALongBench in a conda environment with Python 3.9.
 
 
 ## Data Loaders
-We provide data loaders for each task in scripts/data_loaders.py.
+Example usage:
+```python
+   from dnalongbench.utils import load_data
+
+   train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
+  ```
+We also provide data loaders for each task in scripts/data_loaders.ipynb.
+
 
 ## Experiments
 ### HyenaDNA

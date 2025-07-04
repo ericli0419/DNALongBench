@@ -1,0 +1,65 @@
+cuda
+> load config done
+> init fasta extractor done
+> Start parsing EPI records to build the dataset train
+# Finish parsing EPI records
+# Total records:  2602
+# Skipped records due to different chromosomes:  0
+# Skipped records due to distance cutoff:  0
+# Skipped records due to unknown strand:  0
+# Select records 2066 with subset train 
+> load config done
+> init fasta extractor done
+> Start parsing EPI records to build the dataset valid
+# Finish parsing EPI records
+# Total records:  2602
+# Skipped records due to different chromosomes:  0
+# Skipped records due to distance cutoff:  0
+# Skipped records due to unknown strand:  0
+# Select records 266 with subset valid 
+> load config done
+> init fasta extractor done
+> Start parsing EPI records to build the dataset test
+# Finish parsing EPI records
+# Total records:  2602
+# Skipped records due to different chromosomes:  0
+# Skipped records due to distance cutoff:  0
+# Skipped records due to unknown strand:  0
+# Select records 270 with subset test 
+x: torch.Size([1, 450000, 4])
+y: torch.Size([1])
+{'input_ids': tensor([[   1, 1253, 2368,  ...,   32,   32,    2]]), 'attention_mask': tensor([[1, 1, 1,  ..., 1, 1, 1]]), 'y': tensor([1.])}
+torch.Size([1, 75002]) torch.Size([1, 75002])
+LongSequenceClassificationModel(
+  (base_model): LlamaModel(
+    (embed_tokens): Embedding(4128, 2048)
+    (layers): ModuleList(
+      (0-25): 26 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=2048, out_features=2048, bias=False)
+          (k_proj): Linear(in_features=2048, out_features=256, bias=False)
+          (v_proj): Linear(in_features=2048, out_features=256, bias=False)
+          (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=2048, out_features=5632, bias=False)
+          (up_proj): Linear(in_features=2048, out_features=5632, bias=False)
+          (down_proj): Linear(in_features=5632, out_features=2048, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): LlamaRMSNorm((2048,), eps=1e-05)
+        (post_attention_layernorm): LlamaRMSNorm((2048,), eps=1e-05)
+      )
+    )
+    (norm): LlamaRMSNorm((2048,), eps=1e-05)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (classification_head): Linear(in_features=16384, out_features=2, bias=False)
+)
+🚀 Training for 5 epochs, step‐eval every 10 steps, epoch‐eval each epoch.
+
+===== Epoch 1/5 =====
+
+🔄 Step 10 eval…
+  AUROC 0.2974 | Loss 1.4069
+🏆 New best at step 10: /work/magroup/wenduoc/DNALongBench/experiments/GENERator/results/ETGP/v3/best_model.pt
