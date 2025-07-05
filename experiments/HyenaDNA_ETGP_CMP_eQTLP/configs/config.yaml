@@ -72,4 +72,4 @@ wandb:
 
 hydra:
   run:
-    dir: enhancer_promoter
+    dir: dna_long_bench/enhancer_promoter
