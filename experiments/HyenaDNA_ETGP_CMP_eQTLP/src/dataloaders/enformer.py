@@ -10,9 +10,9 @@ import torch
 import numpy as np
 
 
-human_fasta_path = '/mnt/aries/data4/danqingwang/workspace/clone/hyena-dna/data/Enformer/hg38.ml.fa'
-mouse_fasta_path = '/mnt/aries/data4/danqingwang/workspace/clone/hyena-dna/data/Enformer/mm10.ml.fa'
-data_path = '/mnt/aries/data4/danqingwang/workspace/clone/hyena-dna/data/Enformer/data'
+human_fasta_path = 'Enformer/hg38.ml.fa'
+mouse_fasta_path = 'Enformer/mm10.ml.fa'
+data_path = 'Enformer/data'
 
 SEQUENCE_LENGTH = 196_608
 BIN_SIZE = 128

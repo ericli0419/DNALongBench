@@ -7,7 +7,7 @@ from natsort import natsorted
 import glob
 
 tf.config.set_visible_devices([], "GPU")
-train_data_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/train-*.tfr"
+train_data_path = "data_long_range_dna/Akita/tfrecords/train-*.tfr"
 
 SEQUENCE_LENGTH = 1048576
 TARGET_LENGTH = 99681

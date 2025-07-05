@@ -7,7 +7,7 @@ from natsort import natsorted
 import glob
 
 tf.config.set_visible_devices([], "GPU")
-train_data_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/train-*.tfr"
+train_data_path = "data_long_range_dna/Akita/tfrecords/train-*.tfr"
 
 SEQUENCE_LENGTH = 1048576
 TARGET_LENGTH = 99681
@@ -82,10 +82,10 @@ def get_dataloader(data_path):
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-test_dataloader = get_dataloader("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/test-*.tfr",
+test_dataloader = get_dataloader("data_long_range_dna/Akita/tfrecords/test-*.tfr",
            )
 cell = "HFF"
-output_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/datasets"
+output_path = "data_long_range_dna/Akita/datasets"
 fw_src = open(os.path.join(output_path, "test.seq.{}.txt".format(cell)), "w", encoding="utf-8")
 fw_tgt = open(os.path.join(output_path, "test.score.{}.txt".format(cell)), "w", encoding="utf-8")
 for i, batch in enumerate(test_dataloader):

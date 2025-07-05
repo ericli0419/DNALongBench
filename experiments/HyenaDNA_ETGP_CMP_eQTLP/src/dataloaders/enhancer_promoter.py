@@ -20,7 +20,7 @@ class FastaStringExtractor:
     """
 
     def __init__(self, fasta_file):
-        self.fasta = pyfaidx.Fasta(os.path.join("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI",
+        self.fasta = pyfaidx.Fasta(os.path.join("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI",
                                                 fasta_file))
         self._chromosome_sizes = {k: len(v) for k, v in self.fasta.items()}
 
@@ -96,7 +96,7 @@ class EPIseqDataSet(torch.utils.data.IterableDataset):
             print('enhancer_tabix_file is required in the config file', file = sys.stderr)
             exit(1)
         self.dataset = parse_EPI(self.config['EPI_file'],
-                                 os.path.join("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI",
+                                 os.path.join("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI",
                                               self.config['enhancer_tabix_file']),
                                  self.fasta_reader, self.subset, self.config['seq_len_cutoff'], self.config['tss_flank_upstream'], self.config['tss_flank_downstream'], self.config['region_flank_upstream'], self.config['region_flank_downstream'])
         if self.verbose > 0:
@@ -182,7 +182,7 @@ def parse_EPI(EPI_file, blacklist_tabix_file, fasta_reader, subset_group_name, s
         print(f'Error: unknown subset group {subset_group_name}')
         exit(1)
     # load records as dataframe
-    df = pd.read_csv(os.path.join("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI",
+    df = pd.read_csv(os.path.join("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI",
                                   EPI_file), sep='\t', header=0)
     # load the tabix
     blacklist_tabix = tabix.open(blacklist_tabix_file)
@@ -282,7 +282,7 @@ def parse_EPI(EPI_file, blacklist_tabix_file, fasta_reader, subset_group_name, s
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # load dataset
 # change to train, valid, or test to load different dataset
-data_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI"
+data_path = "data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI"
 split = "train"
 train_dataset = EPIseqDataSet("{}/CRISPRi_EPI_K562_hg19.config".format(data_path), split)
 train_loader = torch.utils.data.DataLoader(train_dataset, num_workers=0, batch_size=1)

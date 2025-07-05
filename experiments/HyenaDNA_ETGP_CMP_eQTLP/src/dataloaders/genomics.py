@@ -86,10 +86,10 @@ class HG38(SequenceDataset):
         # handle if file paths are None (default paths)
         if self.bed_file is None:
             # self.bed_file = default_data_path / self._name_ / 'human-sequences.bed'
-            self.bed_file = "/mnt/data2/zhenqiaosong/HyenaDNA/data/hg38.human.bed"
+            self.bed_file = "HyenaDNA/data/hg38.human.bed"
         if self.fasta_file is None:
             # self.fasta_file = default_data_path / self._name_ / 'hg38.ml.fa'
-            self.fasta_file = "/mnt/data2/zhenqiaosong/HyenaDNA/data/hg38.fa"
+            self.fasta_file = "HyenaDNA/data/hg38.fa"
 
         if fault_tolerant:
             assert self.shuffle
@@ -796,13 +796,13 @@ class AkitaBenchmark(HG38):
                 padding_side=self.padding_side,
             )
 
-        self.dataset_train = AkitaDataset("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/train-*.tfr",
+        self.dataset_train = AkitaDataset("data_long_range_dna/Akita/tfrecords/train-*.tfr",
         self.cell_type)
 
-        self.dataset_val = AkitaDataset("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/valid-*.tfr",
+        self.dataset_val = AkitaDataset("data_long_range_dna/Akita/tfrecords/valid-*.tfr",
         self.cell_type)
         self.dataset_test = AkitaDataset(
-            "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/test-*.tfr",
+            "data_long_range_dna/Akita/tfrecords/test-*.tfr",
         self.cell_type)
 
     def train_dataloader(self, *args: Any, **kwargs: Any) -> Union[DataLoader, List[DataLoader]]:
@@ -953,7 +953,7 @@ class EQTLBenchmark(HG38):
         if self.fast_forward_epochs is not None or self.fast_forward_batches is not None:
             assert ddp and fault_tolerant
 
-        self.data_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/eQTL"
+        self.data_path = "data_long_range_dna/eQTL"
         self.tissue = "Whole_Blood"
 
     def setup(self, stage=None):
@@ -1035,7 +1035,7 @@ class EnhancerPromoterBenchmark(HG38):
         if self.fast_forward_epochs is not None or self.fast_forward_batches is not None:
             assert ddp and fault_tolerant
 
-        self.data_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI"
+        self.data_path = "data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI"
 
     def setup(self, stage=None):
         # TODO instantiate with registry

@@ -1,4 +1,4 @@
-# Finetune HyenaDNA on Contact Map Prediciton, eQTL and ETGP task
+# Finetune HyenaDNA on Contact Map Prediction, eQTLP and ETGP task
 
 ## Hugging Face pretrained weights
 <a name="huggingface"></a>
@@ -48,7 +48,7 @@ cd csrc/layer_norm && pip install . --no-build-isolation
 
 ## Finetune Tasks
 
-## Contact Map Prediction Task: Taking cell type HUVEC as an example
+## Contact Map Prediction Task: Taking cell type HFF as an example
 
 ### Finetuning
 
@@ -66,12 +66,12 @@ bash inference_contact_map.sh
 ### Finetuning: Taking Cell type CCF as an example
 
 ```
-finetune_eQTL.sh
+finetune_eQTLP.sh
 ```
 
 ### Inference
 ```markdown
-bash inference_eQTL.sh
+bash inference_eQTLP.sh
 ```
 
 ## ETGP Task

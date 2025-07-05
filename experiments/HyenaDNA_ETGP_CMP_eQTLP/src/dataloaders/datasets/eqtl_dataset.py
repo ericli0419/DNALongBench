@@ -9,7 +9,7 @@ import kipoiseq
 from kipoiseq import Interval
 
 
-data_path = "/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/eQTL"
+data_path = "data_long_range_dna/eQTL"
 
 
 class FastaStringExtractor:
