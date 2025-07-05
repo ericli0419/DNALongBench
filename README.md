@@ -127,12 +127,18 @@ We used the official code of HyenaDNA. The environment setup can be found at <a 
 
 Be careful if you would like to use flash attention. Sometimes there are some issues when installing flash attention. We recommend first setup the environment, then activate the enviroment, and finally install flash attention inside the environment. 
 
-<h3>Training</h3>
+<h3>Training & Inference</h3>
 
-To finetune the model on ETGP task: 
+For RSAP and TISP tasks, please refer to the readme under experiments/HyenaDNA_RSAP_TISP/README.md 
 
 ```ruby
-bash experiments/HyenaDNA_ETGP_CMP_eQTLP/train.sh
+experiments/HyenaDNA_RSAP_TISP/README.md
+```
+
+For CMP, eQTL and ETGP tasks, please refer to experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
+
+```markdown
+experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
 ```
 
 <h2>Caduceus</h2>
