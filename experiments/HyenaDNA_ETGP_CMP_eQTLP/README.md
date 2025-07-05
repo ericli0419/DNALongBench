@@ -1,4 +1,4 @@
-# Finetune HyenaDNA
+# Finetune HyenaDNA on Contact Map Prediciton, eQTL and ETGP task
 
 ## Hugging Face pretrained weights
 <a name="huggingface"></a>
@@ -86,4 +86,5 @@ finetune_ETGP.sh
 ```markdown
 bash inference_ETGP.sh
 ```
+
 
