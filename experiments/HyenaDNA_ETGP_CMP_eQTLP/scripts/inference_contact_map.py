@@ -19,6 +19,7 @@ from pytorch_lightning.strategies.ddp import DDPStrategy
 from tqdm.auto import tqdm
 from pytorch_lightning.strategies.ddp import DDPStrategy
 import tensorflow as tf
+
 tf.config.set_visible_devices([], "GPU")
 
 import src.models.nn.utils as U
@@ -28,21 +29,25 @@ from src.dataloaders import SequenceDataset  # TODO make registry
 from src.tasks import decoders, encoders, tasks
 from src.utils import registry
 from src.utils.optim_groups import add_optimizer_hooks
-# from src.dataloaders.datasets.akita_dataset import get_dataloader
-# from src.dataloaders.datasets.enformer_dataset import get_dataloader
-# from src.dataloaders.datasets.eqtl_dataset import get_dataloader
-from src.dataloaders.datasets.enhancer_promoter_dataset import get_dataloader
+from src.dataloaders.datasets.akita_dataset import get_dataloader
 
+cell_type = "HUVEC"
 
 log = src.utils.train.get_logger(__name__)
 
 # Turn on TensorFloat32 (speeds up large model training substantially)
 import torch.backends
+
 torch.backends.cuda.matmul.allow_tf32 = True
 torch.backends.cudnn.allow_tf32 = True
 
 OmegaConf.register_new_resolver('eval', eval)
 OmegaConf.register_new_resolver('div_up', lambda x, y: (x + y - 1) // y)
+
+fw_preds = open(f"contact_map_extra/{cell_type}/pred.npy", "wb")
+fw_tgt = open(f"contact_map_extra/{cell_type}/target.npy", "wb")
+prediction = []
+target = []
 
 
 # Lots of annoying hacks to get WandbLogger to continuously retry on failure
@@ -228,14 +233,14 @@ class SequenceLightningModule(pl.LightningModule):
     def _check_config(self):
         assert self.hparams.train.state.mode in [None, "none", "null", "reset", "bptt", "tbptt"]
         assert (
-            (n := self.hparams.train.state.n_context) is None
-            or isinstance(n, int)
-            and n >= 0
+                (n := self.hparams.train.state.n_context) is None
+                or isinstance(n, int)
+                and n >= 0
         )
         assert (
-            (n := self.hparams.train.state.n_context_eval) is None
-            or isinstance(n, int)
-            and n >= 0
+                (n := self.hparams.train.state.n_context_eval) is None
+                or isinstance(n, int)
+                and n >= 0
         )
 
     def _initialize_state(self):
@@ -296,27 +301,11 @@ class SequenceLightningModule(pl.LightningModule):
             else:
                 self._state = self._detach_state(self._state)
 
-    # def forward(self, batch):
-    #     """Passes a batch through the encoder, backbone, and decoder"""
-    #     # z holds arguments such as sequence length
-    #     x, y, *z = batch # z holds extra dataloader info such as resolution
-    #     if len(z) == 0:
-    #         z = {}
-    #     else:
-    #         assert len(z) == 1 and isinstance(z[0], dict), "Dataloader must return dictionary of extra arguments"
-    #         z = z[0]
-
-    #     x, w = self.encoder(x, **z) # w can model-specific constructions such as key_padding_mask for transformers or state for RNNs
-    #     x, state = self.model(x, **w, state=self._state)
-    #     self._state = state
-    #     x, w = self.decoder(x, state=state, **z)
-    #     return x, y, w
-
     def forward(self, batch):
         return self.task.forward(batch, self.encoder, self.model, self._state)
 
     def step(self, x_t):
-        x_t, *_ = self.encoder(x_t) # Potential edge case for encoders that expect (B, L, H)?
+        x_t, *_ = self.encoder(x_t)  # Potential edge case for encoders that expect (B, L, H)?
         x_t, state = self.model.step(x_t, state=self._state)
         self._state = state
         # x_t = x_t[:, None, ...] # Dummy length
@@ -331,10 +320,17 @@ class SequenceLightningModule(pl.LightningModule):
         x, y = self.forward(batch)
 
         # Loss
-        if prefix == 'train':
-            loss = self.loss(x, y)
-        else:
-            loss = self.loss_val(x, y)
+        loss = self.loss_val(x, y)
+
+        x = x.squeeze(-1)
+        for i in range(x.size(0)):
+            preds = []
+            tgt = []
+            for j in range(x.size(1)):
+                preds.append(x[i][j].item())
+                tgt.append(y[i][j].item())
+            prediction.append(preds)
+            target.append(tgt)
 
         # Metrics
         metrics = self.metrics(x, y)
@@ -344,22 +340,11 @@ class SequenceLightningModule(pl.LightningModule):
         # Calculate torchmetrics
         torchmetrics = getattr(self, f'{prefix}_torchmetrics')
         torchmetrics(x, y, loss=loss)
-        
+
         log_on_step = 'eval' in self.hparams and self.hparams.eval.get('log_on_step', False) and prefix == 'train'
 
         self.log_dict(
             metrics,
-            on_step=log_on_step,
-            on_epoch=True,
-            prog_bar=True,
-            add_dataloader_idx=False,
-            sync_dist=True,
-        )
-
-        # log the whole dict, otherwise lightning takes the mean to reduce it
-        # https://pytorch-lightning.readthedocs.io/en/stable/visualize/logging_advanced.html#enable-metrics-for-distributed-training
-        self.log_dict(
-            torchmetrics,
             on_step=log_on_step,
             on_epoch=True,
             prog_bar=True,
@@ -432,8 +417,8 @@ class SequenceLightningModule(pl.LightningModule):
 
     def validation_step(self, batch, batch_idx, dataloader_idx=0):
         ema = (
-            self.val_loader_names[dataloader_idx].endswith("/ema")
-            and self.optimizers().optimizer.stepped
+                self.val_loader_names[dataloader_idx].endswith("/ema")
+                and self.optimizers().optimizer.stepped
         )  # There's a bit of an annoying edge case with the first (0-th) epoch; it has to be excluded due to the initial sanity check
         if ema:
             self.optimizers().swap_ema()
@@ -452,7 +437,6 @@ class SequenceLightningModule(pl.LightningModule):
                 batch, batch_idx, prefix=self.test_loader_names[dataloader_idx]
             )
             return loss
-
 
     def configure_optimizers(self):
         # Set zero weight decay for some params
@@ -510,7 +494,8 @@ class SequenceLightningModule(pl.LightningModule):
 
             # Update lr for each layer
             for layer_id, group in layer_wise_groups.items():
-                group['lr'] = self.hparams.optimizer.lr * (self.hparams.train.layer_decay.decay ** (num_max_layers - layer_id))
+                group['lr'] = self.hparams.optimizer.lr * (
+                            self.hparams.train.layer_decay.decay ** (num_max_layers - layer_id))
 
             # Reset the torch optimizer's param groups
             optimizer.param_groups = []
@@ -537,32 +522,26 @@ class SequenceLightningModule(pl.LightningModule):
         return [optimizer], [scheduler]
 
     def train_dataloader(self):
-        # return get_dataloader("Whole_Blood", "train")
-        # return get_dataloader("data/Enformer/mm10.ml.fa",
-        #                       "mouse", "train")
-        # return get_dataloader("data_long_range_dna/Akita/tfrecords/train-*.tfr",
-        # cell_type)
-        return get_dataloader("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI", "train")
-        # return self.dataset.train_dataloader(**self.hparams.loader)
+        return get_dataloader("data_long_range_dna/Akita/targets_extra/train-*.tfr",
+                              cell_type)
 
     def _eval_dataloaders_names(self, loaders, prefix):
         """Process loaders into a list of names and loaders"""
         if utils.is_dict(loaders):
             return [
-                f"{prefix}/{k}" if k is not None else prefix for k in loaders.keys()
-            ], list(loaders.values())
+                       f"{prefix}/{k}" if k is not None else prefix for k in loaders.keys()
+                   ], list(loaders.values())
         elif utils.is_list(loaders):
             return [f"{prefix}/{i}" for i in range(len(loaders))], loaders
         else:
             return [prefix], [loaders]
 
     def _eval_dataloaders(self):
-
         # Return all val + test loaders
-        # val_loaders = get_dataloader("Whole_Blood", "valid")
-        # test_loaders = get_dataloader("Whole_Blood", "test")
-        val_loaders = get_dataloader("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI", "valid")
-        test_loaders = get_dataloader("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI", "test")
+        val_loaders = get_dataloader("data_long_range_dna/Akita/targets_extra/valid-*.tfr",
+                                     cell_type)
+        test_loaders = get_dataloader("data_long_range_dna/Akita/targets_extra/test-*.tfr",
+                                      cell_type)
 
         val_loader_names, val_loaders = self._eval_dataloaders_names(val_loaders, "val")
         test_loader_names, test_loaders = self._eval_dataloaders_names(
@@ -580,7 +559,7 @@ class SequenceLightningModule(pl.LightningModule):
         if self.hparams.train.get("remove_test_loader_in_eval", False):
             return val_loader_names, val_loaders
         # adding option to only have test loader at eval
-        elif self.hparams.train.get("remove_val_loader_in_eval", False):
+        elif self.hparams.train.get("remove_val_loader_in_eval", True):
             return test_loader_names, test_loaders
         # default behavior is to add test loaders in eval
         else:
@@ -640,7 +619,8 @@ def create_trainer(config, **kwargs):
         config.trainer.strategy = dict(
             _target_='pytorch_lightning.strategies.DDPStrategy',
             find_unused_parameters=False,
-            gradient_as_bucket_view=True,  # https://pytorch-lightning.readthedocs.io/en/stable/advanced/advanced_gpu.html#ddp-optimizations
+            gradient_as_bucket_view=True,
+            # https://pytorch-lightning.readthedocs.io/en/stable/advanced/advanced_gpu.html#ddp-optimizations
         )
 
     # Init lightning trainer
@@ -658,14 +638,15 @@ def create_trainer(config, **kwargs):
             grad_accum_factor = config.train.global_batch_size // batch_size  # grad accum factor for this stage
             accumulate_grad_schedule[epochs_cume] = grad_accum_factor  # set the grad accum factor for this stage
             epochs_cume += stage['epochs']  # increment epochs_cume for next stage
-        trainer_config_dict['accumulate_grad_batches'] = accumulate_grad_schedule  # set the accumulate_grad_batches schedule
+        trainer_config_dict[
+            'accumulate_grad_batches'] = accumulate_grad_schedule  # set the accumulate_grad_batches schedule
         trainer_config_dict.pop('_target_')  # only hydra uses this to instantiate
         # Set DDPStrategy to work with pl.Trainer
         config.trainer.pop('strategy')
         trainer_config_dict['strategy'] = DDPStrategy(find_unused_parameters=False, gradient_as_bucket_view=True)
         trainer = pl.Trainer(**trainer_config_dict, callbacks=callbacks, logger=logger)
     else:
-        trainer = hydra.utils.instantiate(config.trainer, callbacks=callbacks, logger=logger)    
+        trainer = hydra.utils.instantiate(config.trainer, callbacks=callbacks, logger=logger)
 
     return trainer
 
@@ -675,6 +656,9 @@ def train(config):
         pl.seed_everything(config.train.seed, workers=True)
     trainer = create_trainer(config)
     model = SequenceLightningModule(config)
+
+    model.load_state_dict(torch.load(train.pretrained_model_path),
+                          strict=False)
 
     # Load pretrained_model if specified
     if config.train.get("pretrained_model_path", None) is not None:
@@ -691,18 +675,16 @@ def train(config):
         print("Running validation before training")
         trainer.validate(model)
 
-    if config.train.ckpt is not None:
-        trainer.fit(model, ckpt_path=config.train.ckpt)
-    else:
-        trainer.fit(model)
+    trainer.test(model)
 
-    # if config.train.test:
-    #     trainer.test(model)
+    np.save(fw_preds, np.array(prediction))
+    np.save(fw_tgt, np.array(target))
+    fw_preds.close()
+    fw_tgt.close()
 
 
 @hydra.main(config_path="configs", config_name="config.yaml")
 def main(config: OmegaConf):
-
     # Process config:
     # - register evaluation resolver
     # - filter out keys used only for interpolation

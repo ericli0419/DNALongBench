@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+python -m scripts/finetune_contact_map.py wandb=null experiment=hg38/akita_benchmark \
+train.pretrained_model_path=pretrained_models/weights.ckpt \
+dataset.batch_size=1
