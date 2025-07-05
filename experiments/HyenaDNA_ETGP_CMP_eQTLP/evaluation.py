@@ -544,12 +544,6 @@ class SequenceLightningModule(pl.LightningModule):
         return [optimizer], [scheduler]
 
     def train_dataloader(self):
-
-        # return get_dataloader("Whole_Blood", "train")
-        # return get_dataloader("/mnt/aries/data4/danqingwang/workspace/clone/hyena-dna/data/Enformer/mm10.ml.fa",
-        #                       "mouse", "train")
-        # return get_dataloader("/mnt/taurus/data2/zhenqiaosong/HyenaDNA/data_long_range_dna/Akita/tfrecords/train-*.tfr",
-        # cell_type)
         return get_dataloader("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI", "train")
         # return self.dataset.train_dataloader(**self.hparams.loader)
 
@@ -567,8 +561,6 @@ class SequenceLightningModule(pl.LightningModule):
     def _eval_dataloaders(self):
 
         # Return all val + test loaders
-        # val_loaders =  get_dataloader("/mnt/aries/data4/danqingwang/workspace/clone/hyena-dna/data/Enformer/mm10.ml.fa",
-        #                       "mouse", "valid")
         # val_loaders = get_dataloader("Whole_Blood", "valid")
         # test_loaders = get_dataloader("Whole_Blood", "test")
         val_loaders = get_dataloader("data_long_range_dna/enhancer_promoter_interaction/CRISPRi_EPI", "valid")
@@ -687,9 +679,6 @@ def train(config):
         pl.seed_everything(config.train.seed, workers=True)
     trainer = create_trainer(config)
     model = SequenceLightningModule(config)
-    # model = LMBackbone(256, 2, 4*256, 12)
-    # model.load_state_dict(torch.load('/mnt/taurus/data2/zhenqiaosong/HyenaDNA/pretrained_models/weights.ckpt'),
-    #                       strict=False)
 
     # Load pretrained_model if specified
     if config.train.get("pretrained_model_path", None) is not None:

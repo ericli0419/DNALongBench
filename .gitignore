@@ -1,0 +1,11 @@
+jupyter*
+*nfs*
+__pycache__/
+*.png
+legacy
+scripts/__pycache__
+scripts/.ipynb*
+puffin_manuscript
+experiments/CNN/__pycache__
+experiments/CNN/*.ipynb*
+experiments/GENERator
