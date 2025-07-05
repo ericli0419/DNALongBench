@@ -137,7 +137,7 @@ experiments/HyenaDNA_RSAP_TISP/README.md
 
 For CMP, eQTL and ETGP tasks, please refer to experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
 
-```markdown
+```ruby
 experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
 ```
 
