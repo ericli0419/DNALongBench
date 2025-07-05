@@ -48,7 +48,7 @@ cd csrc/layer_norm && pip install . --no-build-isolation
 
 ## Finetune Tasks
 
-## Contact Map Prediction Task
+## Contact Map Prediction Task: Taking cell type HUVEC as an example
 
 ### Finetuning
 
@@ -63,7 +63,7 @@ bash inference_contact_map.sh
 
 ## eQTL Task
 
-### Finetuning
+### Finetuning: Taking Cell type CCF as an example
 
 ```
 finetune_eQTL.sh
