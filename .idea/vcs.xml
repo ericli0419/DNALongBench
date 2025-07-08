@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/experiments/Caduceus_CMP_eQTLP_ETGP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/experiments/Evo2_CMP_ETGP" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/experiments/caduceus" vcs="Git" />
   </component>
 </project>

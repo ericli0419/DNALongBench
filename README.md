@@ -175,6 +175,30 @@ For CMP, eQTLP and ETGP tasks, please refer to experiments/Caduceus_CMP_eQTLP_ET
 experiments/Caduceus_CMP_eQTLP_ETGP/README.md
 ```
 
+<h2>Evo2</h2>
+
+<h3>Environment Setup</h3>
+
+We used the official environment setup of Evo2.
+
+Evo 2 is based on [StripedHyena 2](https://github.com/Zymrael/vortex) which requires python>=3.11. Evo 2 uses [Transformer Engine](https://github.com/NVIDIA/TransformerEngine) FP8 for some layers which requires an H100 (or other GPU with compute capability ≥8.9). We are actively investigating ways to avoid this requirement.
+
+To install Evo 2 for inference or generation, please clone and install from GitHub. We recommend using a new conda environment with python>=3.11.
+
+```bash
+git clone --recurse-submodules git@github.com:ArcInstitute/evo2.git
+cd evo2
+pip install .
+```
+
+<h3>Training & Inference</h3>
+
+For CMP and ETGP tasks, please refer to experiments/Evo2_CMP_ETGP/README.md
+
+```ruby
+experiments/Evo2_CMP_ETGP/README.md
+```
+
 <h2>Citation</h2>
 If you find our work helpful, please consider citing our paper.
 
