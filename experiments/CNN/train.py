@@ -2,6 +2,7 @@ import argparse
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import tensorflow as tf
 import numpy as np
 import os
 from natsort import natsorted
@@ -12,63 +13,10 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, r
 from dnalongbench import load_data
 from task_configs import get_model, get_configs
 
-
-def evaluate_model(model, data_loader, device, criterion, eval_metrics="pcc"):
-    if isinstance(eval_metrics, str):
-        metrics = [eval_metrics]
-    else:
-        metrics = list(eval_metrics)
-
-    model.eval()
-    total_loss = 0.0
-    all_preds, all_labels, all_probs = [], [], []
-    batches = 0
-
-    with torch.no_grad():
-        for inputs, labels in tqdm(data_loader, desc="Evaluating"):
-            inputs = inputs.to(device).permute(0, 2, 1).float()
-            labels = labels.to(device).float().view(-1)
-
-            outputs = model(inputs)
-            preds = outputs.view(-1)
-            probs = preds.cpu().numpy()  # if needed for auroc/auprc
-
-            loss = criterion(preds, labels)
-            total_loss += loss.item()
-
-            all_preds.extend(preds.cpu().numpy())
-            all_labels.extend(labels.cpu().numpy())
-            all_probs.extend(probs)
-            batches += 1
-
-    all_preds = np.array(all_preds)
-    all_labels = np.array(all_labels)
-    avg_loss = total_loss / batches
-
-    results = {"loss": avg_loss}
-    for m in metrics:
-        if m == "mse":
-            results["mse"] = mean_squared_error(all_labels, all_preds)
-        elif m == "mae":
-            results["mae"] = mean_absolute_error(all_labels, all_preds)
-        elif m == "rmse":
-            results["rmse"] = np.sqrt(mean_squared_error(all_labels, all_preds))
-        elif m == "r2":
-            results["r2"] = r2_score(all_labels, all_preds)
-        elif m == "pcc":
-            pcc, _ = pearsonr(all_labels, all_preds)
-            results["pcc"] = pcc
-        elif m == "auroc":
-            results["auroc"] = roc_auc_score(all_labels, all_probs)
-        elif m == "auprc":
-            results["auprc"] = average_precision_score(all_labels, all_probs)
-        else:
-            raise ValueError(f"Unsupported metric: {m}")
-
-    return results
-
+tf.config.set_visible_devices([], 'GPU')
 
 def trainer(
+    args,
     model,
     train_loader,
     val_loader,
@@ -88,14 +36,24 @@ def trainer(
     best_val = float("-inf") if evaluation_metric != "loss" else float("inf")
     history = {evaluation_metric: []}
 
+    if isinstance(criterion, nn.MSELoss):
+        label_dtype = torch.float32
+    else:
+        label_dtype = torch.long
+        
     for epoch in range(1, num_epochs + 1):
         model.train()
-        for step, (inputs, labels) in enumerate(tqdm(train_loader, desc=f"Train E{epoch}")):
-            inputs = inputs.to(device).permute(0, 2, 1).float()
-            labels = labels.to(device).float().view(-1)
+        for step, batch in enumerate(tqdm(train_loader, desc=f"Train E{epoch}")):
+            if args.task_name == 'eqtl_prediction':
+                inputs = batch['x_ref']
+                labels = batch['y']
+            else:
+                inputs, labels = batch
+            inputs = inputs.to(device, dtype=torch.float32)
+            labels = labels.to(device, dtype=label_dtype) #.view(-1) # label_dtype
 
-            outputs = model(inputs).view(-1)
-
+            outputs = model(inputs).squeeze() #.view(-1)
+            
             loss = criterion(outputs, labels) / gradient_accumulation_steps
             loss.backward()
 
@@ -105,7 +63,7 @@ def trainer(
                 optimizer.zero_grad()
 
         val_res = evaluate_model(
-            model, val_loader, device, criterion, eval_metrics=evaluation_metric
+            args, model, val_loader, device, criterion, eval_metrics=evaluation_metric
         )
         score = val_res[evaluation_metric]
         if isinstance(scheduler, ReduceLROnPlateau):
@@ -129,21 +87,99 @@ def trainer(
     if test_loader is not None:
         print("\n🧪 Evaluating on test set...")
         test_res = evaluate_model(
-            model, test_loader, device, criterion, eval_metrics=evaluation_metric
+            args, model, test_loader, device, criterion, eval_metrics=evaluation_metric
         )
         test_score = test_res[evaluation_metric]
         print(f"Test {evaluation_metric}: {test_score:.4f}")
         results["test_metrics"] = test_res
 
+    print('Training Complete.')
+
     return results
+
+
+def evaluate_model(args, model, data_loader, device, criterion, eval_metrics="pcc"):
+    if isinstance(eval_metrics, str):
+        metrics = [eval_metrics]
+    else:
+        metrics = list(eval_metrics)
+
+    model.eval()
+    total_loss = 0.0
+    all_preds, all_labels, all_probs = [], [], []
+    batches = 0
+    
+    is_regression = isinstance(criterion, nn.MSELoss)
+    label_dtype   = torch.float32 if is_regression else torch.long
+  
+    with torch.no_grad():
+        for batch in tqdm(data_loader, desc="Evaluating"):
+            if args.task_name == 'eqtl_prediction':
+                inputs = batch['x_ref']
+                labels = batch['y']
+            else:
+                inputs, labels = batch
+            inputs = inputs.to(device, dtype=torch.float32)
+            labels = labels.to(device, dtype=label_dtype)
+
+            outputs = model(inputs)
+     
+            if not is_regression: # if outputs.dim() == 2 and outputs.size(1) > 1:
+                logits = outputs
+                loss   = criterion(logits, labels)
+                preds  = torch.argmax(logits, dim=1)
+                # for AUROC/AUPRC we need the prob of class ‘1’
+                probs  = torch.softmax(logits, dim=1)[:, 1]
+                all_probs.extend(probs.cpu().numpy())
+            else:
+                loss  = criterion(outputs, labels)
+                preds = outputs.flatten()
+                labels = labels.flatten()
+
+            print('preds',preds.shape, 'labels', labels.shape)
+            total_loss += loss.item()
+
+            all_preds.extend(preds.cpu().numpy())
+            all_labels.extend(labels.cpu().numpy())
+         
+            batches += 1
+
+
+    all_preds = np.array(all_preds)
+    all_labels = np.array(all_labels)
+    avg_loss = total_loss / batches
+
+    results = {"loss": avg_loss}
+    for m in metrics:
+        if m == "mse":
+            results["mse"] = mean_squared_error(all_labels, all_preds)
+        elif m == "mae":
+            results["mae"] = mean_absolute_error(all_labels, all_preds)
+        elif m == "rmse":
+            results["rmse"] = np.sqrt(mean_squared_error(all_labels, all_preds))
+        elif m == "r2":
+            results["r2"] = r2_score(all_labels, all_preds)
+        elif m == "pcc":
+            print(all_labels.shape, all_preds.shape)
+            pcc, _ = pearsonr(all_labels, all_preds)
+            results["pcc"] = pcc
+        elif m == "auroc":
+            results["auroc"] = roc_auc_score(all_labels, all_probs)
+        elif m == "auprc":
+            results["auprc"] = average_precision_score(all_labels, all_probs)
+        else:
+            raise ValueError(f"Unsupported metric: {m}")
+
+    return results   
+
+
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Train and evaluate DNA LongBench models")
     parser.add_argument('--root', type=str, default='/work/magroup/shared/DNA_LLM/DNALongBench/', help='Data root directory')
     parser.add_argument('--task_name', type=str, required=True, help='Task name')
-    parser.add_argument('--organism', type=str, default=None, help='Organism name')
-    parser.add_argument('--cell_type', type=str, default=None, help='Cell type name')
+    parser.add_argument('--subset', type=str, default=None, help='Subset name')
     parser.add_argument('--batch_size', type=int, default=4, help='Batch size')
     parser.add_argument('--sequence_length', type=int, default=None, help='Sequence length')
     parser.add_argument('--learning_rate', type=float, default=0.005, help='Learning rate')
@@ -157,18 +193,24 @@ if __name__ == '__main__':
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
+    
+
+    model = get_model(args).to(device)
+    print(model)
 
     train_loader, valid_loader, test_loader = load_data(
         root=args.root,
         task_name=args.task_name,
-        organism=args.organism,
-        cell_type=args.cell_type,
+        subset=args.subset,
         batch_size=args.batch_size,
         sequence_length=args.sequence_length
     )
 
-    model = get_model(args.task_name).to(device)
-    criterion, _ = get_configs(args.task_name)
+    if args.evaluation_metric is not None:
+        evaluation_metric = args.evaluation_metric
+        criterion, _ = get_configs(args.task_name)
+    else:
+        criterion, evaluation_metric = get_configs(args.task_name)
 
     optimizer = optim.AdamW(
         model.parameters(),
@@ -181,6 +223,7 @@ if __name__ == '__main__':
     )
 
     results = trainer(
+        args,
         model,
         train_loader,
         valid_loader,
@@ -192,7 +235,7 @@ if __name__ == '__main__':
         args.save_dir,
         num_epochs=args.num_epochs,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
-        evaluation_metric=args.evaluation_metric
+        evaluation_metric=evaluation_metric
     )
 
     print(results)

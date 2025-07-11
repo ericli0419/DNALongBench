@@ -60,7 +60,7 @@ class SimpleCNN(nn.Module):
             self.mode = 1
             self.fc = nn.Linear(channels[-1], output_shape)
             self.relu = nn.ReLU()
-        elif self.task=='RSAP':  
+        elif self.task=='RSAP' or self.task=='TISP':  
             self.mode = 2
             self.adaptive_pool = nn.AdaptiveMaxPool1d(output_shape[0])  # Adaptive pooling to ensure the exact sequence length
             self.final_conv = nn.Conv1d(channels[-1], output_shape[1], kernel_size=1)  # Adjust channels without changing length
@@ -76,7 +76,8 @@ class SimpleCNN(nn.Module):
         elif self.mode == 2: 
             x = self.adaptive_pool(x)
             x = self.final_conv(x)
-            x = x.transpose(1, 2) 
+            if self.task=='RSAP':
+                x = x.transpose(1, 2) 
         return x
 
 
@@ -161,6 +162,7 @@ class CNN(nn.Module):
         
 
     def forward(self, x):
+        x = x.permute(0, 2, 1)
         # x: torch.Size([4, 4, 1048576])
         x = self.conv_tower(x)  # torch.Size([4, 64, 512])
         x = self.bottleneck(x)
@@ -180,6 +182,6 @@ class CNN(nn.Module):
         x = self.upper_triu(x) # torch.Size([4, 64, 99681])
 
         x = self.final_conv(x) # torch.Size([4, 1, 99681])
-        return x
+        return x.squeeze()
 
 

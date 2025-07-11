@@ -150,9 +150,7 @@ We also provide data loaders for each task in scripts/data_loaders.ipynb.
 
 <h2>CNN</h2>
 
-
-Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
-
+Please refer to experiments/CNN/README.md
 
 <h2>HyenaDNA</h2>
 
@@ -162,26 +160,77 @@ We used the official code of HyenaDNA. The environment setup can be found at <a 
 
 Be careful if you would like to use flash attention. Sometimes there are some issues when installing flash attention. We recommend first setup the environment, then activate the enviroment, and finally install flash attention inside the environment. 
 
-<h3>Training</h3>
+<h3>Training & Inference</h3>
 
-To finetune the model on ETGP task: 
+For RSAP and TISP tasks, please refer to the readme under experiments/HyenaDNA_RSAP_TISP/README.md 
 
 ```ruby
-bash experiments/HyenaDNA_ETGP_CMP_eQTLP/train.sh
+experiments/HyenaDNA_RSAP_TISP/README.md
+```
+
+For CMP, eQTLP and ETGP tasks, please refer to experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
+
+```ruby
+experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
 ```
 
 <h2>Caduceus</h2>
 
 <h3>Environment Setup</h3>
 
-We used the offical code of Caduceus. The environment setup can be found at <a href="https://github.com/kuleshov-group/caduceus?tab=readme-ov-file#getting-started-in-this-repository">Caduceus Enviroment Setup</a>.
+We used the official environment provided by Caduceus.
 
-When meeting issues, please use the similar solutions as suggested in HyenaDNA enviroment setup.
+To get started, create a conda environment containing the required dependencies.
 
-<h3>Training</h3>
+```bash
+cd experiments/Caduceus_CMP_eQTLP_ETGP
 
-The backbone model of Caduceus is similar to HyenaDNA. Please follow the similar training script with pretrained model replaced with Caduceus. 
+conda env create -f caduceus_env.yml
+```
 
+Activate the environment.
+
+```bash
+conda activate caduceus_env
+```
+
+<h3>Training & Inference</h3>
+
+For RSAP and TISP tasks, please refer to experiments/Caduceus_RSAP_TISP/README.md 
+
+```ruby
+experiments/Caduceus_RSAP_TISP/README.md
+```
+
+For CMP, eQTLP and ETGP tasks, please refer to experiments/Caduceus_CMP_eQTLP_ETGP/README.md
+
+```ruby
+experiments/Caduceus_CMP_eQTLP_ETGP/README.md
+```
+
+<h2>Evo2</h2>
+
+<h3>Environment Setup</h3>
+
+We used the official environment setup of Evo2.
+
+Evo 2 is based on [StripedHyena 2](https://github.com/Zymrael/vortex) which requires python>=3.11. Evo 2 uses [Transformer Engine](https://github.com/NVIDIA/TransformerEngine) FP8 for some layers which requires an H100 (or other GPU with compute capability ≥8.9). We are actively investigating ways to avoid this requirement.
+
+To install Evo 2 for inference or generation, please clone and install from GitHub. We recommend using a new conda environment with python>=3.11.
+
+```bash
+git clone --recurse-submodules git@github.com:ArcInstitute/evo2.git
+cd evo2
+pip install .
+```
+
+<h3>Training & Inference</h3>
+
+For CMP and ETGP tasks, please refer to experiments/Evo2_CMP_ETGP/README.md
+
+```ruby
+experiments/Evo2_CMP_ETGP/README.md
+```
 
 <h2>Citation</h2>
 If you find our work helpful, please consider citing our paper.
@@ -192,112 +241,4 @@ If you find our work helpful, please consider citing our paper.
   author={Cheng, Wenduo and Song, Zhenqiao and Zhang, Yang and Wang, Shike and Wang, Danqing and Yang, Muyu and Li, Lei and Ma, Jian}
 }
 ```
-
-<!--
-## Setup
-We recommend installing DNALongBench in a conda environment with Python 3.9.
-
-1. Clone the GitHub repository
-
-2. Change to the directory:
-   ```bash
-   cd DNALongBench
-   ```
-
-3. To run the code, install the dependencies:
-   ```bash
-   pip install .
-   ```
-
-
-## Data Loaders
-Example usage:
-```python
-   from dnalongbench.utils import load_data
-
-   train_loader, valid_loader, test_loader = load_data(root=root, task_name = 'contact_map_prediction', organism = None, cell_type='HFF', batch_size=16, sequence_length=196608)
-  ```
-We also provide data loaders for each task in scripts/data_loaders.ipynb.
-
-
-## Experiments
-### HyenaDNA
-
-### CNN
-We provide the CNN model for each task in experiments/CNN/SimpleCNN.ipynb.
-
-## Citation 
-The datasets included in DNALongBench were collected from various sources. Citing the corresponding original sources is required when using the data provided with DNALongBench.
-
-### Enhancer-Target Gene Prediction
-```bibtex
-@article{fulco2019activity,
-  title={Activity-by-contact model of enhancer--promoter regulation from thousands of CRISPR perturbations},
-  author={Fulco, Charles P and Nasser, Joseph and Jones, Thouis R and Munson, Glen and Bergman, Drew T and Subramanian, Vidya and Grossman, Sharon R and Anyoha, Rockwell and Doughty, Benjamin R and Patwardhan, Tejal A and others},
-  journal={Nature genetics},
-  volume={51},
-  number={12},
-  pages={1664--1669},
-  year={2019},
-  publisher={Nature Publishing Group US New York}
-}
-```
-
-### Contact Map Prediction
-
-```bibtex
-@article{fudenberg2020predicting,
-  title={Predicting 3D genome folding from DNA sequence with Akita},
-  author={Fudenberg, Geoff and Kelley, David R and Pollard, Katherine S},
-  journal={Nature methods},
-  volume={17},
-  number={11},
-  pages={1111--1117},
-  year={2020},
-  publisher={Nature Publishing Group US New York}
-}
-```
-
-### eQTL prediction
-```bibtex
-@article{avsec2021effective,
-  title={Effective gene expression prediction from sequence by integrating long-range interactions},
-  author={Avsec, {\v{Z}}iga and Agarwal, Vikram and Visentin, Daniel and Ledsam, Joseph R and Grabska-Barwinska, Agnieszka and Taylor, Kyle R and Assael, Yannis and Jumper, John and Kohli, Pushmeet and Kelley, David R},
-  journal={Nature methods},
-  volume={18},
-  number={10},
-  pages={1196--1203},
-  year={2021},
-  publisher={Nature Publishing Group US New York}
-}
-```
-
-### Regulatory Sequence Activity Prediction
-```bibtex
-@article{avsec2021effective,
-  title={Effective gene expression prediction from sequence by integrating long-range interactions},
-  author={Avsec, {\v{Z}}iga and Agarwal, Vikram and Visentin, Daniel and Ledsam, Joseph R and Grabska-Barwinska, Agnieszka and Taylor, Kyle R and Assael, Yannis and Jumper, John and Kohli, Pushmeet and Kelley, David R},
-  journal={Nature methods},
-  volume={18},
-  number={10},
-  pages={1196--1203},
-  year={2021},
-  publisher={Nature Publishing Group US New York}
-}
-```
-
-### Transcription Initiation Signal Prediction
-```bibtex
-@article{dudnyk2024sequence,
-  title={Sequence basis of transcription initiation in the human genome},
-  author={Dudnyk, Kseniia and Cai, Donghong and Shi, Chenlai and Xu, Jian and Zhou, Jian},
-  journal={Science},
-  volume={384},
-  number={6694},
-  pages={eadj0116},
-  year={2024},
-  publisher={American Association for the Advancement of Science}
-}
-```
--->
 

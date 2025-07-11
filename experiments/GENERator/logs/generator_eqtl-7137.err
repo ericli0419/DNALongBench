@@ -1,0 +1,631 @@
+/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+2025-06-19 00:15:18.891086: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-06-19 00:15:20.348475: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-06-19 00:15:20.629305: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-06-19 00:15:20.713787: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-06-19 00:15:21.518831: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-06-19 00:15:37.896756: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+  0%|          | 0/2181 [00:00<?, ?it/s]  0%|          | 3/2181 [00:00<01:19, 27.26it/s]  1%|          | 11/2181 [00:00<00:47, 45.26it/s]  1%|          | 16/2181 [00:00<00:59, 36.50it/s]  1%|          | 24/2181 [00:00<00:45, 47.91it/s]  1%|▏         | 30/2181 [00:00<00:42, 50.13it/s]  4%|▍         | 94/2181 [00:00<00:10, 195.90it/s]  5%|▌         | 113/2181 [00:00<00:12, 167.57it/s]  6%|▌         | 130/2181 [00:01<00:19, 105.56it/s]  7%|▋         | 145/2181 [00:01<00:20, 100.31it/s]  7%|▋         | 158/2181 [00:01<00:19, 103.84it/s]  8%|▊         | 170/2181 [00:01<00:25, 77.73it/s]   9%|▊         | 190/2181 [00:02<00:22, 87.18it/s]  9%|▉         | 200/2181 [00:02<00:24, 80.75it/s] 10%|▉         | 213/2181 [00:02<00:22, 85.90it/s] 11%|█         | 234/2181 [00:02<00:17, 110.92it/s] 11%|█▏        | 247/2181 [00:02<00:23, 81.32it/s]  12%|█▏        | 261/2181 [00:02<00:21, 89.17it/s] 12%|█▏        | 272/2181 [00:02<00:20, 91.42it/s] 13%|█▎        | 285/2181 [00:03<00:19, 99.63it/s] 14%|█▎        | 297/2181 [00:03<00:22, 83.31it/s] 14%|█▍        | 314/2181 [00:03<00:18, 101.75it/s] 15%|█▍        | 326/2181 [00:03<00:24, 77.04it/s]  15%|█▌        | 336/2181 [00:03<00:25, 71.01it/s] 16%|█▌        | 345/2181 [00:04<00:31, 58.76it/s] 17%|█▋        | 371/2181 [00:04<00:19, 93.81it/s] 18%|█▊        | 387/2181 [00:04<00:17, 104.09it/s] 18%|█▊        | 400/2181 [00:04<00:20, 86.11it/s]  19%|█▉        | 411/2181 [00:04<00:25, 69.79it/s] 19%|█▉        | 424/2181 [00:04<00:22, 77.36it/s] 21%|██        | 452/2181 [00:04<00:15, 113.65it/s] 21%|██▏       | 466/2181 [00:05<00:18, 92.12it/s]  22%|██▏       | 478/2181 [00:05<00:19, 85.26it/s] 22%|██▏       | 489/2181 [00:05<00:19, 85.04it/s] 23%|██▎       | 511/2181 [00:05<00:15, 108.44it/s] 24%|██▍       | 524/2181 [00:05<00:14, 111.08it/s] 25%|██▍       | 537/2181 [00:05<00:16, 101.40it/s] 25%|██▌       | 548/2181 [00:06<00:17, 96.04it/s]  26%|██▌       | 559/2181 [00:06<00:23, 68.77it/s] 26%|██▌       | 568/2181 [00:06<00:26, 60.15it/s] 27%|██▋       | 582/2181 [00:06<00:24, 66.09it/s] 27%|██▋       | 597/2181 [00:06<00:20, 76.94it/s] 28%|██▊       | 606/2181 [00:07<00:22, 69.37it/s] 29%|██▉       | 633/2181 [00:07<00:14, 105.51it/s] 30%|██▉       | 646/2181 [00:07<00:15, 99.13it/s]  30%|███       | 657/2181 [00:07<00:15, 96.22it/s] 31%|███       | 668/2181 [00:07<00:21, 69.82it/s] 31%|███       | 677/2181 [00:08<00:30, 49.10it/s] 31%|███▏      | 684/2181 [00:08<00:34, 43.15it/s] 32%|███▏      | 690/2181 [00:08<00:39, 37.53it/s] 32%|███▏      | 695/2181 [00:08<00:40, 36.51it/s] 32%|███▏      | 700/2181 [00:08<00:48, 30.47it/s] 32%|███▏      | 704/2181 [00:09<00:50, 29.31it/s] 32%|███▏      | 708/2181 [00:09<00:56, 26.29it/s] 33%|███▎      | 713/2181 [00:09<00:49, 29.89it/s] 33%|███▎      | 717/2181 [00:09<00:51, 28.42it/s] 33%|███▎      | 721/2181 [00:09<00:59, 24.71it/s] 33%|███▎      | 726/2181 [00:09<00:50, 28.59it/s] 33%|███▎      | 730/2181 [00:10<00:59, 24.37it/s] 34%|███▎      | 733/2181 [00:10<01:04, 22.37it/s] 34%|███▍      | 742/2181 [00:10<00:43, 32.76it/s] 35%|███▍      | 753/2181 [00:10<00:29, 48.06it/s] 35%|███▍      | 763/2181 [00:10<00:23, 59.61it/s] 36%|███▌      | 783/2181 [00:10<00:17, 81.97it/s] 36%|███▋      | 792/2181 [00:10<00:17, 81.42it/s] 38%|███▊      | 827/2181 [00:11<00:10, 133.08it/s] 39%|███▊      | 844/2181 [00:11<00:10, 127.08it/s] 40%|███▉      | 866/2181 [00:11<00:08, 148.56it/s] 40%|████      | 882/2181 [00:11<00:10, 127.93it/s] 42%|████▏     | 921/2181 [00:11<00:06, 181.46it/s] 44%|████▎     | 952/2181 [00:11<00:05, 211.87it/s] 46%|████▋     | 1010/2181 [00:11<00:04, 282.70it/s] 48%|████▊     | 1040/2181 [00:12<00:05, 221.90it/s] 49%|████▉     | 1065/2181 [00:12<00:05, 195.70it/s] 50%|█████     | 1097/2181 [00:12<00:04, 217.68it/s] 51%|█████▏    | 1121/2181 [00:12<00:06, 173.91it/s] 52%|█████▏    | 1141/2181 [00:12<00:06, 150.27it/s] 53%|█████▎    | 1166/2181 [00:12<00:06, 167.94it/s] 54%|█████▍    | 1186/2181 [00:12<00:05, 174.73it/s] 55%|█████▌    | 1206/2181 [00:13<00:06, 161.98it/s] 57%|█████▋    | 1249/2181 [00:13<00:04, 220.60it/s] 58%|█████▊    | 1274/2181 [00:13<00:05, 171.38it/s] 59%|█████▉    | 1296/2181 [00:13<00:05, 151.37it/s] 60%|██████    | 1314/2181 [00:14<00:08, 108.16it/s] 62%|██████▏   | 1351/2181 [00:14<00:06, 131.67it/s] 63%|██████▎   | 1369/2181 [00:14<00:06, 130.17it/s] 64%|██████▎   | 1386/2181 [00:14<00:06, 131.36it/s] 64%|██████▍   | 1401/2181 [00:14<00:08, 90.03it/s]  65%|██████▍   | 1416/2181 [00:14<00:07, 96.08it/s] 67%|██████▋   | 1452/2181 [00:15<00:05, 143.55it/s] 67%|██████▋   | 1471/2181 [00:15<00:05, 130.88it/s] 69%|██████▊   | 1495/2181 [00:15<00:04, 151.67it/s] 69%|██████▉   | 1514/2181 [00:15<00:05, 127.92it/s] 70%|███████   | 1530/2181 [00:15<00:06, 93.52it/s]  71%|███████   | 1543/2181 [00:16<00:12, 51.42it/s] 71%|███████▏  | 1558/2181 [00:16<00:10, 61.89it/s] 72%|███████▏  | 1569/2181 [00:16<00:09, 67.92it/s] 73%|███████▎  | 1583/2181 [00:16<00:07, 77.65it/s] 73%|███████▎  | 1595/2181 [00:17<00:09, 63.68it/s] 74%|███████▎  | 1605/2181 [00:17<00:09, 61.67it/s] 75%|███████▍  | 1626/2181 [00:17<00:06, 87.04it/s] 76%|███████▌  | 1650/2181 [00:17<00:04, 110.90it/s] 77%|███████▋  | 1682/2181 [00:17<00:03, 142.57it/s] 78%|███████▊  | 1699/2181 [00:17<00:04, 118.80it/s] 79%|███████▊  | 1716/2181 [00:17<00:03, 128.17it/s] 80%|███████▉  | 1739/2181 [00:18<00:02, 149.15it/s] 81%|████████  | 1756/2181 [00:18<00:02, 144.13it/s] 82%|████████▏ | 1794/2181 [00:18<00:02, 184.94it/s] 83%|████████▎ | 1814/2181 [00:18<00:02, 151.96it/s] 86%|████████▌ | 1877/2181 [00:18<00:01, 242.73it/s] 87%|████████▋ | 1907/2181 [00:18<00:01, 227.01it/s] 89%|████████▊ | 1932/2181 [00:18<00:01, 227.97it/s] 90%|████████▉ | 1957/2181 [00:19<00:01, 209.37it/s] 91%|█████████ | 1979/2181 [00:19<00:01, 108.39it/s] 92%|█████████▏| 1996/2181 [00:19<00:01, 108.09it/s] 93%|█████████▎| 2035/2181 [00:19<00:00, 148.19it/s] 94%|█████████▍| 2055/2181 [00:20<00:01, 84.87it/s]  95%|█████████▍| 2071/2181 [00:20<00:01, 70.51it/s] 96%|█████████▌| 2083/2181 [00:21<00:01, 69.23it/s] 96%|█████████▌| 2094/2181 [00:21<00:01, 71.53it/s] 97%|█████████▋| 2106/2181 [00:21<00:00, 78.47it/s] 97%|█████████▋| 2123/2181 [00:21<00:00, 94.72it/s] 98%|█████████▊| 2144/2181 [00:21<00:00, 115.19it/s]100%|██████████| 2181/2181 [00:21<00:00, 101.11it/s]
+  0%|          | 0/2181 [00:00<?, ?it/s]  5%|▍         | 103/2181 [00:00<00:02, 1011.77it/s]  9%|▉         | 205/2181 [00:00<00:04, 453.43it/s]  13%|█▎        | 286/2181 [00:00<00:04, 465.83it/s] 16%|█▌        | 342/2181 [00:00<00:04, 450.10it/s] 19%|█▊        | 405/2181 [00:00<00:04, 428.02it/s] 21%|██        | 451/2181 [00:00<00:04, 416.49it/s] 23%|██▎       | 495/2181 [00:01<00:04, 353.71it/s] 26%|██▌       | 561/2181 [00:01<00:03, 410.82it/s] 28%|██▊       | 605/2181 [00:01<00:03, 409.78it/s] 30%|██▉       | 648/2181 [00:01<00:03, 393.57it/s] 32%|███▏      | 689/2181 [00:01<00:04, 328.13it/s] 33%|███▎      | 724/2181 [00:01<00:04, 323.22it/s] 36%|███▌      | 785/2181 [00:01<00:04, 338.58it/s] 39%|███▊      | 843/2181 [00:02<00:03, 368.30it/s] 40%|████      | 883/2181 [00:02<00:03, 352.29it/s] 43%|████▎     | 943/2181 [00:02<00:03, 368.68it/s] 45%|████▍     | 981/2181 [00:02<00:03, 369.08it/s] 48%|████▊     | 1043/2181 [00:02<00:02, 391.90it/s] 50%|█████     | 1096/2181 [00:02<00:02, 425.52it/s] 52%|█████▏    | 1140/2181 [00:02<00:03, 310.04it/s] 58%|█████▊    | 1255/2181 [00:03<00:01, 475.56it/s] 60%|██████    | 1311/2181 [00:03<00:02, 317.17it/s] 62%|██████▏   | 1361/2181 [00:03<00:02, 342.14it/s] 64%|██████▍   | 1406/2181 [00:03<00:02, 274.98it/s] 67%|██████▋   | 1461/2181 [00:03<00:02, 313.54it/s] 69%|██████▉   | 1505/2181 [00:04<00:02, 327.19it/s] 71%|███████   | 1544/2181 [00:04<00:02, 272.36it/s] 72%|███████▏  | 1577/2181 [00:04<00:02, 236.12it/s] 74%|███████▍  | 1609/2181 [00:04<00:02, 242.60it/s] 78%|███████▊  | 1695/2181 [00:04<00:01, 341.01it/s] 80%|███████▉  | 1736/2181 [00:04<00:01, 355.43it/s] 81%|████████▏ | 1775/2181 [00:05<00:01, 312.97it/s] 83%|████████▎ | 1809/2181 [00:05<00:01, 296.78it/s] 87%|████████▋ | 1887/2181 [00:05<00:00, 362.99it/s] 91%|█████████ | 1975/2181 [00:05<00:00, 446.98it/s] 93%|█████████▎| 2021/2181 [00:05<00:00, 370.88it/s] 94%|█████████▍| 2061/2181 [00:05<00:00, 237.05it/s] 96%|█████████▌| 2095/2181 [00:06<00:00, 253.18it/s] 98%|█████████▊| 2146/2181 [00:06<00:00, 296.18it/s]100%|██████████| 2181/2181 [00:06<00:00, 350.68it/s]
+  0%|          | 0/2181 [00:00<?, ?it/s]  7%|▋         | 155/2181 [00:00<00:02, 1011.22it/s] 12%|█▏        | 260/2181 [00:00<00:01, 961.23it/s]  16%|█▋        | 356/2181 [00:00<00:02, 676.31it/s] 21%|██        | 451/2181 [00:00<00:02, 744.76it/s] 24%|██▍       | 532/2181 [00:00<00:02, 586.36it/s] 27%|██▋       | 598/2181 [00:00<00:03, 481.02it/s] 30%|██▉       | 653/2181 [00:01<00:03, 420.04it/s] 32%|███▏      | 700/2181 [00:01<00:04, 366.79it/s] 34%|███▍      | 740/2181 [00:01<00:05, 257.34it/s] 39%|███▉      | 853/2181 [00:01<00:03, 392.15it/s] 48%|████▊     | 1038/2181 [00:01<00:01, 662.42it/s] 52%|█████▏    | 1130/2181 [00:02<00:01, 559.11it/s] 57%|█████▋    | 1254/2181 [00:02<00:01, 633.78it/s] 61%|██████    | 1333/2181 [00:02<00:01, 471.78it/s] 64%|██████▍   | 1396/2181 [00:02<00:01, 461.05it/s] 67%|██████▋   | 1453/2181 [00:02<00:01, 474.65it/s] 70%|██████▉   | 1519/2181 [00:02<00:01, 496.33it/s] 72%|███████▏  | 1577/2181 [00:03<00:01, 510.87it/s] 75%|███████▍  | 1634/2181 [00:03<00:01, 503.84it/s] 78%|███████▊  | 1696/2181 [00:03<00:00, 488.98it/s] 83%|████████▎ | 1803/2181 [00:03<00:00, 629.18it/s] 86%|████████▌ | 1875/2181 [00:03<00:00, 574.77it/s] 91%|█████████▏| 1994/2181 [00:03<00:00, 704.70it/s] 95%|█████████▍| 2069/2181 [00:03<00:00, 576.16it/s] 98%|█████████▊| 2133/2181 [00:04<00:00, 482.05it/s]100%|██████████| 2181/2181 [00:04<00:00, 534.07it/s]
+loading file added_tokens.json from cache at None
+loading file special_tokens_map.json from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/special_tokens_map.json
+loading file tokenizer_config.json from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/tokenizer_config.json
+loading file tokenizer.json from cache at None
+loading file chat_template.jinja from cache at None
+loading configuration file config.json from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/config.json
+Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "head_dim": 64,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 5632,
+  "max_position_embeddings": 16384,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 26,
+  "num_key_value_heads": 4,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.51.3",
+  "use_cache": true,
+  "vocab_size": 4128
+}
+
+loading weights file model.safetensors from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/model.safetensors
+Some weights of the model checkpoint at GenerTeam/GENERator-eukaryote-1.2b-base were not used when initializing LlamaModel: ['lm_head.weight']
+- This IS expected if you are initializing LlamaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing LlamaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of LlamaModel were initialized from the model checkpoint at GenerTeam/GENERator-eukaryote-1.2b-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaModel for predictions without further training.
+Epoch 1: 0it [00:00, ?it/s]/home/wenduoc/DNALongBench/experiments/GENERator/generator_eqtl.py:347: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Epoch 1: 1it [00:27, 27.51s/it]Epoch 1: 2it [00:47, 23.28s/it]Epoch 1: 3it [01:08, 21.98s/it]Epoch 1: 4it [01:28, 21.28s/it]Epoch 1: 5it [01:48, 20.95s/it]Epoch 1: 6it [02:09, 20.75s/it]Epoch 1: 7it [02:29, 20.66s/it]Epoch 1: 8it [02:50, 20.59s/it]Epoch 1: 9it [03:10, 20.59s/it]Epoch 1: 10it [03:31, 20.57s/it]Epoch 1: 11it [03:51, 20.58s/it]Epoch 1: 12it [04:12, 20.58s/it]Epoch 1: 13it [04:33, 20.59s/it]Epoch 1: 14it [04:53, 20.66s/it]Epoch 1: 15it [05:14, 20.66s/it]Epoch 1: 16it [05:36, 20.97s/it]Epoch 1: 17it [05:57, 21.02s/it]Epoch 1: 18it [06:18, 20.94s/it]Epoch 1: 19it [06:38, 20.86s/it]Epoch 1: 20it [06:59, 20.83s/it]Epoch 1: 21it [07:20, 20.79s/it]Epoch 1: 22it [07:40, 20.78s/it]Epoch 1: 23it [08:01, 20.77s/it]Epoch 1: 24it [08:22, 20.75s/it]Epoch 1: 25it [08:43, 20.75s/it]Epoch 1: 26it [09:03, 20.77s/it]Epoch 1: 27it [09:24, 20.77s/it]Epoch 1: 28it [09:45, 20.75s/it]Epoch 1: 29it [10:06, 20.76s/it]Epoch 1: 30it [10:26, 20.75s/it]Epoch 1: 31it [10:47, 20.75s/it]Epoch 1: 32it [11:08, 20.77s/it]Epoch 1: 33it [11:29, 20.80s/it]Epoch 1: 34it [11:50, 20.78s/it]Epoch 1: 35it [12:10, 20.76s/it]Epoch 1: 36it [12:31, 20.75s/it]Epoch 1: 37it [12:52, 20.75s/it]Epoch 1: 38it [13:13, 20.81s/it]Epoch 1: 39it [13:34, 20.79s/it]Epoch 1: 40it [13:54, 20.78s/it]Epoch 1: 41it [14:15, 20.76s/it]Epoch 1: 42it [14:36, 20.76s/it]Epoch 1: 43it [14:56, 20.76s/it]Epoch 1: 44it [15:17, 20.75s/it]Epoch 1: 45it [15:38, 20.75s/it]Epoch 1: 46it [15:59, 20.74s/it]Epoch 1: 47it [16:19, 20.74s/it]Epoch 1: 48it [16:40, 20.75s/it]Epoch 1: 49it [17:01, 20.74s/it]Epoch 1: 50it [17:22, 20.76s/it]Epoch 1: 51it [17:42, 20.75s/it]Epoch 1: 52it [18:03, 20.74s/it]Epoch 1: 53it [18:24, 20.74s/it]Epoch 1: 54it [18:45, 20.73s/it]Epoch 1: 55it [19:05, 20.73s/it]Epoch 1: 56it [19:26, 20.73s/it]Epoch 1: 57it [19:47, 20.73s/it]Epoch 1: 58it [20:08, 20.73s/it]Epoch 1: 59it [20:28, 20.73s/it]Epoch 1: 60it [20:49, 20.73s/it]Epoch 1: 61it [21:10, 20.73s/it]Epoch 1: 62it [21:31, 20.73s/it]Epoch 1: 63it [21:51, 20.73s/it]Epoch 1: 64it [22:12, 20.78s/it]Epoch 1: 65it [22:33, 20.77s/it]Epoch 1: 66it [22:54, 20.76s/it]Epoch 1: 67it [23:14, 20.75s/it]Epoch 1: 68it [23:35, 20.74s/it]Epoch 1: 69it [23:56, 20.74s/it]Epoch 1: 70it [24:17, 20.74s/it]Epoch 1: 71it [24:37, 20.74s/it]Epoch 1: 72it [24:58, 20.73s/it]Epoch 1: 73it [25:19, 20.73s/it]Epoch 1: 74it [25:39, 20.74s/it]Epoch 1: 75it [26:00, 20.74s/it]Epoch 1: 76it [26:21, 20.74s/it]Epoch 1: 77it [26:42, 20.74s/it]Epoch 1: 78it [27:02, 20.74s/it]Epoch 1: 79it [27:23, 20.76s/it]Epoch 1: 80it [27:44, 20.78s/it]Epoch 1: 81it [28:05, 20.77s/it]Epoch 1: 82it [28:26, 20.76s/it]Epoch 1: 83it [28:46, 20.77s/it]Epoch 1: 84it [29:07, 20.76s/it]Epoch 1: 85it [29:28, 20.76s/it]Epoch 1: 86it [29:49, 20.76s/it]Epoch 1: 87it [30:09, 20.75s/it]Epoch 1: 88it [30:30, 20.75s/it]Epoch 1: 89it [30:51, 20.78s/it]Epoch 1: 90it [31:12, 20.77s/it]Epoch 1: 91it [31:32, 20.76s/it]Epoch 1: 92it [31:53, 20.76s/it]Epoch 1: 93it [32:14, 20.76s/it]Epoch 1: 94it [32:35, 20.76s/it]Epoch 1: 95it [32:56, 20.79s/it]Epoch 1: 96it [33:16, 20.79s/it]Epoch 1: 97it [33:37, 20.77s/it]Epoch 1: 98it [33:58, 20.77s/it]Epoch 1: 99it [34:19, 20.77s/it]Epoch 1: 100it [34:39, 20.77s/it]Epoch 1: 101it [35:00, 20.76s/it]Epoch 1: 102it [35:21, 20.75s/it]Epoch 1: 103it [35:42, 20.76s/it]Epoch 1: 104it [36:02, 20.76s/it]Epoch 1: 105it [36:23, 20.77s/it]Epoch 1: 106it [36:44, 20.75s/it]Epoch 1: 107it [37:05, 20.75s/it]Epoch 1: 108it [37:25, 20.75s/it]Epoch 1: 109it [37:46, 20.74s/it]Epoch 1: 110it [38:07, 20.74s/it]Epoch 1: 111it [38:28, 20.75s/it]Epoch 1: 112it [38:48, 20.77s/it]Epoch 1: 113it [39:09, 20.76s/it]Epoch 1: 114it [39:30, 20.76s/it]Epoch 1: 115it [39:51, 20.76s/it]Epoch 1: 116it [40:11, 20.76s/it]Epoch 1: 117it [40:32, 20.75s/it]Epoch 1: 118it [40:53, 20.76s/it]Epoch 1: 119it [41:14, 20.76s/it]Epoch 1: 120it [41:34, 20.75s/it]Epoch 1: 121it [41:55, 20.77s/it]Epoch 1: 122it [42:16, 20.77s/it]Epoch 1: 123it [42:37, 20.76s/it]Epoch 1: 124it [42:58, 20.77s/it]Epoch 1: 125it [43:18, 20.76s/it]Epoch 1: 126it [43:39, 20.79s/it]Epoch 1: 127it [44:00, 20.80s/it]Epoch 1: 128it [44:21, 20.79s/it]Epoch 1: 129it [44:41, 20.78s/it]Epoch 1: 130it [45:02, 20.77s/it]Epoch 1: 131it [45:23, 20.77s/it]Epoch 1: 132it [45:44, 20.76s/it]Epoch 1: 133it [46:05, 20.76s/it]Epoch 1: 134it [46:25, 20.76s/it]Epoch 1: 135it [46:46, 20.76s/it]Epoch 1: 136it [47:07, 20.78s/it]Epoch 1: 137it [47:28, 20.77s/it]Epoch 1: 138it [47:49, 20.83s/it]Epoch 1: 139it [48:09, 20.80s/it]Epoch 1: 140it [48:30, 20.78s/it]Epoch 1: 141it [48:51, 20.76s/it]Epoch 1: 142it [49:12, 20.77s/it]Epoch 1: 143it [49:32, 20.75s/it]Epoch 1: 144it [49:53, 20.76s/it]Epoch 1: 145it [50:14, 20.75s/it]Epoch 1: 146it [50:35, 20.74s/it]Epoch 1: 147it [50:55, 20.74s/it]Epoch 1: 148it [51:16, 20.76s/it]Epoch 1: 149it [51:37, 20.76s/it]Epoch 1: 150it [51:58, 20.75s/it]Epoch 1: 151it [52:18, 20.76s/it]Epoch 1: 152it [52:39, 20.76s/it]Epoch 1: 153it [53:00, 20.76s/it]Epoch 1: 154it [53:21, 20.77s/it]Epoch 1: 155it [53:41, 20.76s/it]Epoch 1: 156it [54:02, 20.76s/it]Epoch 1: 157it [54:23, 20.80s/it]Epoch 1: 158it [54:44, 20.79s/it]Epoch 1: 159it [55:05, 20.78s/it]
+Evaluating: 0it [00:00, ?it/s][A
+Evaluating: 1it [00:08,  8.07s/it][A
+Evaluating: 2it [00:15,  7.86s/it][A
+Evaluating: 3it [00:23,  7.79s/it][A
+Evaluating: 4it [00:31,  7.76s/it][A
+Evaluating: 5it [00:38,  7.74s/it][A
+Evaluating: 6it [00:46,  7.74s/it][A
+Evaluating: 7it [00:54,  7.72s/it][A
+Evaluating: 8it [01:02,  7.72s/it][A
+Evaluating: 9it [01:09,  7.71s/it][A
+Evaluating: 10it [01:17,  7.70s/it][A
+Evaluating: 11it [01:25,  7.70s/it][A
+Evaluating: 12it [01:32,  7.70s/it][A
+Evaluating: 13it [01:40,  7.69s/it][A
+Evaluating: 14it [01:48,  7.69s/it][A
+Evaluating: 15it [01:55,  7.68s/it][A
+Evaluating: 16it [02:03,  7.68s/it][A
+Evaluating: 17it [02:11,  7.68s/it][A
+Evaluating: 18it [02:18,  7.68s/it][A
+Evaluating: 19it [02:26,  7.67s/it][A
+Evaluating: 20it [02:34,  7.68s/it][A
+Evaluating: 21it [02:41,  7.67s/it][A
+Evaluating: 22it [02:49,  7.67s/it][A
+Evaluating: 23it [02:57,  7.67s/it][A
+Evaluating: 24it [03:04,  7.67s/it][A
+Evaluating: 25it [03:12,  7.66s/it][A
+Evaluating: 26it [03:20,  7.66s/it][A
+Evaluating: 27it [03:27,  7.66s/it][A
+Evaluating: 28it [03:35,  7.66s/it][A
+Evaluating: 29it [03:43,  7.66s/it][A
+Evaluating: 30it [03:50,  7.66s/it][A
+Evaluating: 31it [03:58,  7.66s/it][A
+Evaluating: 32it [04:06,  7.66s/it][A
+Evaluating: 33it [04:13,  7.66s/it][A
+Evaluating: 34it [04:21,  7.66s/it][A
+Evaluating: 35it [04:29,  7.67s/it][A
+Evaluating: 36it [04:36,  7.66s/it][A
+Evaluating: 37it [04:44,  7.66s/it][A
+Evaluating: 38it [04:52,  7.66s/it][A
+Evaluating: 39it [04:59,  7.65s/it][A
+Evaluating: 40it [05:07,  7.66s/it][A
+Evaluating: 41it [05:15,  7.66s/it][A
+Evaluating: 42it [05:22,  7.66s/it][A
+Evaluating: 43it [05:30,  7.66s/it][A
+Evaluating: 44it [05:38,  7.65s/it][A
+Evaluating: 45it [05:45,  7.65s/it][A
+Evaluating: 46it [05:53,  7.65s/it][A
+Evaluating: 47it [06:00,  7.65s/it][A
+Evaluating: 48it [06:08,  7.65s/it][A
+Evaluating: 49it [06:16,  7.65s/it][A
+Evaluating: 50it [06:23,  7.65s/it][A
+Evaluating: 51it [06:31,  7.65s/it][A
+Evaluating: 52it [06:39,  7.65s/it][A
+Evaluating: 53it [06:46,  7.64s/it][A
+Evaluating: 54it [06:54,  7.65s/it][A
+Evaluating: 55it [07:02,  7.65s/it][A
+Evaluating: 56it [07:09,  7.64s/it][A
+Evaluating: 57it [07:17,  7.64s/it][A
+Evaluating: 58it [07:25,  7.64s/it][A
+Evaluating: 59it [07:32,  7.65s/it][A
+Evaluating: 60it [07:40,  7.65s/it][A
+Evaluating: 61it [07:48,  7.65s/it][A
+Evaluating: 62it [07:55,  7.65s/it][A
+Evaluating: 63it [08:03,  7.65s/it][A
+Evaluating: 64it [08:10,  7.65s/it][A
+Evaluating: 65it [08:18,  7.66s/it][A
+Evaluating: 66it [08:26,  7.66s/it][A
+Evaluating: 67it [08:33,  7.66s/it][A
+Evaluating: 68it [08:41,  7.65s/it][A
+Evaluating: 69it [08:49,  7.65s/it][A
+Evaluating: 70it [08:56,  7.65s/it][A
+Evaluating: 71it [09:04,  7.65s/it][A
+Evaluating: 72it [09:12,  7.64s/it][A
+Evaluating: 73it [09:19,  7.65s/it][A
+Evaluating: 74it [09:27,  7.64s/it][A
+Evaluating: 75it [09:35,  7.64s/it][A
+Evaluating: 76it [09:42,  7.65s/it][A
+Evaluating: 77it [09:50,  7.65s/it][A
+Evaluating: 78it [09:58,  7.65s/it][A
+Evaluating: 79it [10:05,  7.65s/it][A
+Evaluating: 80it [10:13,  7.65s/it][A
+Evaluating: 81it [10:21,  7.65s/it][A
+Evaluating: 82it [10:28,  7.66s/it][A
+Evaluating: 83it [10:36,  7.65s/it][A
+Evaluating: 84it [10:44,  7.65s/it][A
+Evaluating: 85it [10:51,  7.66s/it][A
+Evaluating: 86it [10:59,  7.67s/it][A
+Evaluating: 87it [11:06,  7.66s/it][A
+Evaluating: 88it [11:14,  7.66s/it][A
+Evaluating: 89it [11:22,  7.65s/it][A
+Evaluating: 90it [11:29,  7.65s/it][A
+Evaluating: 91it [11:37,  7.65s/it][A
+Evaluating: 92it [11:45,  7.65s/it][A
+Evaluating: 93it [11:52,  7.65s/it][A
+Evaluating: 94it [12:00,  7.65s/it][A
+Evaluating: 95it [12:08,  7.65s/it][A
+Evaluating: 96it [12:15,  7.65s/it][A
+Evaluating: 97it [12:23,  7.66s/it][A
+Evaluating: 98it [12:31,  7.66s/it][A
+Evaluating: 99it [12:38,  7.66s/it][A
+Evaluating: 100it [12:46,  7.66s/it][A
+Evaluating: 101it [12:54,  7.66s/it][A
+Evaluating: 102it [13:01,  7.66s/it][A
+Evaluating: 103it [13:09,  7.65s/it][A
+Evaluating: 104it [13:17,  7.65s/it][A
+Evaluating: 105it [13:24,  7.65s/it][A
+Evaluating: 106it [13:32,  7.65s/it][A
+Evaluating: 107it [13:40,  7.64s/it][A
+Evaluating: 108it [13:47,  7.64s/it][A
+Evaluating: 109it [13:55,  7.65s/it][A
+Evaluating: 110it [14:02,  7.65s/it][A
+Evaluating: 111it [14:10,  7.66s/it][A
+Evaluating: 112it [14:18,  7.66s/it][A
+Evaluating: 113it [14:25,  7.65s/it][A
+Evaluating: 114it [14:33,  7.65s/it][A
+Evaluating: 115it [14:41,  7.65s/it][A
+Evaluating: 116it [14:48,  7.65s/it][A
+Evaluating: 117it [14:56,  7.66s/it][A
+Evaluating: 118it [15:04,  7.66s/it][A
+Evaluating: 119it [15:11,  7.65s/it][A
+Evaluating: 120it [15:19,  7.65s/it][A
+Evaluating: 121it [15:27,  7.64s/it][A
+Evaluating: 122it [15:34,  7.64s/it][A
+Evaluating: 123it [15:42,  7.64s/it][A
+Evaluating: 124it [15:50,  7.64s/it][A
+Evaluating: 125it [15:57,  7.64s/it][A
+Evaluating: 126it [16:05,  7.64s/it][A
+Evaluating: 127it [16:13,  7.65s/it][A
+Evaluating: 128it [16:20,  7.65s/it][A
+Evaluating: 129it [16:28,  7.64s/it][A
+Evaluating: 130it [16:35,  7.64s/it][A
+Evaluating: 131it [16:43,  7.64s/it][A
+Evaluating: 132it [16:51,  7.64s/it][A
+Evaluating: 133it [16:58,  7.64s/it][A
+Evaluating: 134it [17:06,  7.65s/it][A
+Evaluating: 135it [17:14,  7.65s/it][A
+Evaluating: 136it [17:21,  7.65s/it][A
+Evaluating: 137it [17:29,  7.64s/it][A
+Evaluating: 138it [17:37,  7.64s/it][A
+Evaluating: 139it [17:44,  7.65s/it][A
+Evaluating: 140it [17:52,  7.65s/it][A
+Evaluating: 141it [18:00,  7.65s/it][A
+Evaluating: 142it [18:07,  7.65s/it][A
+Evaluating: 143it [18:15,  7.65s/it][A
+Evaluating: 144it [18:23,  7.66s/it][A
+Evaluating: 145it [18:30,  7.66s/it][A
+Evaluating: 146it [18:38,  7.66s/it][A
+Evaluating: 147it [18:46,  7.66s/it][A
+Evaluating: 148it [18:53,  7.66s/it][A
+Evaluating: 149it [19:01,  7.65s/it][A
+Evaluating: 150it [19:08,  7.65s/it][A
+Evaluating: 151it [19:16,  7.65s/it][A
+Evaluating: 152it [19:24,  7.65s/it][A
+Evaluating: 153it [19:31,  7.64s/it][A
+Evaluating: 154it [19:39,  7.64s/it][A
+Evaluating: 155it [19:47,  7.64s/it][A
+Evaluating: 156it [19:54,  7.64s/it][A
+Evaluating: 157it [20:02,  7.65s/it][A
+Evaluating: 158it [20:10,  7.65s/it][A
+Evaluating: 159it [20:17,  7.65s/it][A
+Evaluating: 160it [20:25,  7.65s/it][A
+Evaluating: 161it [20:33,  7.65s/it][A
+Evaluating: 162it [20:40,  7.64s/it][A
+Evaluating: 163it [20:48,  7.64s/it][A
+Evaluating: 164it [20:55,  7.64s/it][A
+Evaluating: 165it [21:03,  7.64s/it][A
+Evaluating: 166it [21:11,  7.64s/it][A
+Evaluating: 167it [21:18,  7.64s/it][A
+Evaluating: 168it [21:26,  7.64s/it][A
+Evaluating: 169it [21:34,  7.64s/it][A
+Evaluating: 170it [21:41,  7.64s/it][A
+Evaluating: 171it [21:49,  7.64s/it][A
+Evaluating: 172it [21:57,  7.64s/it][A
+Evaluating: 173it [22:04,  7.64s/it][A
+Evaluating: 174it [22:12,  7.65s/it][A
+Evaluating: 175it [22:20,  7.65s/it][A
+Evaluating: 176it [22:27,  7.65s/it][A
+Evaluating: 177it [22:35,  7.65s/it][A
+Evaluating: 178it [22:42,  7.65s/it][A
+Evaluating: 179it [22:50,  7.65s/it][A
+Evaluating: 180it [22:58,  7.65s/it][A
+Evaluating: 181it [23:05,  7.64s/it][A
+Evaluating: 182it [23:13,  7.64s/it][A
+Evaluating: 183it [23:21,  7.64s/it][A
+Evaluating: 184it [23:28,  7.64s/it][A
+Evaluating: 185it [23:36,  7.64s/it][A
+Evaluating: 186it [23:44,  7.64s/it][A
+Evaluating: 187it [23:51,  7.64s/it][A
+Evaluating: 188it [23:59,  7.64s/it][A
+Evaluating: 189it [24:07,  7.64s/it][A
+Evaluating: 190it [24:14,  7.64s/it][A
+Evaluating: 191it [24:22,  7.64s/it][A
+Evaluating: 192it [24:29,  7.64s/it][A
+Evaluating: 193it [24:37,  7.64s/it][A
+Evaluating: 194it [24:45,  7.64s/it][A
+Evaluating: 195it [24:52,  7.65s/it][A
+Evaluating: 196it [25:00,  7.65s/it][A
+Evaluating: 197it [25:08,  7.64s/it][A
+Evaluating: 198it [25:15,  7.64s/it][A
+Evaluating: 199it [25:23,  7.65s/it][A
+Evaluating: 200it [25:31,  7.65s/it][A
+Evaluating: 201it [25:38,  7.65s/it][A
+Evaluating: 202it [25:46,  7.65s/it][A
+Evaluating: 203it [25:54,  7.64s/it][A
+Evaluating: 204it [26:01,  7.64s/it][A
+Evaluating: 205it [26:09,  7.63s/it][A
+Evaluating: 206it [26:16,  7.63s/it][A
+Evaluating: 207it [26:24,  7.63s/it][A
+Evaluating: 208it [26:32,  7.63s/it][A
+Evaluating: 209it [26:39,  7.63s/it][A
+Evaluating: 210it [26:47,  7.64s/it][A
+Evaluating: 211it [26:55,  7.63s/it][A
+Evaluating: 212it [27:02,  7.64s/it][A
+Evaluating: 213it [27:10,  7.63s/it][A
+Evaluating: 214it [27:18,  7.63s/it][A
+Evaluating: 215it [27:25,  7.63s/it][A
+Evaluating: 216it [27:33,  7.64s/it][A
+Evaluating: 217it [27:40,  7.64s/it][A
+Evaluating: 218it [27:48,  7.64s/it][A
+Evaluating: 219it [27:56,  7.64s/it][A
+Evaluating: 220it [28:03,  7.64s/it][A
+Evaluating: 221it [28:11,  7.64s/it][A
+Evaluating: 222it [28:19,  7.65s/it][A
+Evaluating: 223it [28:26,  7.64s/it][A
+Evaluating: 224it [28:34,  7.64s/it][A
+Evaluating: 225it [28:42,  7.65s/it][A
+Evaluating: 226it [28:49,  7.65s/it][A
+Evaluating: 227it [28:57,  7.65s/it][A
+Evaluating: 228it [29:05,  7.65s/it][A
+Evaluating: 229it [29:12,  7.65s/it][A
+Evaluating: 230it [29:20,  7.65s/it][A
+Evaluating: 231it [29:28,  7.66s/it][A
+Evaluating: 232it [29:35,  7.66s/it][A
+Evaluating: 233it [29:43,  7.66s/it][A
+Evaluating: 234it [29:50,  7.66s/it][A
+Evaluating: 235it [29:58,  7.65s/it][A
+Evaluating: 236it [30:06,  7.65s/it][A
+Evaluating: 237it [30:13,  7.65s/it][A
+Evaluating: 238it [30:21,  7.65s/it][A
+Evaluating: 239it [30:29,  7.65s/it][A
+Evaluating: 240it [30:36,  7.66s/it][A
+Evaluating: 241it [30:44,  7.66s/it][A
+Evaluating: 242it [30:52,  7.66s/it][A
+Evaluating: 243it [30:59,  7.65s/it][A
+Evaluating: 244it [31:07,  7.65s/it][A
+Evaluating: 245it [31:15,  7.65s/it][A
+Evaluating: 246it [31:22,  7.65s/it][A
+Evaluating: 247it [31:30,  7.65s/it][A
+Evaluating: 248it [31:38,  7.65s/it][A
+Evaluating: 249it [31:45,  7.65s/it][A
+Evaluating: 250it [31:53,  7.65s/it][A
+Evaluating: 251it [32:01,  7.65s/it][A
+Evaluating: 252it [32:08,  7.65s/it][A
+Evaluating: 253it [32:16,  7.65s/it][A
+Evaluating: 254it [32:24,  7.65s/it][A
+Evaluating: 255it [32:31,  7.65s/it][A
+Evaluating: 256it [32:39,  7.65s/it][A
+Evaluating: 257it [32:47,  7.77s/it][A
+Evaluating: 258it [32:55,  7.74s/it][A
+Evaluating: 259it [33:02,  7.72s/it][A
+Evaluating: 260it [33:10,  7.70s/it][A
+Evaluating: 261it [33:18,  7.69s/it][A
+Evaluating: 262it [33:25,  7.67s/it][A
+Evaluating: 263it [33:33,  7.67s/it][A
+Evaluating: 264it [33:40,  7.66s/it][A
+Evaluating: 265it [33:48,  7.66s/it][A
+Evaluating: 266it [33:56,  7.65s/it][A
+Evaluating: 267it [34:03,  7.65s/it][A
+Evaluating: 268it [34:11,  7.65s/it][A
+Evaluating: 269it [34:19,  7.65s/it][A
+Evaluating: 270it [34:26,  7.65s/it][A
+Evaluating: 271it [34:34,  7.65s/it][A
+Evaluating: 272it [34:42,  7.65s/it][A
+Evaluating: 273it [34:49,  7.65s/it][A
+Evaluating: 274it [34:57,  7.65s/it][A
+Evaluating: 275it [35:05,  7.65s/it][A
+Evaluating: 276it [35:12,  7.65s/it][A
+Evaluating: 277it [35:20,  7.65s/it][A
+Evaluating: 278it [35:28,  7.65s/it][A
+Evaluating: 279it [35:35,  7.64s/it][A
+Evaluating: 280it [35:43,  7.65s/it][A
+Evaluating: 281it [35:50,  7.65s/it][A
+Evaluating: 282it [35:58,  7.65s/it][A
+Evaluating: 283it [36:06,  7.65s/it][A
+Evaluating: 284it [36:13,  7.65s/it][A
+Evaluating: 285it [36:21,  7.66s/it][A
+Evaluating: 286it [36:29,  7.66s/it][A
+Evaluating: 287it [36:36,  7.66s/it][A
+Evaluating: 288it [36:44,  7.65s/it][A
+Evaluating: 289it [36:52,  7.65s/it][A
+Evaluating: 290it [36:59,  7.66s/it][A
+Evaluating: 291it [37:07,  7.65s/it][A
+Evaluating: 292it [37:15,  7.66s/it][A
+Evaluating: 293it [37:22,  7.65s/it][A
+Evaluating: 294it [37:30,  7.65s/it][A
+Evaluating: 295it [37:38,  7.65s/it][A
+Evaluating: 296it [37:45,  7.65s/it][A
+Evaluating: 297it [37:53,  7.65s/it][A
+Evaluating: 298it [38:01,  7.65s/it][A
+Evaluating: 299it [38:08,  7.66s/it][A
+Evaluating: 300it [38:16,  7.65s/it][A
+Evaluating: 301it [38:24,  7.65s/it][A
+Evaluating: 302it [38:31,  7.65s/it][A
+Evaluating: 303it [38:39,  7.65s/it][A
+Evaluating: 304it [38:46,  7.65s/it][A
+Evaluating: 305it [38:54,  7.65s/it][A
+Evaluating: 306it [39:02,  7.66s/it][A
+Evaluating: 307it [39:09,  7.66s/it][A
+Evaluating: 308it [39:17,  7.66s/it][A
+Evaluating: 309it [39:25,  7.66s/it][A
+Evaluating: 310it [39:32,  7.65s/it][A
+Evaluating: 311it [39:40,  7.65s/it][A
+Evaluating: 312it [39:48,  7.65s/it][A
+Evaluating: 313it [39:55,  7.65s/it][A
+Evaluating: 314it [40:03,  7.65s/it][A
+Evaluating: 315it [40:11,  7.65s/it][A
+Evaluating: 316it [40:18,  7.65s/it][A
+Evaluating: 317it [40:26,  7.66s/it][A
+Evaluating: 318it [40:34,  7.65s/it][A
+Evaluating: 319it [40:41,  7.65s/it][A
+Evaluating: 320it [40:49,  7.65s/it][A
+Evaluating: 321it [40:57,  7.65s/it][A
+Evaluating: 322it [41:04,  7.67s/it][A
+Evaluating: 323it [41:12,  7.67s/it][A
+Evaluating: 324it [41:20,  7.66s/it][A
+Evaluating: 325it [41:27,  7.66s/it][A
+Evaluating: 326it [41:35,  7.67s/it][A
+Evaluating: 327it [41:43,  7.67s/it][A
+Evaluating: 328it [41:50,  7.67s/it][A
+Evaluating: 329it [41:58,  7.66s/it][A
+Evaluating: 330it [42:06,  7.65s/it][A
+Evaluating: 331it [42:13,  7.65s/it][A
+Evaluating: 332it [42:21,  7.65s/it][A
+Evaluating: 333it [42:29,  7.65s/it][A
+Evaluating: 334it [42:36,  7.66s/it][A
+Evaluating: 335it [42:44,  7.67s/it][A
+Evaluating: 336it [42:52,  7.67s/it][A
+Evaluating: 337it [42:59,  7.67s/it][A
+Evaluating: 338it [43:07,  7.66s/it][A
+Evaluating: 339it [43:15,  7.67s/it][A
+Evaluating: 340it [43:22,  7.66s/it][A
+Evaluating: 341it [43:30,  7.66s/it][A
+Evaluating: 342it [43:38,  7.67s/it][A
+Evaluating: 343it [43:45,  7.66s/it][A
+Evaluating: 344it [43:53,  7.66s/it][A
+Evaluating: 345it [44:00,  7.66s/it][A
+Evaluating: 346it [44:08,  7.66s/it][A
+Evaluating: 347it [44:16,  7.66s/it][A
+Evaluating: 348it [44:23,  7.65s/it][A
+Evaluating: 349it [44:31,  7.65s/it][A
+Evaluating: 350it [44:39,  7.64s/it][A
+Evaluating: 351it [44:46,  7.64s/it][A
+Evaluating: 352it [44:54,  7.63s/it][A
+Evaluating: 353it [45:02,  7.62s/it][A
+Evaluating: 354it [45:09,  7.61s/it][A
+Evaluating: 355it [45:17,  7.60s/it][A
+Evaluating: 356it [45:24,  7.60s/it][A
+Evaluating: 357it [45:32,  7.60s/it][A
+Evaluating: 358it [45:39,  7.60s/it][A
+Evaluating: 359it [45:47,  7.60s/it][A
+Evaluating: 360it [45:55,  7.60s/it][A
+Evaluating: 361it [46:02,  7.61s/it][A
+Evaluating: 362it [46:10,  7.61s/it][A
+Evaluating: 363it [46:18,  7.61s/it][A
+Evaluating: 364it [46:25,  7.60s/it][A
+Evaluating: 365it [46:33,  7.60s/it][A
+Evaluating: 366it [46:40,  7.60s/it][A
+Evaluating: 367it [46:48,  7.59s/it][A
+Evaluating: 368it [46:55,  7.59s/it][A
+Evaluating: 369it [47:03,  7.59s/it][A
+Evaluating: 370it [47:11,  7.58s/it][A
+Evaluating: 371it [47:18,  7.59s/it][A
+Evaluating: 372it [47:26,  7.59s/it][A
+Evaluating: 373it [47:33,  7.59s/it][A
+Evaluating: 374it [47:41,  7.59s/it][A
+Evaluating: 375it [47:49,  7.59s/it][A
+Evaluating: 376it [47:56,  7.59s/it][A
+Evaluating: 377it [48:04,  7.59s/it][A
+Evaluating: 378it [48:11,  7.59s/it][A
+Evaluating: 379it [48:19,  7.59s/it][A
+Evaluating: 380it [48:26,  7.58s/it][A
+Evaluating: 381it [48:34,  7.58s/it][A
+Evaluating: 382it [48:42,  7.58s/it][A
+Evaluating: 383it [48:49,  7.59s/it][A
+Evaluating: 384it [48:58,  7.80s/it][A
+Evaluating: 385it [49:05,  7.74s/it][A
+Evaluating: 386it [49:13,  7.69s/it][A
+Evaluating: 387it [49:20,  7.66s/it][A
+Evaluating: 388it [49:28,  7.64s/it][A
+Evaluating: 389it [49:35,  7.62s/it][A
+Evaluating: 390it [49:43,  7.61s/it][A
+Evaluating: 391it [49:51,  7.60s/it][A
+Evaluating: 392it [49:58,  7.60s/it][A
+Evaluating: 393it [50:06,  7.59s/it][A
+Evaluating: 394it [50:13,  7.59s/it][A
+Evaluating: 395it [50:21,  7.59s/it][A
+Evaluating: 396it [50:29,  7.59s/it][A
+Evaluating: 397it [50:36,  7.59s/it][A
+Evaluating: 398it [50:44,  7.59s/it][A
+Evaluating: 399it [50:51,  7.59s/it][A
+Evaluating: 400it [50:59,  7.59s/it][A
+Evaluating: 401it [51:07,  7.59s/it][A
+Evaluating: 402it [51:14,  7.60s/it][A
+Evaluating: 403it [51:22,  7.61s/it][A
+Evaluating: 404it [51:29,  7.60s/it][A
+Evaluating: 405it [51:37,  7.60s/it][A
+Evaluating: 406it [51:45,  7.60s/it][A
+Evaluating: 407it [51:52,  7.59s/it][A
+Evaluating: 408it [52:00,  7.59s/it][A
+Evaluating: 409it [52:07,  7.59s/it][A
+Evaluating: 410it [52:15,  7.60s/it][A
+Evaluating: 411it [52:23,  7.59s/it][A
+Evaluating: 412it [52:30,  7.59s/it][A
+Evaluating: 413it [52:38,  7.59s/it][A
+Evaluating: 414it [52:45,  7.60s/it][A
+Evaluating: 415it [52:53,  7.60s/it][A
+Evaluating: 416it [53:01,  7.60s/it][A
+Evaluating: 417it [53:08,  7.60s/it][A
+Evaluating: 418it [53:16,  7.59s/it][A
+Evaluating: 419it [53:23,  7.59s/it][A
+Evaluating: 420it [53:31,  7.59s/it][A
+Evaluating: 421it [53:38,  7.59s/it][A
+Evaluating: 422it [53:46,  7.59s/it][A
+Evaluating: 423it [53:54,  7.59s/it][A
+Evaluating: 424it [54:01,  7.59s/it][A
+Evaluating: 425it [54:09,  7.59s/it][A
+Evaluating: 426it [54:16,  7.59s/it][A
+Evaluating: 427it [54:24,  7.59s/it][A
+Evaluating: 428it [54:32,  7.59s/it][A
+Evaluating: 429it [54:39,  7.59s/it][A
+Evaluating: 430it [54:47,  7.59s/it][A
+Evaluating: 431it [54:54,  7.59s/it][A
+Evaluating: 432it [55:02,  7.59s/it][A
+Evaluating: 433it [55:10,  7.59s/it][A
+Evaluating: 434it [55:17,  7.59s/it][A
+Evaluating: 435it [55:25,  7.59s/it][A
+Evaluating: 436it [55:32,  7.59s/it][A
+Evaluating: 437it [55:40,  7.59s/it][A
+Evaluating: 438it [55:48,  7.59s/it][A
+Evaluating: 439it [55:55,  7.60s/it][A
+Evaluating: 440it [56:03,  7.59s/it][A
+Evaluating: 441it [56:10,  7.59s/it][A
+Evaluating: 442it [56:18,  7.59s/it][A
+Evaluating: 443it [56:25,  7.59s/it][A
+Evaluating: 444it [56:33,  7.59s/it][A
+Evaluating: 445it [56:41,  7.60s/it][A
+Evaluating: 446it [56:48,  7.60s/it][A
+Evaluating: 447it [56:56,  7.60s/it][A
+Evaluating: 448it [57:03,  7.60s/it][A
+Evaluating: 449it [57:11,  7.60s/it][A
+Evaluating: 450it [57:19,  7.59s/it][A
+Evaluating: 451it [57:26,  7.60s/it][A
+Evaluating: 452it [57:34,  7.60s/it][A
+Evaluating: 453it [57:41,  7.60s/it][A
+Evaluating: 454it [57:49,  7.60s/it][A
+Evaluating: 455it [57:57,  7.59s/it][A
+Evaluating: 456it [58:04,  7.59s/it][A
+Evaluating: 457it [58:12,  7.59s/it][A
+Evaluating: 458it [58:19,  7.59s/it][A
+Evaluating: 459it [58:27,  7.59s/it][A
+Evaluating: 460it [58:35,  7.59s/it][A
+Evaluating: 461it [58:42,  7.59s/it][A
+Evaluating: 462it [58:50,  7.59s/it][A
+Evaluating: 463it [58:57,  7.58s/it][A
+Evaluating: 464it [59:05,  7.59s/it][A
+Evaluating: 465it [59:13,  7.59s/it][A
+Evaluating: 466it [59:20,  7.59s/it][A
+Evaluating: 467it [59:28,  7.59s/it][A
+Evaluating: 468it [59:35,  7.59s/it][A
+Evaluating: 469it [59:43,  7.59s/it][A
+Evaluating: 470it [59:50,  7.59s/it][A
+Evaluating: 471it [59:58,  7.59s/it][A
+Evaluating: 472it [1:00:06,  7.59s/it][A
+Evaluating: 473it [1:00:13,  7.59s/it][A
+Evaluating: 474it [1:00:21,  7.59s/it][A
+Evaluating: 475it [1:00:28,  7.59s/it][A
+Evaluating: 476it [1:00:36,  7.59s/it][A
+Evaluating: 477it [1:00:44,  7.59s/it][A
+Evaluating: 478it [1:00:51,  7.59s/it][A
+Evaluating: 479it [1:00:59,  7.59s/it][A
+Evaluating: 480it [1:01:06,  7.59s/it][A
+Evaluating: 481it [1:01:14,  7.59s/it][A
+Evaluating: 482it [1:01:22,  7.59s/it][A
+Evaluating: 483it [1:01:29,  7.59s/it][A
+Evaluating: 484it [1:01:37,  7.59s/it][A
+Evaluating: 485it [1:01:44,  7.59s/it][A
+Evaluating: 486it [1:01:52,  7.59s/it][A
+Evaluating: 487it [1:02:00,  7.60s/it][A
+Evaluating: 488it [1:02:07,  7.60s/it][A
+Evaluating: 489it [1:02:15,  7.60s/it][A
+Evaluating: 490it [1:02:22,  7.59s/it][A
+Evaluating: 491it [1:02:30,  7.59s/it][A
+Evaluating: 492it [1:02:37,  7.59s/it][A
+Evaluating: 493it [1:02:45,  7.59s/it][A
+Evaluating: 494it [1:02:53,  7.59s/it][A
+Evaluating: 495it [1:03:00,  7.58s/it][A
+Evaluating: 496it [1:03:08,  7.59s/it][A
+Evaluating: 497it [1:03:15,  7.59s/it][A
+Evaluating: 498it [1:03:23,  7.59s/it][A
+Evaluating: 499it [1:03:31,  7.59s/it][A
+Evaluating: 500it [1:03:38,  7.59s/it][A
+Evaluating: 501it [1:03:46,  7.59s/it][A
+Evaluating: 502it [1:03:53,  7.59s/it][A
+Evaluating: 503it [1:04:01,  7.59s/it][A
+Evaluating: 504it [1:04:09,  7.58s/it][A
+Evaluating: 505it [1:04:16,  7.59s/it][A
+Evaluating: 506it [1:04:24,  7.59s/it][A
+Evaluating: 507it [1:04:31,  7.59s/it][A
+Evaluating: 508it [1:04:39,  7.59s/it][A
+Evaluating: 509it [1:04:46,  7.59s/it][A
+Evaluating: 510it [1:04:54,  7.59s/it][A
+Evaluating: 511it [1:05:02,  7.59s/it][A
+Evaluating: 512it [1:05:09,  7.59s/it][A
+Evaluating: 513it [1:05:17,  7.59s/it][A
+Evaluating: 514it [1:05:24,  7.59s/it][A
+Evaluating: 515it [1:05:32,  7.59s/it][A
+Evaluating: 516it [1:05:40,  7.59s/it][A
+Evaluating: 517it [1:05:47,  7.59s/it][A
+Evaluating: 518it [1:05:55,  7.58s/it][A
+Evaluating: 519it [1:06:02,  7.59s/it][A
+Evaluating: 520it [1:06:10,  7.59s/it][A
+Evaluating: 521it [1:06:19,  7.92s/it][A
+Evaluating: 522it [1:06:26,  7.82s/it][A
+Evaluating: 523it [1:06:34,  7.75s/it][A
+Evaluating: 524it [1:06:41,  7.70s/it][A
+Evaluating: 525it [1:06:49,  7.67s/it][A
+Evaluating: 526it [1:06:57,  7.64s/it][A
+Evaluating: 527it [1:07:04,  7.63s/it][A
+Evaluating: 528it [1:07:12,  7.62s/it][A
+Evaluating: 529it [1:07:19,  7.61s/it][A
+Evaluating: 530it [1:07:27,  7.61s/it][A
+Evaluating: 531it [1:07:35,  7.60s/it][A
+Evaluating: 532it [1:07:42,  7.60s/it][A
+Evaluating: 533it [1:07:50,  7.60s/it][A
+Evaluating: 534it [1:07:57,  7.59s/it][A
+Evaluating: 535it [1:08:05,  7.59s/it][A
+Evaluating: 536it [1:08:12,  7.59s/it][A
+Evaluating: 537it [1:08:20,  7.59s/it][A
+Evaluating: 538it [1:08:28,  7.59s/it][A
+Evaluating: 539it [1:08:35,  7.60s/it][A
+Evaluating: 540it [1:08:43,  7.60s/it][A
+Evaluating: 541it [1:08:50,  7.59s/it][A
+Evaluating: 542it [1:08:58,  7.59s/it][A
+Evaluating: 543it [1:09:06,  7.59s/it][A
+Evaluating: 544it [1:09:13,  7.59s/it][A
+Evaluating: 545it [1:09:21,  7.59s/it][A
+Evaluating: 546it [1:09:28,  7.59s/it][A
+Evaluating: 547it [1:09:36,  7.59s/it][A
+Evaluating: 548it [1:09:44,  7.59s/it][A
+Evaluating: 549it [1:09:51,  7.59s/it][A
+Evaluating: 550it [1:09:59,  7.58s/it][A
+Evaluating: 551it [1:10:06,  7.59s/it][A
+Evaluating: 552it [1:10:14,  7.59s/it][A
+Evaluating: 553it [1:10:21,  7.59s/it][A
+Evaluating: 554it [1:10:29,  7.59s/it][A
+Evaluating: 555it [1:10:37,  7.59s/it][A
+Evaluating: 556it [1:10:44,  7.59s/it][A
+Evaluating: 557it [1:10:52,  7.59s/it][A
+Evaluating: 558it [1:10:59,  7.59s/it][A
+Evaluating: 559it [1:11:07,  7.59s/it][A
+Evaluating: 560it [1:11:15,  7.59s/it][A
+Evaluating: 561it [1:11:22,  7.59s/it][A
+Evaluating: 562it [1:11:30,  7.59s/it][A
+Evaluating: 563it [1:11:37,  7.58s/it][A
+Evaluating: 564it [1:11:45,  7.59s/it][A
+Evaluating: 565it [1:11:53,  7.59s/it][AEvaluating: 565it [1:11:53,  7.63s/it]
+Epoch 1: 159it [2:07:18, 48.04s/it]
+Traceback (most recent call last):
+  File "/home/wenduoc/DNALongBench/experiments/GENERator/generator_eqtl.py", line 500, in <module>
+    training_results = train_model_custom(
+  File "/home/wenduoc/DNALongBench/experiments/GENERator/generator_eqtl.py", line 364, in train_model_custom
+    auroc_s, loss_s = vm['auroc'], vm['loss']
+KeyError: 'auroc'
