@@ -63,7 +63,7 @@ python train.py \
     --num_epochs 5
 ```
 
-# TISP: transcription_initiation_signal_prediction
+# TISP: Transcription Initiation Signal Prediction
 ```bash
 python train.py \
     --task_name transcription_initiation_signal_prediction \
