@@ -11,17 +11,22 @@
 ```bash
 python train.py \
   --task_name contact_map_prediction \
-  --save_dir ./experiments/CNN/results/CMP/GM12878 \
+  --root ./data \    # 'Data root directory'
+  --save_dir ./results/CMP/GM12878 \
   --subset GM12878 \
   --batch_size 2 \
   --num_epochs 5
 ```
 
-
-# ETGP: enhancer_target_gene_prediction
-'''
-python train.py --task_name enhancer_target_gene_prediction --save_dir /work/magroup/wenduoc/DNALongBench/experiments/CNN/results/ETGP --subset None --batch_size 2
-'''
+# ETGP: Enhancer Target Gene Prediction
+```bash
+python train.py \
+    --task_name enhancer_target_gene_prediction \
+    --root ./data \ 
+    --save_dir ./results/ETGP \
+    --subset None \
+    --batch_size 2
+```
 
 # EQTL: eQTL Prediction  
 **Supported cell types:**  
@@ -38,18 +43,35 @@ python train.py --task_name enhancer_target_gene_prediction --save_dir /work/mag
 ```bash
 python train.py \
   --task_name eqtl_prediction \
-  --save_dir /work/magroup/wenduoc/DNALongBench/experiments/CNN/results/EQTL/Adipose_Subcutaneous \
+  --root ./data \ 
+  --save_dir ./results/EQTL/Adipose_Subcutaneous \
   --subset Adipose_Subcutaneous \
   --batch_size 2
-
+```
 
 # RSAP: Regulatory Sequence Activity Prediction
-Specify a subset: human, mouse
-'''
-python train.py --task_name regulatory_sequence_activity --save_dir /work/magroup/wenduoc/DNALongBench/experiments/CNN/results/RSAP/mouse --subset mouse --batch_size 2 --num_epochs 5
-'''
+**Supported subsets:**  
+- `human`  
+- `mouse`  
+```bash
+python train.py \
+    --task_name regulatory_sequence_activity \
+    --root ./data \ 
+    --save_dir ./results/RSAP/mouse \
+    --subset mouse \
+    --batch_size 2 \
+    --num_epochs 5
+```
 
-# TISP: transcription_initiation_signal_prediction
-'''
-python train.py --task_name transcription_initiation_signal_prediction --save_dir /work/magroup/wenduoc/DNALongBench/experiments/CNN/results/TISP --subset None --batch_size 2 --num_epochs 5
-'''
+# TISP: Transcription initiation Ssignal Prediction
+```bash
+python train.py \
+    --task_name transcription_initiation_signal_prediction \
+    --root ./data \ 
+    --save_dir ./results/TISP \
+    --subset None \
+    --batch_size 2 \
+    --num_epochs 5
+```
+
+

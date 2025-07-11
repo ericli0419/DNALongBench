@@ -1,369 +1,0 @@
-/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: '/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
-  warn(
-2025-06-19 02:24:51.700229: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2025-06-19 02:24:51.992318: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2025-06-19 02:24:52.095502: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2025-06-19 02:24:52.129750: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2025-06-19 02:24:52.351813: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2025-06-19 02:24:53.815573: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-  0%|          | 0/2602 [00:00<?, ?it/s]  1%|          | 14/2602 [00:00<00:18, 138.28it/s]  2%|▏         | 40/2602 [00:00<00:12, 200.84it/s]  2%|▏         | 60/2602 [00:00<00:13, 181.81it/s]  3%|▎         | 79/2602 [00:00<00:13, 182.36it/s]  4%|▍         | 98/2602 [00:00<00:21, 114.71it/s]  4%|▍         | 113/2602 [00:01<00:34, 72.19it/s]  5%|▍         | 124/2602 [00:01<00:35, 70.64it/s]  5%|▌         | 134/2602 [00:01<00:36, 67.58it/s]  5%|▌         | 143/2602 [00:01<00:34, 70.36it/s]  7%|▋         | 170/2602 [00:01<00:22, 109.71it/s]  7%|▋         | 184/2602 [00:01<00:22, 107.16it/s]  8%|▊         | 197/2602 [00:01<00:21, 111.44it/s]  8%|▊         | 210/2602 [00:02<00:21, 110.58it/s]  9%|▊         | 227/2602 [00:02<00:20, 116.03it/s]  9%|▉         | 240/2602 [00:02<00:25, 91.38it/s]  11%|█         | 289/2602 [00:02<00:13, 172.20it/s] 12%|█▏        | 310/2602 [00:02<00:14, 157.22it/s] 13%|█▎        | 329/2602 [00:02<00:18, 123.35it/s] 13%|█▎        | 344/2602 [00:03<00:25, 87.70it/s]  14%|█▎        | 356/2602 [00:03<00:25, 88.58it/s] 15%|█▌        | 397/2602 [00:03<00:15, 141.19it/s] 16%|█▋        | 425/2602 [00:03<00:14, 154.99it/s] 17%|█▋        | 444/2602 [00:03<00:14, 151.79it/s] 18%|█▊        | 480/2602 [00:03<00:10, 194.32it/s] 19%|█▉        | 503/2602 [00:04<00:11, 178.61it/s] 20%|██        | 524/2602 [00:04<00:12, 173.00it/s] 21%|██        | 543/2602 [00:04<00:13, 152.09it/s] 22%|██▏       | 560/2602 [00:04<00:14, 145.21it/s] 23%|██▎       | 595/2602 [00:04<00:10, 189.51it/s] 24%|██▎       | 616/2602 [00:04<00:10, 186.81it/s] 24%|██▍       | 636/2602 [00:04<00:14, 140.34it/s] 25%|██▌       | 653/2602 [00:05<00:17, 109.62it/s] 26%|██▌       | 667/2602 [00:05<00:22, 84.45it/s]  26%|██▌       | 678/2602 [00:05<00:23, 80.85it/s] 27%|██▋       | 714/2602 [00:05<00:14, 128.39it/s] 28%|██▊       | 737/2602 [00:05<00:12, 144.48it/s] 29%|██▉       | 759/2602 [00:05<00:11, 157.29it/s] 30%|██▉       | 778/2602 [00:06<00:13, 131.60it/s] 31%|███       | 794/2602 [00:06<00:17, 105.20it/s] 31%|███       | 807/2602 [00:06<00:18, 99.15it/s]  31%|███▏      | 819/2602 [00:06<00:23, 75.19it/s] 32%|███▏      | 829/2602 [00:07<00:25, 69.53it/s] 33%|███▎      | 861/2602 [00:07<00:15, 112.38it/s] 34%|███▍      | 890/2602 [00:07<00:11, 145.69it/s] 35%|███▍      | 909/2602 [00:07<00:15, 112.39it/s] 36%|███▌      | 925/2602 [00:07<00:16, 103.27it/s] 36%|███▌      | 939/2602 [00:07<00:16, 101.04it/s] 37%|███▋      | 951/2602 [00:08<00:16, 98.87it/s]  38%|███▊      | 989/2602 [00:08<00:10, 156.20it/s] 39%|███▉      | 1010/2602 [00:08<00:09, 164.90it/s] 40%|███▉      | 1029/2602 [00:08<00:11, 141.81it/s] 40%|████      | 1046/2602 [00:08<00:14, 107.13it/s] 41%|████      | 1069/2602 [00:08<00:12, 127.72it/s] 42%|████▏     | 1085/2602 [00:08<00:12, 125.85it/s] 43%|████▎     | 1119/2602 [00:09<00:08, 172.29it/s] 44%|████▍     | 1144/2602 [00:09<00:07, 188.96it/s] 45%|████▍     | 1166/2602 [00:09<00:09, 146.86it/s] 46%|████▌     | 1184/2602 [00:09<00:11, 126.85it/s] 46%|████▌     | 1200/2602 [00:09<00:13, 102.05it/s] 48%|████▊     | 1244/2602 [00:09<00:08, 161.85it/s] 49%|████▉     | 1272/2602 [00:10<00:07, 185.74it/s] 50%|█████     | 1305/2602 [00:10<00:05, 217.99it/s] 51%|█████     | 1332/2602 [00:10<00:10, 125.45it/s] 52%|█████▏    | 1353/2602 [00:10<00:09, 132.71it/s] 53%|█████▎    | 1391/2602 [00:10<00:06, 173.00it/s] 54%|█████▍    | 1415/2602 [00:10<00:06, 170.42it/s] 55%|█████▌    | 1437/2602 [00:11<00:06, 167.21it/s] 56%|█████▋    | 1470/2602 [00:11<00:05, 201.79it/s] 57%|█████▋    | 1494/2602 [00:11<00:06, 171.53it/s] 58%|█████▊    | 1515/2602 [00:11<00:07, 145.06it/s] 59%|█████▉    | 1533/2602 [00:11<00:08, 131.30it/s] 60%|█████▉    | 1555/2602 [00:11<00:07, 148.71it/s] 62%|██████▏   | 1624/2602 [00:12<00:03, 267.09it/s] 65%|██████▍   | 1680/2602 [00:12<00:02, 333.29it/s] 66%|██████▌   | 1719/2602 [00:12<00:03, 265.58it/s] 67%|██████▋   | 1752/2602 [00:12<00:05, 146.69it/s] 69%|██████▊   | 1784/2602 [00:12<00:04, 170.40it/s] 70%|██████▉   | 1811/2602 [00:13<00:04, 161.61it/s] 70%|███████   | 1834/2602 [00:13<00:04, 161.89it/s] 71%|███████▏  | 1855/2602 [00:13<00:05, 134.10it/s] 72%|███████▏  | 1873/2602 [00:13<00:07, 101.33it/s] 73%|███████▎  | 1893/2602 [00:14<00:06, 110.94it/s] 73%|███████▎  | 1908/2602 [00:14<00:06, 105.85it/s] 74%|███████▍  | 1934/2602 [00:14<00:05, 132.46it/s] 75%|███████▍  | 1951/2602 [00:14<00:05, 112.33it/s] 76%|███████▌  | 1965/2602 [00:14<00:06, 94.37it/s]  76%|███████▌  | 1977/2602 [00:15<00:09, 65.67it/s] 76%|███████▋  | 1986/2602 [00:15<00:10, 59.93it/s] 78%|███████▊  | 2025/2602 [00:15<00:05, 108.21it/s] 78%|███████▊  | 2041/2602 [00:15<00:04, 115.23it/s] 79%|███████▉  | 2057/2602 [00:15<00:04, 122.19it/s] 80%|███████▉  | 2073/2602 [00:15<00:04, 115.75it/s] 80%|████████  | 2093/2602 [00:15<00:04, 126.19it/s] 81%|████████  | 2108/2602 [00:16<00:04, 116.14it/s] 82%|████████▏ | 2121/2602 [00:16<00:05, 93.64it/s]  82%|████████▏ | 2132/2602 [00:16<00:06, 76.46it/s] 82%|████████▏ | 2141/2602 [00:16<00:07, 58.19it/s] 84%|████████▍ | 2185/2602 [00:16<00:03, 119.31it/s] 85%|████████▍ | 2203/2602 [00:17<00:03, 129.70it/s] 85%|████████▌ | 2221/2602 [00:17<00:02, 131.04it/s] 86%|████████▌ | 2238/2602 [00:17<00:02, 126.49it/s] 87%|████████▋ | 2253/2602 [00:17<00:02, 124.88it/s] 88%|████████▊ | 2281/2602 [00:17<00:02, 159.62it/s] 88%|████████▊ | 2300/2602 [00:17<00:02, 145.66it/s] 89%|████████▉ | 2317/2602 [00:17<00:02, 135.79it/s] 90%|████████▉ | 2332/2602 [00:18<00:02, 113.02it/s] 90%|█████████ | 2345/2602 [00:18<00:02, 91.32it/s]  91%|█████████ | 2363/2602 [00:18<00:02, 107.63it/s] 92%|█████████▏| 2395/2602 [00:18<00:01, 153.01it/s] 93%|█████████▎| 2419/2602 [00:18<00:01, 168.94it/s] 94%|█████████▎| 2439/2602 [00:18<00:01, 147.51it/s] 94%|█████████▍| 2456/2602 [00:19<00:01, 121.24it/s] 95%|█████████▌| 2479/2602 [00:19<00:00, 140.24it/s] 96%|█████████▌| 2496/2602 [00:19<00:01, 100.00it/s] 97%|█████████▋| 2523/2602 [00:19<00:00, 129.25it/s] 98%|█████████▊| 2556/2602 [00:19<00:00, 165.81it/s] 99%|█████████▉| 2583/2602 [00:19<00:00, 188.49it/s]100%|██████████| 2602/2602 [00:19<00:00, 130.88it/s]
-  0%|          | 0/2602 [00:00<?, ?it/s]  6%|▋         | 164/2602 [00:00<00:01, 1639.20it/s] 13%|█▎        | 328/2602 [00:00<00:02, 786.80it/s]  19%|█▉        | 501/2602 [00:00<00:01, 1051.06it/s] 24%|██▍       | 634/2602 [00:00<00:01, 999.11it/s]  30%|███       | 782/2602 [00:00<00:01, 1068.11it/s] 35%|███▍      | 901/2602 [00:00<00:01, 1034.50it/s] 39%|███▉      | 1012/2602 [00:00<00:01, 1016.72it/s] 43%|████▎     | 1129/2602 [00:01<00:01, 1057.42it/s] 50%|█████     | 1313/2602 [00:01<00:01, 1220.17it/s] 55%|█████▌    | 1442/2602 [00:01<00:00, 1224.91it/s] 64%|██████▍   | 1666/2602 [00:01<00:00, 1499.14it/s] 70%|██████▉   | 1820/2602 [00:01<00:00, 1384.96it/s] 75%|███████▌  | 1963/2602 [00:01<00:00, 902.06it/s]  80%|███████▉  | 2077/2602 [00:02<00:00, 792.42it/s] 84%|████████▎ | 2174/2602 [00:02<00:00, 668.41it/s] 90%|█████████ | 2347/2602 [00:02<00:00, 828.27it/s]100%|█████████▉| 2591/2602 [00:02<00:00, 1088.56it/s]100%|██████████| 2602/2602 [00:02<00:00, 1031.86it/s]
-  0%|          | 0/2602 [00:00<?, ?it/s]  5%|▍         | 126/2602 [00:00<00:02, 930.47it/s]  8%|▊         | 220/2602 [00:00<00:03, 735.83it/s] 13%|█▎        | 332/2602 [00:00<00:02, 820.58it/s] 17%|█▋        | 435/2602 [00:00<00:02, 843.57it/s] 22%|██▏       | 576/2602 [00:00<00:01, 1013.77it/s] 26%|██▌       | 681/2602 [00:00<00:02, 796.12it/s]  31%|███       | 797/2602 [00:00<00:02, 887.95it/s] 34%|███▍      | 897/2602 [00:01<00:01, 909.29it/s] 38%|███▊      | 994/2602 [00:01<00:02, 775.17it/s] 41%|████▏     | 1079/2602 [00:01<00:01, 792.10it/s] 45%|████▌     | 1173/2602 [00:01<00:01, 796.29it/s] 48%|████▊     | 1257/2602 [00:01<00:02, 658.08it/s] 52%|█████▏    | 1357/2602 [00:01<00:01, 738.06it/s] 59%|█████▉    | 1533/2602 [00:01<00:01, 969.99it/s] 69%|██████▉   | 1804/2602 [00:01<00:00, 1403.13it/s] 75%|███████▌  | 1955/2602 [00:02<00:00, 1024.91it/s] 80%|███████▉  | 2079/2602 [00:02<00:00, 968.35it/s]  84%|████████▍ | 2191/2602 [00:02<00:00, 884.73it/s] 89%|████████▉ | 2323/2602 [00:02<00:00, 943.51it/s] 95%|█████████▌| 2477/2602 [00:02<00:00, 1078.73it/s]100%|██████████| 2602/2602 [00:02<00:00, 955.63it/s] 
-loading file added_tokens.json from cache at None
-loading file special_tokens_map.json from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/special_tokens_map.json
-loading file tokenizer_config.json from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/tokenizer_config.json
-loading file tokenizer.json from cache at None
-loading file chat_template.jinja from cache at None
-Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
-loading configuration file config.json from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/config.json
-Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 1,
-  "eos_token_id": 2,
-  "head_dim": 64,
-  "hidden_act": "silu",
-  "hidden_size": 2048,
-  "initializer_range": 0.02,
-  "intermediate_size": 5632,
-  "max_position_embeddings": 16384,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 26,
-  "num_key_value_heads": 4,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": null,
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "float32",
-  "transformers_version": "4.51.3",
-  "use_cache": true,
-  "vocab_size": 4128
-}
-
-loading weights file model.safetensors from cache at /home/wenduoc/.cache/huggingface/hub/models--GenerTeam--GENERator-eukaryote-1.2b-base/snapshots/3be4abf390afbb7f4d8ccb3370f599338523f1cd/model.safetensors
-Some weights of the model checkpoint at GenerTeam/GENERator-eukaryote-1.2b-base were not used when initializing LlamaModel: ['lm_head.weight']
-- This IS expected if you are initializing LlamaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing LlamaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-All the weights of LlamaModel were initialized from the model checkpoint at GenerTeam/GENERator-eukaryote-1.2b-base.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaModel for predictions without further training.
-Epoch 1: 0it [00:00, ?it/s]/home/wenduoc/DNALongBench/experiments/GENERator/generator_etgp.py:326: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
-  with torch.cuda.amp.autocast():
-`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
-Epoch 1: 1it [00:10, 10.16s/it]Epoch 1: 2it [00:18,  9.19s/it]Epoch 1: 3it [00:27,  8.85s/it]Epoch 1: 4it [00:35,  8.70s/it]Epoch 1: 5it [00:44,  8.68s/it]Epoch 1: 6it [00:52,  8.63s/it]Epoch 1: 7it [01:01,  8.60s/it]Epoch 1: 8it [01:09,  8.59s/it]Epoch 1: 9it [01:18,  8.59s/it]Epoch 1: 10it [01:27,  8.59s/it]Epoch 1: 11it [01:35,  8.60s/it]Epoch 1: 12it [01:44,  8.61s/it]Epoch 1: 13it [01:52,  8.62s/it]Epoch 1: 14it [02:01,  8.63s/it]Epoch 1: 15it [02:10,  8.65s/it]Epoch 1: 16it [02:19,  8.70s/it]Epoch 1: 17it [02:27,  8.73s/it]Epoch 1: 18it [02:36,  8.72s/it]Epoch 1: 19it [02:45,  8.73s/it]Epoch 1: 20it [02:54,  8.73s/it]Epoch 1: 21it [03:02,  8.73s/it]Epoch 1: 22it [03:11,  8.74s/it]Epoch 1: 23it [03:20,  8.75s/it]Epoch 1: 24it [03:29,  8.76s/it]Epoch 1: 25it [03:37,  8.76s/it]Epoch 1: 26it [03:46,  8.77s/it]Epoch 1: 27it [03:55,  8.78s/it]Epoch 1: 28it [04:04,  8.78s/it]Epoch 1: 29it [04:13,  8.78s/it]Epoch 1: 30it [04:21,  8.78s/it]Epoch 1: 31it [04:30,  8.78s/it]Epoch 1: 32it [04:39,  8.79s/it]Epoch 1: 33it [04:48,  8.78s/it]Epoch 1: 34it [04:56,  8.77s/it]Epoch 1: 35it [05:05,  8.76s/it]Epoch 1: 36it [05:14,  8.76s/it]Epoch 1: 37it [05:23,  8.75s/it]Epoch 1: 38it [05:31,  8.74s/it]Epoch 1: 39it [05:40,  8.74s/it]Epoch 1: 40it [05:49,  8.74s/it]Epoch 1: 41it [05:58,  8.74s/it]Epoch 1: 42it [06:06,  8.73s/it]Epoch 1: 43it [06:15,  8.74s/it]Epoch 1: 44it [06:24,  8.74s/it]Epoch 1: 45it [06:33,  8.73s/it]Epoch 1: 46it [06:41,  8.73s/it]Epoch 1: 47it [06:50,  8.73s/it]Epoch 1: 48it [06:59,  8.75s/it]Epoch 1: 49it [07:08,  8.74s/it]Epoch 1: 50it [07:16,  8.75s/it]Epoch 1: 51it [07:25,  8.75s/it]Epoch 1: 52it [07:34,  8.75s/it]Epoch 1: 53it [07:43,  8.74s/it]Epoch 1: 54it [07:51,  8.74s/it]Epoch 1: 55it [08:00,  8.74s/it]Epoch 1: 56it [08:09,  8.74s/it]Epoch 1: 57it [08:17,  8.74s/it]Epoch 1: 58it [08:26,  8.75s/it]Epoch 1: 59it [08:35,  8.75s/it]Epoch 1: 60it [08:44,  8.75s/it]Epoch 1: 61it [08:52,  8.75s/it]Epoch 1: 62it [09:01,  8.75s/it]Epoch 1: 63it [09:10,  8.75s/it]Epoch 1: 64it [09:19,  8.76s/it]Epoch 1: 65it [09:27,  8.75s/it]Epoch 1: 66it [09:36,  8.75s/it]Epoch 1: 67it [09:45,  8.75s/it]Epoch 1: 68it [09:54,  8.76s/it]Epoch 1: 69it [10:03,  8.76s/it]Epoch 1: 70it [10:11,  8.82s/it]Epoch 1: 71it [10:20,  8.80s/it]Epoch 1: 72it [10:29,  8.79s/it]Epoch 1: 73it [10:38,  8.78s/it]Epoch 1: 74it [10:47,  8.78s/it]Epoch 1: 75it [10:55,  8.77s/it]Epoch 1: 76it [11:04,  8.77s/it]Epoch 1: 77it [11:13,  8.78s/it]Epoch 1: 78it [11:22,  8.78s/it]Epoch 1: 79it [11:30,  8.77s/it]Epoch 1: 80it [11:39,  8.79s/it]Epoch 1: 81it [11:48,  8.78s/it]Epoch 1: 82it [11:57,  8.77s/it]Epoch 1: 83it [12:06,  8.78s/it]Epoch 1: 84it [12:14,  8.78s/it]Epoch 1: 85it [12:23,  8.78s/it]Epoch 1: 86it [12:32,  8.78s/it]Epoch 1: 87it [12:41,  8.78s/it]Epoch 1: 88it [12:49,  8.78s/it]Epoch 1: 89it [12:58,  8.78s/it]Epoch 1: 90it [13:07,  8.79s/it]Epoch 1: 91it [13:16,  8.79s/it]Epoch 1: 92it [13:25,  8.79s/it]Epoch 1: 93it [13:33,  8.81s/it]Epoch 1: 94it [13:42,  8.81s/it]Epoch 1: 95it [13:51,  8.82s/it]Epoch 1: 96it [14:00,  8.84s/it]Epoch 1: 97it [14:09,  8.83s/it]Epoch 1: 98it [14:18,  8.83s/it]Epoch 1: 99it [14:27,  8.84s/it]Epoch 1: 100it [14:35,  8.84s/it]Epoch 1: 101it [14:44,  8.85s/it]Epoch 1: 102it [14:53,  8.85s/it]Epoch 1: 103it [15:02,  8.85s/it]Epoch 1: 104it [15:11,  8.85s/it]Epoch 1: 105it [15:20,  8.85s/it]Epoch 1: 106it [15:28,  8.86s/it]Epoch 1: 107it [15:37,  8.86s/it]Epoch 1: 108it [15:46,  8.86s/it]Epoch 1: 109it [15:55,  8.86s/it]Epoch 1: 110it [16:04,  8.87s/it]Epoch 1: 111it [16:13,  8.87s/it]Epoch 1: 112it [16:22,  8.89s/it]Epoch 1: 113it [16:31,  8.88s/it]Epoch 1: 114it [16:39,  8.83s/it]Epoch 1: 115it [16:48,  8.78s/it]Epoch 1: 116it [16:57,  8.74s/it]Epoch 1: 117it [17:05,  8.72s/it]Epoch 1: 118it [17:14,  8.71s/it]Epoch 1: 119it [17:23,  8.69s/it]Epoch 1: 120it [17:31,  8.69s/it]Epoch 1: 121it [17:40,  8.69s/it]Epoch 1: 122it [17:49,  8.68s/it]Epoch 1: 123it [17:57,  8.68s/it]Epoch 1: 124it [18:06,  8.68s/it]Epoch 1: 125it [18:15,  8.69s/it]Epoch 1: 126it [18:23,  8.69s/it]Epoch 1: 127it [18:32,  8.69s/it]Epoch 1: 128it [18:41,  8.71s/it]Epoch 1: 129it [18:50,  8.70s/it]Epoch 1: 130it [18:58,  8.71s/it]Epoch 1: 131it [19:07,  8.70s/it]Epoch 1: 132it [19:16,  8.71s/it]Epoch 1: 133it [19:24,  8.71s/it]Epoch 1: 134it [19:33,  8.71s/it]Epoch 1: 135it [19:42,  8.71s/it]Epoch 1: 136it [19:51,  8.75s/it]Epoch 1: 137it [19:59,  8.74s/it]Epoch 1: 138it [20:08,  8.74s/it]Epoch 1: 139it [20:17,  8.73s/it]Epoch 1: 140it [20:26,  8.74s/it]Epoch 1: 141it [20:34,  8.73s/it]Epoch 1: 142it [20:43,  8.74s/it]Epoch 1: 143it [20:52,  8.74s/it]Epoch 1: 144it [21:01,  8.75s/it]Epoch 1: 145it [21:09,  8.74s/it]Epoch 1: 146it [21:18,  8.74s/it]Epoch 1: 147it [21:27,  8.74s/it]Epoch 1: 148it [21:36,  8.74s/it]Epoch 1: 149it [21:44,  8.74s/it]Epoch 1: 150it [21:53,  8.74s/it]Epoch 1: 151it [22:02,  8.74s/it]Epoch 1: 152it [22:11,  8.74s/it]Epoch 1: 153it [22:19,  8.74s/it]Epoch 1: 154it [22:28,  8.74s/it]Epoch 1: 155it [22:37,  8.75s/it]Epoch 1: 156it [22:46,  8.76s/it]Epoch 1: 157it [22:54,  8.76s/it]Epoch 1: 158it [23:03,  8.76s/it]Epoch 1: 159it [23:12,  8.77s/it]
-Evaluating: 0it [00:00, ?it/s][A
-Evaluating: 1it [00:02,  2.42s/it][A
-Evaluating: 2it [00:04,  2.33s/it][A
-Evaluating: 3it [00:06,  2.30s/it][A
-Evaluating: 4it [00:09,  2.28s/it][A
-Evaluating: 5it [00:11,  2.28s/it][A
-Evaluating: 6it [00:13,  2.28s/it][A
-Evaluating: 7it [00:16,  2.28s/it][A
-Evaluating: 8it [00:18,  2.28s/it][A
-Evaluating: 9it [00:20,  2.29s/it][A
-Evaluating: 10it [00:22,  2.31s/it][A
-Evaluating: 11it [00:25,  2.30s/it][A
-Evaluating: 12it [00:27,  2.29s/it][A
-Evaluating: 13it [00:29,  2.28s/it][A
-Evaluating: 14it [00:32,  2.27s/it][A
-Evaluating: 15it [00:34,  2.27s/it][A
-Evaluating: 16it [00:36,  2.27s/it][A
-Evaluating: 17it [00:38,  2.27s/it][A
-Evaluating: 18it [00:41,  2.27s/it][A
-Evaluating: 19it [00:43,  2.27s/it][A
-Evaluating: 20it [00:45,  2.28s/it][A
-Evaluating: 21it [00:47,  2.29s/it][A
-Evaluating: 22it [00:50,  2.29s/it][A
-Evaluating: 23it [00:52,  2.29s/it][A
-Evaluating: 24it [00:54,  2.30s/it][A
-Evaluating: 25it [00:57,  2.31s/it][A
-Evaluating: 26it [00:59,  2.29s/it][A
-Evaluating: 27it [01:01,  2.28s/it][A
-Evaluating: 28it [01:03,  2.27s/it][A
-Evaluating: 29it [01:06,  2.27s/it][A
-Evaluating: 30it [01:08,  2.27s/it][A
-Evaluating: 31it [01:10,  2.27s/it][A
-Evaluating: 32it [01:13,  2.27s/it][A
-Evaluating: 33it [01:15,  2.26s/it][A
-Evaluating: 34it [01:17,  2.27s/it][A
-Evaluating: 35it [01:19,  2.27s/it][A
-Evaluating: 36it [01:22,  2.27s/it][A
-Evaluating: 37it [01:24,  2.28s/it][A
-Evaluating: 38it [01:26,  2.28s/it][A
-Evaluating: 39it [01:29,  2.29s/it][A
-Evaluating: 40it [01:31,  2.29s/it][A
-Evaluating: 41it [01:33,  2.30s/it][A
-Evaluating: 42it [01:35,  2.28s/it][A
-Evaluating: 43it [01:38,  2.27s/it][A
-Evaluating: 44it [01:40,  2.27s/it][A
-Evaluating: 45it [01:42,  2.28s/it][A
-Evaluating: 46it [01:44,  2.28s/it][A
-Evaluating: 47it [01:47,  2.28s/it][A
-Evaluating: 48it [01:49,  2.29s/it][A
-Evaluating: 49it [01:51,  2.30s/it][A
-Evaluating: 50it [01:54,  2.28s/it][A
-Evaluating: 51it [01:56,  2.27s/it][A
-Evaluating: 52it [01:58,  2.27s/it][A
-Evaluating: 53it [02:00,  2.26s/it][A
-Evaluating: 54it [02:03,  2.26s/it][A
-Evaluating: 55it [02:05,  2.27s/it][A
-Evaluating: 56it [02:07,  2.27s/it][A
-Evaluating: 57it [02:09,  2.27s/it][A
-Evaluating: 58it [02:12,  2.28s/it][A
-Evaluating: 59it [02:14,  2.29s/it][A
-Evaluating: 60it [02:16,  2.29s/it][A
-Evaluating: 61it [02:19,  2.30s/it][A
-Evaluating: 62it [02:21,  2.29s/it][A
-Evaluating: 63it [02:23,  2.28s/it][A
-Evaluating: 64it [02:25,  2.27s/it][A
-Evaluating: 65it [02:28,  2.27s/it][A
-Evaluating: 66it [02:30,  2.26s/it][A
-Evaluating: 67it [02:32,  2.27s/it][A
-Evaluating: 68it [02:35,  2.27s/it][A
-Evaluating: 69it [02:37,  2.28s/it][A
-Evaluating: 70it [02:39,  2.29s/it][A
-Evaluating: 71it [02:41,  2.30s/it][A
-Evaluating: 72it [02:44,  2.31s/it][A
-Evaluating: 73it [02:46,  2.29s/it][A
-Evaluating: 74it [02:48,  2.28s/it][A
-Evaluating: 75it [02:51,  2.27s/it][A
-Evaluating: 76it [02:53,  2.27s/it][A
-Evaluating: 77it [02:55,  2.27s/it][A
-Evaluating: 78it [02:57,  2.27s/it][A
-Evaluating: 79it [03:00,  2.28s/it][A
-Evaluating: 80it [03:02,  2.28s/it][A
-Evaluating: 81it [03:04,  2.29s/it][A
-Evaluating: 82it [03:07,  2.30s/it][A
-Evaluating: 83it [03:09,  2.30s/it][A
-Evaluating: 84it [03:11,  2.31s/it][A
-Evaluating: 85it [03:14,  2.31s/it][A
-Evaluating: 86it [03:16,  2.31s/it][A
-Evaluating: 87it [03:18,  2.32s/it][A
-Evaluating: 88it [03:21,  2.32s/it][A
-Evaluating: 89it [03:23,  2.32s/it][A
-Evaluating: 90it [03:25,  2.33s/it][A
-Evaluating: 91it [03:27,  2.31s/it][A
-Evaluating: 92it [03:30,  2.30s/it][A
-Evaluating: 93it [03:32,  2.30s/it][A
-Evaluating: 94it [03:34,  2.30s/it][A
-Evaluating: 95it [03:37,  2.30s/it][A
-Evaluating: 96it [03:39,  2.30s/it][A
-Evaluating: 97it [03:41,  2.30s/it][A
-Evaluating: 98it [03:44,  2.31s/it][A
-Evaluating: 99it [03:46,  2.31s/it][A
-Evaluating: 100it [03:48,  2.32s/it][A
-Evaluating: 101it [03:51,  2.32s/it][A
-Evaluating: 102it [03:53,  2.30s/it][A
-Evaluating: 103it [03:55,  2.29s/it][A
-Evaluating: 104it [03:57,  2.28s/it][A
-Evaluating: 105it [04:00,  2.27s/it][A
-Evaluating: 106it [04:02,  2.27s/it][A
-Evaluating: 107it [04:04,  2.28s/it][A
-Evaluating: 108it [04:06,  2.28s/it][A
-Evaluating: 109it [04:09,  2.29s/it][A
-Evaluating: 110it [04:11,  2.30s/it][A
-Evaluating: 111it [04:13,  2.30s/it][A
-Evaluating: 112it [04:16,  2.29s/it][A
-Evaluating: 113it [04:18,  2.28s/it][A
-Evaluating: 114it [04:20,  2.29s/it][A
-Evaluating: 115it [04:22,  2.30s/it][A
-Evaluating: 116it [04:25,  2.28s/it][A
-Evaluating: 117it [04:27,  2.28s/it][A
-Evaluating: 118it [04:29,  2.27s/it][A
-Evaluating: 119it [04:32,  2.27s/it][A
-Evaluating: 120it [04:34,  2.28s/it][A
-Evaluating: 121it [04:36,  2.28s/it][A
-Evaluating: 122it [04:38,  2.29s/it][A
-Evaluating: 123it [04:41,  2.29s/it][A
-Evaluating: 124it [04:43,  2.30s/it][A
-Evaluating: 125it [04:45,  2.31s/it][A
-Evaluating: 126it [04:48,  2.32s/it][A
-Evaluating: 127it [04:50,  2.32s/it][A
-Evaluating: 128it [04:52,  2.33s/it][A
-Evaluating: 129it [04:55,  2.31s/it][A
-Evaluating: 130it [04:57,  2.29s/it][A
-Evaluating: 131it [04:59,  2.28s/it][A
-Evaluating: 132it [05:01,  2.28s/it][A
-Evaluating: 133it [05:04,  2.28s/it][A
-Evaluating: 134it [05:06,  2.28s/it][A
-Evaluating: 135it [05:08,  2.28s/it][A
-Evaluating: 136it [05:11,  2.29s/it][A
-Evaluating: 137it [05:13,  2.30s/it][A
-Evaluating: 138it [05:15,  2.30s/it][A
-Evaluating: 139it [05:17,  2.30s/it][A
-Evaluating: 140it [05:20,  2.29s/it][A
-Evaluating: 141it [05:22,  2.28s/it][A
-Evaluating: 142it [05:24,  2.28s/it][A
-Evaluating: 143it [05:27,  2.28s/it][A
-Evaluating: 144it [05:29,  2.27s/it][A
-Evaluating: 145it [05:31,  2.27s/it][A
-Evaluating: 146it [05:33,  2.28s/it][A
-Evaluating: 147it [05:36,  2.28s/it][A
-Evaluating: 148it [05:38,  2.28s/it][A
-Evaluating: 149it [05:40,  2.28s/it][A
-Evaluating: 150it [05:42,  2.27s/it][A
-Evaluating: 151it [05:45,  2.27s/it][A
-Evaluating: 152it [05:47,  2.27s/it][A
-Evaluating: 153it [05:49,  2.27s/it][A
-Evaluating: 154it [05:52,  2.28s/it][A
-Evaluating: 155it [05:54,  2.28s/it][A
-Evaluating: 156it [05:56,  2.28s/it][A
-Evaluating: 157it [05:58,  2.28s/it][A
-Evaluating: 158it [06:01,  2.30s/it][A
-Evaluating: 159it [06:03,  2.30s/it][A
-Evaluating: 160it [06:05,  2.29s/it][A
-Evaluating: 161it [06:08,  2.30s/it][A
-Evaluating: 162it [06:10,  2.30s/it][A
-Evaluating: 163it [06:12,  2.31s/it][A
-Evaluating: 164it [06:15,  2.31s/it][A
-Evaluating: 165it [06:17,  2.30s/it][A
-Evaluating: 166it [06:19,  2.29s/it][A
-Evaluating: 167it [06:21,  2.28s/it][A
-Evaluating: 168it [06:24,  2.28s/it][A
-Evaluating: 169it [06:26,  2.28s/it][A
-Evaluating: 170it [06:28,  2.28s/it][A
-Evaluating: 171it [06:31,  2.28s/it][A
-Evaluating: 172it [06:33,  2.28s/it][A
-Evaluating: 173it [06:35,  2.28s/it][A
-Evaluating: 174it [06:37,  2.28s/it][A
-Evaluating: 175it [06:40,  2.29s/it][A
-Evaluating: 176it [06:42,  2.30s/it][A
-Evaluating: 177it [06:44,  2.31s/it][A
-Evaluating: 178it [06:47,  2.32s/it][A
-Evaluating: 179it [06:49,  2.33s/it][A
-Evaluating: 180it [06:51,  2.31s/it][A
-Evaluating: 181it [06:54,  2.29s/it][A
-Evaluating: 182it [06:56,  2.29s/it][A
-Evaluating: 183it [06:58,  2.28s/it][A
-Evaluating: 184it [07:00,  2.29s/it][A
-Evaluating: 185it [07:03,  2.29s/it][A
-Evaluating: 186it [07:05,  2.29s/it][A
-Evaluating: 187it [07:07,  2.30s/it][A
-Evaluating: 188it [07:10,  2.30s/it][A
-Evaluating: 189it [07:12,  2.31s/it][A
-Evaluating: 190it [07:14,  2.32s/it][A
-Evaluating: 191it [07:17,  2.32s/it][A
-Evaluating: 192it [07:19,  2.33s/it][A
-Evaluating: 193it [07:21,  2.31s/it][A
-Evaluating: 194it [07:23,  2.30s/it][A
-Evaluating: 195it [07:26,  2.30s/it][A
-Evaluating: 196it [07:28,  2.30s/it][A
-Evaluating: 197it [07:30,  2.30s/it][A
-Evaluating: 198it [07:33,  2.31s/it][A
-Evaluating: 199it [07:35,  2.31s/it][A
-Evaluating: 200it [07:37,  2.31s/it][A
-Evaluating: 201it [07:40,  2.32s/it][A
-Evaluating: 202it [07:42,  2.32s/it][A
-Evaluating: 203it [07:44,  2.33s/it][A
-Evaluating: 204it [07:47,  2.31s/it][A
-Evaluating: 205it [07:49,  2.30s/it][A
-Evaluating: 206it [07:51,  2.29s/it][A
-Evaluating: 207it [07:53,  2.29s/it][A
-Evaluating: 208it [07:56,  2.29s/it][A
-Evaluating: 209it [07:58,  2.29s/it][A
-Evaluating: 210it [08:00,  2.29s/it][A
-Evaluating: 211it [08:03,  2.29s/it][A
-Evaluating: 212it [08:05,  2.29s/it][A
-Evaluating: 213it [08:07,  2.30s/it][A
-Evaluating: 214it [08:09,  2.30s/it][A
-Evaluating: 215it [08:12,  2.30s/it][A
-Evaluating: 216it [08:14,  2.31s/it][A
-Evaluating: 217it [08:16,  2.31s/it][A
-Evaluating: 218it [08:19,  2.32s/it][A
-Evaluating: 219it [08:21,  2.32s/it][A
-Evaluating: 220it [08:23,  2.33s/it][A
-Evaluating: 221it [08:26,  2.33s/it][A
-Evaluating: 222it [08:28,  2.34s/it][A
-Evaluating: 223it [08:30,  2.32s/it][A
-Evaluating: 224it [08:33,  2.30s/it][A
-Evaluating: 225it [08:35,  2.29s/it][A
-Evaluating: 226it [08:37,  2.28s/it][A
-Evaluating: 227it [08:40,  2.28s/it][A
-Evaluating: 228it [08:42,  2.28s/it][A
-Evaluating: 229it [08:44,  2.28s/it][A
-Evaluating: 230it [08:46,  2.28s/it][A
-Evaluating: 231it [08:49,  2.29s/it][A
-Evaluating: 232it [08:51,  2.29s/it][A
-Evaluating: 233it [08:53,  2.30s/it][A
-Evaluating: 234it [08:56,  2.31s/it][A
-Evaluating: 235it [08:58,  2.30s/it][A
-Evaluating: 236it [09:00,  2.29s/it][A
-Evaluating: 237it [09:02,  2.28s/it][A
-Evaluating: 238it [09:05,  2.28s/it][A
-Evaluating: 239it [09:07,  2.28s/it][A
-Evaluating: 240it [09:09,  2.28s/it][A
-Evaluating: 241it [09:12,  2.28s/it][A
-Evaluating: 242it [09:14,  2.29s/it][A
-Evaluating: 243it [09:16,  2.29s/it][A
-Evaluating: 244it [09:18,  2.30s/it][A
-Evaluating: 245it [09:21,  2.31s/it][A
-Evaluating: 246it [09:23,  2.32s/it][A
-Evaluating: 247it [09:25,  2.30s/it][A
-Evaluating: 248it [09:28,  2.29s/it][A
-Evaluating: 249it [09:30,  2.29s/it][A
-Evaluating: 250it [09:32,  2.30s/it][A
-Evaluating: 251it [09:35,  2.31s/it][A
-Evaluating: 252it [09:37,  2.32s/it][A
-Evaluating: 253it [09:39,  2.32s/it][A
-Evaluating: 254it [09:42,  2.31s/it][A
-Evaluating: 255it [09:44,  2.30s/it][A
-Evaluating: 256it [09:46,  2.30s/it][A
-Evaluating: 257it [09:48,  2.31s/it][A
-Evaluating: 258it [09:51,  2.30s/it][A
-Evaluating: 259it [09:53,  2.29s/it][A
-Evaluating: 260it [09:55,  2.28s/it][A
-Evaluating: 261it [09:58,  2.29s/it][A
-Evaluating: 262it [10:00,  2.29s/it][A
-Evaluating: 263it [10:02,  2.29s/it][A
-Evaluating: 264it [10:04,  2.30s/it][A
-Evaluating: 265it [10:07,  2.31s/it][A
-Evaluating: 266it [10:09,  2.32s/it][AEvaluating: 266it [10:09,  2.29s/it]
-Epoch 1: 160it [33:34, 192.77s/it]/home/wenduoc/DNALongBench/experiments/GENERator/generator_etgp.py:326: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
-  with torch.cuda.amp.autocast():
-Epoch 1: 160it [33:36, 12.60s/it] 
-Traceback (most recent call last):
-  File "/home/wenduoc/DNALongBench/experiments/GENERator/generator_etgp.py", line 463, in <module>
-    training_results = train_model_custom(
-  File "/home/wenduoc/DNALongBench/experiments/GENERator/generator_etgp.py", line 327, in train_model_custom
-    logits = model(input_ids=input_ids, attention_mask=attention_mask)['logits']
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/wenduoc/DNALongBench/experiments/GENERator/generator_etgp.py", line 224, in forward
-    outputs = self.base_model(input_ids=sub_input_ids, attention_mask=sub_attention_mask)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/transformers/utils/generic.py", line 965, in wrapper
-    output = func(self, *args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 571, in forward
-    layer_outputs = decoder_layer(
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 334, in forward
-    hidden_states = self.mlp(hidden_states)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 172, in forward
-    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/modules/activation.py", line 432, in forward
-    return F.silu(input, inplace=self.inplace)
-  File "/home/wenduoc/mambaforge/envs/dnalongbench/lib/python3.9/site-packages/torch/nn/functional.py", line 2380, in silu
-    return torch._C._nn.silu(input)
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 102.00 MiB. GPU 0 has a total capacity of 79.25 GiB of which 80.75 MiB is free. Including non-PyTorch memory, this process has 79.17 GiB memory in use. Of the allocated memory 76.67 GiB is allocated by PyTorch, and 1.98 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
