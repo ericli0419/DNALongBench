@@ -193,10 +193,10 @@ pip install .
 
 <h3>Training & Inference</h3>
 
-For CMP and ETGP tasks, please refer to experiments/Evo2_CMP_ETGP/README.md
+For CMP, ETGP and eQTLP tasks, please refer to experiments/Evo2_CMP_ETGP_eQTLP/README.md
 
 ```ruby
-experiments/Evo2_CMP_ETGP/README.md
+experiments/Evo2_CMP_ETGP_eQTLP/README.md
 ```
 
 <h2>Citation</h2>

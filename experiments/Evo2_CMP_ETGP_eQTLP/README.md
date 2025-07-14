@@ -1,4 +1,4 @@
-# Finetune Evo2 on Contact map prediction and ETGP tasks
+# Finetune Evo2 on Contact map prediction, ETGP and eQTLP tasks
 
 ## Setup
 
@@ -46,4 +46,18 @@ python test/finetune_ETGP.py
 
 ```markdown
 python test/evaluate_ETGP.py
+```
+
+## eQTLP Task
+
+### Finetuning: taking cell type Cells_Cultured_fibroblasts as an example
+
+```markdown
+python test/finetune_eQTLP.py
+```
+
+### Inference
+
+```markdown
+python test/evaluate_eQTLP.py
 ```

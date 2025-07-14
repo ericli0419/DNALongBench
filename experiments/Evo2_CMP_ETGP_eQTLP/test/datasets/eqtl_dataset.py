@@ -9,106 +9,7 @@ import kipoiseq
 from kipoiseq import Interval
 
 
-data_path = "/home/ubuntu/MIT-UCB/CMU-project/zqsong/hyenadna/data/eQTL"
-
-
-class FastaStringExtractor:
-    """
-    Extract sequences from a fasta file.
-    """
-
-    def __init__(self, fasta_file):
-        self.fasta = pyfaidx.Fasta(fasta_file)
-        self._chromosome_sizes = {k: len(v) for k, v in self.fasta.items()}
-
-    def extract(self, interval: Interval, **kwargs) -> str:
-        # Truncate interval if it extends beyond the chromosome lengths.
-        chromosome_length = self._chromosome_sizes[interval.chrom]
-        trimmed_interval = Interval(interval.chrom,
-                                    max(interval.start, 0),
-                                    min(interval.end, chromosome_length),
-                                    )
-        # pyfaidx wants a 1-based interval
-        sequence = str(self.fasta.get_seq(trimmed_interval.chrom,
-                                          trimmed_interval.start + 1,
-                                          trimmed_interval.stop).seq).upper()
-        # Fill truncated values with N's.
-        pad_upstream = 'N' * max(-interval.start, 0)
-        pad_downstream = 'N' * max(interval.end - chromosome_length, 0)
-        return pad_upstream + sequence + pad_downstream
-
-    def close(self):
-        return self.fasta.close()
-
-
-class EQTLseqDataSet(torch.utils.data.IterableDataset):
-
-    def __init__(self, config_file, subset):
-        #########################
-        # load config
-        #########################
-        self.config = parse_config(config_file)
-        # init
-        self.organism = 'Unknown'
-        if self.config.get('organism', None) is not None:
-            self.organism = self.config['organism']
-        self.subset = subset
-        if self.subset is None:
-            if self.config.get('subset', None) is not None:
-                self.subset = self.config['subset']
-            else:
-                print("subset is required either in the config file or passed as a parameter", file = sys.stderr)
-                exit(1)
-        try:
-            assert self.subset in ['train', 'valid', 'test']
-        except AssertionError:
-            print("subset must be either train, valid, or test", file = sys.stderr)
-            exit(1)
-        # verbose level
-        self.verbose = 0
-        if self.config.get('verbose', None) is not None:
-            self.verbose = self.config['verbose']
-        # show config
-        if self.verbose > 0:
-            print_config(self.config)
-        print("> load config done")
-
-        ############################
-        # load fasta file
-        ############################
-        if self.config.get('genome_fa', None) is None:
-            print('genome_fa is required in the config file', file = sys.stderr)
-            exit(1)
-        self.fasta_reader = FastaStringExtractor(os.path.join(data_path, self.config['genome_fa']))
-        print("> init fasta extractor done")
-
-        ############################
-        # load dataset, ie eQTL data
-        ############################
-        if self.config.get('seq_len_cutoff', None) is None:
-            print('seq_len_cutoff is required in the config file', file = sys.stderr)
-            print('will use default value 450000', file = sys.stderr)
-            self.config['seq_len_cutoff'] = 450000
-        if self.config.get('eQTL_tabix_file', None) is None:
-            print('eQTL_tabix_file is required in the config file', file = sys.stderr)
-            exit(1)
-        self.dataset = parse_eQTL(self.config['eQTL_file'], self.config['eQTL_tabix_file'], self.fasta_reader, self.subset, self.config['seq_len_cutoff'], self.config['tss_flank_upstream'], self.config['tss_flank_downstream'], self.config['region_flank_upstream'], self.config['region_flank_downstream'])
-        if self.verbose > 0:
-            print(f'Loaded {len(self.dataset)} eQTL records')
-
-    def __iter__(self):
-        # iterate over the data
-        target2int = {'positive':1, 'negative':0}
-        for index, record in enumerate(self.dataset):
-            # convert the sequence to one-hot encoding
-            # sequence_ref = one_hot_encode(record[0])[2028500: -2028500, :]
-            # sequence_ref = np.argmax(sequence_ref, axis=-1)
-            # sequence_alt = one_hot_encode(record[1])[2028500: -2028500, :]
-            # sequence_alt = np.argmax(sequence_alt, axis=-1)
-            sequence_ref = record[0][2028500: -2028500]
-            sequence_alt = record[1][2028500: -2028500]
-            target = np.array(target2int[record[2]]).astype('int64')
-            yield (sequence_ref, sequence_alt, target)
+data_path = "data/eQTLP"
 
 
 def rcDNA(seq):
@@ -118,7 +19,7 @@ def rcDNA(seq):
 
 
 def one_hot_encode(sequence):
-    return kipoiseq.transforms.functional.one_hot_dna(sequence).astype(np.int8)
+    return kipoiseq.transforms.functional.one_hot_dna(sequence).astype(np.float32)
 
 
 def parse_config(config_file):
@@ -160,15 +61,103 @@ def parse_config(config_file):
     return config_table
 
 
-def print_config(config_table):
-    """
-    print config
-    """
-    for key, value in config_table.items():
-        print(f'{key}: {value}')
+class FastaStringExtractor:
+
+    def __init__(self, fasta_file):
+        self.fasta = pyfaidx.Fasta(fasta_file)
+        self._chromosome_sizes = {k: len(v) for k, v in self.fasta.items()}
+
+    def extract(self, interval: Interval, **kwargs) -> str:
+        # Truncate interval if it extends beyond the chromosome lengths.
+        chromosome_length = self._chromosome_sizes[interval.chrom]
+        trimmed_interval = Interval(interval.chrom,
+                                    max(interval.start, 0),
+                                    min(interval.end, chromosome_length),
+                                    )
+        # pyfaidx wants a 1-based interval
+        sequence = str(self.fasta.get_seq(trimmed_interval.chrom,
+                                          trimmed_interval.start + 1,
+                                          trimmed_interval.stop).seq).upper()
+        # Fill truncated values with N's.
+        pad_upstream = 'N' * max(-interval.start, 0)
+        pad_downstream = 'N' * max(interval.end - chromosome_length, 0)
+        return pad_upstream + sequence + pad_downstream
+
+    def close(self):
+        return self.fasta.close()
 
 
-def parse_eQTL(eQTL_file, blacklist_tabix_file, fasta_reader, subset_group_name, seq_len_cutoff = 450000, tss_flank_upstream = 3000, tss_flank_downstream = 3000, region_flank_upstream = 500, region_flank_downstream = 500):
+class EQTLseqDataSet(torch.utils.data.IterableDataset):
+
+    def __init__(self, root_path, config_file, subset):
+        super(EQTLseqDataSet).__init__()
+        #########################
+        # load config
+        #########################
+        self.config = parse_config(config_file)
+        # init
+        self.organism = 'Unknown'
+        if self.config.get('organism', None) is not None:
+            self.organism = self.config['organism']
+        self.subset = subset
+        if self.subset is None:
+            if self.config.get('subset', None) is not None:
+                self.subset = self.config['subset']
+            else:
+                print("subset is required either in the config file or passed as a parameter", file = sys.stderr)
+        try:
+            assert self.subset in ['train', 'valid', 'test']
+        except AssertionError:
+            print("subset must be either train, valid, or test", file = sys.stderr)
+        # verbose level
+        self.verbose = 0
+        if self.config.get('verbose', None) is not None:
+            self.verbose = self.config['verbose']
+        # show config
+        if self.verbose > 0:
+            print_config(self.config)
+        print("> load config done")
+
+        ############################
+        # load fasta file
+        ############################
+        if self.config.get('genome_fa', None) is None:
+            print('genome_fa is required in the config file', file = sys.stderr)
+        self.fasta_reader = FastaStringExtractor(os.path.join(root_path, self.config['genome_fa']))
+        print("> init fasta extractor done")
+
+        ############################
+        # load dataset, ie eQTL data
+        ############################
+        if self.config.get('seq_len_cutoff', None) is None:
+            print('seq_len_cutoff is required in the config file', file = sys.stderr)
+            print('will use default value 450000', file = sys.stderr)
+            self.config['seq_len_cutoff'] = 450000
+        if self.config.get('eQTL_tabix_file', None) is None:
+            print('eQTL_tabix_file is required in the config file', file = sys.stderr)
+        self.dataset = parse_eQTL(root_path, self.config['eQTL_file'], self.config['eQTL_tabix_file'], self.fasta_reader, self.subset, self.config['seq_len_cutoff'], self.config['tss_flank_upstream'], self.config['tss_flank_downstream'], self.config['region_flank_upstream'], self.config['region_flank_downstream'])
+        if self.verbose > 0:
+            print(f'Loaded {len(self.dataset)} eQTL records')
+
+    def __iter__(self):
+        # iterate over the data
+        target2int = {'positive':1, 'negative':0}
+        for index, record in enumerate(self.dataset):
+            # convert the sequence to one-hot encoding
+            # sequence_ref = one_hot_encode(record[0])
+            # sequence_alt = one_hot_encode(record[1])
+            sequence_ref = record[0]
+            sequence_alt = record[1]
+            # sequence_ref_alt = np.concatenate([sequence_ref, sequence_alt], axis = 0)
+            target = np.array(target2int[record[2]]).astype('long')
+            yield {
+                'x_ref': sequence_ref,
+                'x_alt': sequence_alt,
+                'y': target
+            }
+
+
+def parse_eQTL(root_path, eQTL_file, blacklist_tabix_file, fasta_reader, subset_group_name, seq_len_cutoff = 450000, tss_flank_upstream = 3000, tss_flank_downstream = 3000, region_flank_upstream = 500, region_flank_downstream = 500):
     """
     this function will parse the following file format to reresent an variant-gene interaction entry
         > gene_chrom  gene_start gene_end region_chrom region_start region_end gene_id gene_strand region_id target subset allele1 allele2
@@ -178,11 +167,10 @@ def parse_eQTL(eQTL_file, blacklist_tabix_file, fasta_reader, subset_group_name,
     # check subset
     if subset_group_name not in ['train', 'valid', 'test']:
         print(f'Error: unknown subset group {subset_group_name}')
-        exit(1)
     # load records as dataframe
-    df = pd.read_csv(os.path.join(data_path, eQTL_file), sep='\t', header=0)
+    df = pd.read_csv(os.path.join(root_path, eQTL_file), sep='\t', header=0)
     # load the tabix
-    blacklist_tabix = tabix.open(os.path.join(data_path, blacklist_tabix_file))
+    blacklist_tabix = tabix.open(os.path.join(root_path, blacklist_tabix_file))
     # parse the records and convert it into a list of DNA sequence and target (ie, true or false eQTL)
     dataset = []
     print("> Start parsing eQTL records to build the dataset %s" % (subset_group_name))
@@ -291,6 +279,6 @@ def parse_eQTL(eQTL_file, blacklist_tabix_file, fasta_reader, subset_group_name,
 
 
 def get_dataloader(tissue, split):
-    split_dataset = EQTLseqDataSet("{}/config/gtex_hg38.{}.config".format(data_path, tissue), split)
+    split_dataset = EQTLseqDataSet(data_path, "{}/config/gtex_hg38.{}.config".format(data_path, tissue), split)
     split_loader = torch.utils.data.DataLoader(split_dataset, num_workers=0, batch_size=1)
     return split_loader

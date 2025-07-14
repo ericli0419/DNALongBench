@@ -406,11 +406,7 @@ class EQTLTask(MultiClass):
         """Passes a batch through the encoder, backbone, and decoder"""
 
         # z holds arguments such as sequence length
-        x, y, z = batch # z holds extra dataloader info such as resolution
-
-        # prob, preds = model(x) # [B, L, d]
-        # print(z.shape)
-        # print(z.dtype)
+        x, y, z = batch
         preds = model(x, y)
 
         #assert preds.size(1) == z.size(1)
