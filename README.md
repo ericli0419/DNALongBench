@@ -58,7 +58,7 @@ The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.
 
 We provide the well-split train/valid/test files.
 
-<h3>eQTL</h3>
+<h3>eQTLP</h3>
 
 <h4>Data Link</h4>
 
