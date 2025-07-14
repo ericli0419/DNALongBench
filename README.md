@@ -115,9 +115,7 @@ We also provide data loaders for each task in scripts/data_loaders.ipynb.
 
 <h2>CNN</h2>
 
-
-Following the guidance provided at experiments/CNN/SimpleCNN.ipynb
-
+Please refer to experiments/CNN/README.md
 
 <h2>HyenaDNA</h2>
 
@@ -163,7 +161,7 @@ conda activate caduceus_env
 
 <h3>Training & Inference</h3>
 
-For RSAP and TISP tasks, please refer to the readme under experiments/Caduceus_RSAP_TISP/README.md 
+For RSAP and TISP tasks, please refer to experiments/Caduceus_RSAP_TISP/README.md 
 
 ```ruby
 experiments/Caduceus_RSAP_TISP/README.md

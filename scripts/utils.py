@@ -25,11 +25,12 @@ from tqdm import tqdm
 import tabix
 import pyBigWig
 import kipoiseq
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader, Subset
 
-def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activity', organism = 'human', cell_type='HFF', batch_size=16, sequence_length=196608):
+def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activity', subset = 'human', batch_size=16, sequence_length=196608):
+    assert task_name in ('regulatory_sequence_activity', 'contact_map_prediction', 'transcription_initiation_signal_prediction', 'enhancer_target_gene_prediction', 'eqtl_prediction'), "Choose a task from ('regulatory_sequence_activity', 'contact_map_prediction', 'transcription_initiation_signal_prediction', 'enhancer_target_gene_prediction', 'eqtl_prediction') "
     if task_name == 'regulatory_sequence_activity':
-        assert organism == "human" or organism == "mouse"
+        assert subset in ('human', 'mouse'), "Subset must be 'human' or 'mouse'"
         human_fasta_path = root + 'regulatory_sequence_activity_prediction/human/seqs/hg38.ml.fa'
         mouse_fasta_path = root + 'regulatory_sequence_activity_prediction/mouse/seqs/mm10.ml.fa'
         data_path = root + 'regulatory_sequence_activity_prediction/'
@@ -38,11 +39,11 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         # BIN_SIZE = 128
         # TARGET_LENGTH = 896
 
-        fasta_path = human_fasta_path if organism == "human" else mouse_fasta_path
+        fasta_path = human_fasta_path if subset == "human" else mouse_fasta_path
 
-        train_dataset = BasenjiDataSet(data_path, organism, 'train', sequence_length, fasta_path)
-        valid_dataset = BasenjiDataSet(data_path, organism, 'valid', sequence_length, fasta_path)
-        test_dataset = BasenjiDataSet(data_path, organism, 'test', sequence_length, fasta_path)
+        train_dataset = BasenjiDataSet(data_path, subset, 'train', sequence_length, fasta_path)
+        valid_dataset = BasenjiDataSet(data_path, subset, 'valid', sequence_length, fasta_path)
+        test_dataset = BasenjiDataSet(data_path, subset, 'test', sequence_length, fasta_path)
 
         def custom_collate(batch):
             x, y = zip(*batch)
@@ -56,15 +57,16 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, num_workers=0)
         
     elif task_name == 'contact_map_prediction':
+        assert subset in ('HFF', 'H1hESC', 'GM12878', 'IMR90', 'HCT116'), "Subset must be 'HFF', 'H1hESC', 'GM12878', 'IMR90' or 'HCT116' "
         train_data_path = root + 'contact_map_prediction/targets/train-*.tfr'
         valid_data_path = root + 'contact_map_prediction/targets/valid-*.tfr'
         test_data_path = root + 'contact_map_prediction/targets/test-*.tfr'
         SEQUENCE_LENGTH = 1048576
         TARGET_LENGTH = 99681
 
-        train_dataset = AkitaDataset(train_data_path, cell_type = cell_type, target_length=TARGET_LENGTH)
-        valid_dataset = AkitaDataset(valid_data_path, cell_type = cell_type, target_length=TARGET_LENGTH)
-        test_dataset = AkitaDataset(test_data_path, cell_type = cell_type, target_length=TARGET_LENGTH)
+        train_dataset = AkitaDataset(train_data_path, cell_type = subset, target_length=TARGET_LENGTH)
+        valid_dataset = AkitaDataset(valid_data_path, cell_type = subset, target_length=TARGET_LENGTH)
+        test_dataset = AkitaDataset(test_data_path, cell_type = subset, target_length=TARGET_LENGTH)
      
         
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, num_workers=0)
@@ -103,7 +105,14 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
                         random_strand=False
         )
         sampler.mode="train"
-        train_loader = SamplerDataLoader(sampler, num_workers=0, batch_size=batch_size, seed=3)
+        sample_loader = SamplerDataLoader(sampler, num_workers=0, batch_size=batch_size, seed=3)
+        max_samples = 100000
+        subset = Subset(sample_loader.dataset, list(range(max_samples)))
+        train_loader = DataLoader(
+            subset,
+            batch_size=batch_size,
+            shuffle=True
+        )
 
         validseq = noblacklist_genome.get_encoding_from_coords("chr10", 0, 114364328)
         validcage = tfeature.get_feature_data("chr10", 0, 114364328)
@@ -218,6 +227,7 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         return train_loader, valid_loader, test_loader
     
     elif task_name == 'enhancer_target_gene_prediction':
+       
         ETGP_config_file = os.path.join(root, "enhancer_target_gene", "config", "CRISPRi_EPI_K562_hg19.config")
         task_root_path = os.path.join(root, "enhancer_target_gene")
         train_dataset = EPIseqDataSet(task_root_path, ETGP_config_file, 'train')
@@ -228,11 +238,16 @@ def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activ
         test_loader = torch.utils.data.DataLoader(test_dataset, num_workers=0, batch_size=batch_size)
 
     elif task_name == 'eqtl_prediction':
-        supported_cell_type = ['Adipose_Subcutaneous', 'Artery_Tibial', 'Cells_Cultured_fibroblasts', 'Muscle_Skeletal', 'Nerve_Tibial', 'Skin_Not_Sun_Exposed_Suprapubic', 'Skin_Sun_Exposed_Lower_leg', 'Thyroid', 'Whole_Blood']
-        if cell_type not in supported_cell_type:
-            print(f"Error: cell type {cell_type} is not supported", file = sys.stderr)
-            print("Supported cell types are: ", supported_cell_type, file = sys.stderr)
-        eQTL_config_file = os.path.join(root, "eQTL", "config", "gtex_hg38.%s.config" % (cell_type))
+        
+        supported_cell_types = ['Adipose_Subcutaneous', 'Artery_Tibial', 'Cells_Cultured_fibroblasts', 'Muscle_Skeletal', 'Nerve_Tibial', 'Skin_Not_Sun_Exposed_Suprapubic', 'Skin_Sun_Exposed_Lower_leg', 'Thyroid', 'Whole_Blood']
+        # if cell_type not in supported_cell_type:
+        #     print(f"Error: cell type {cell_type} is not supported", file = sys.stderr)
+        #     print("Supported cell types are: ", supported_cell_type, file = sys.stderr)
+        assert subset in supported_cell_types, (
+            f"Error: cell type '{subset}' is not supported. "
+            f"Supported cell types are: {supported_cell_types}"
+        )
+        eQTL_config_file = os.path.join(root, "eQTL", "config", "gtex_hg38.%s.config" % (subset))
         task_root_path = os.path.join(root, "eQTL")
         train_dataset = EQTLseqDataSet(task_root_path, eQTL_config_file, 'train')
         train_loader = torch.utils.data.DataLoader(train_dataset, num_workers=0, batch_size=batch_size)
@@ -283,11 +298,7 @@ class AkitaDataset(torch.utils.data.IterableDataset):
         for seq_raw, targets_raw in self.dataset:
             seq = seq_raw.numpy().reshape(-1,4).astype('int8')
             targets = targets_raw.numpy().reshape(self.target_length,-1).astype('float16')
-            # yield {
-            #       "sequence": seq,
-            #       "target": targets[:, self.target_ind],
-                
-            #   }
+     
             yield seq, targets[:, self.target_ind]
 
 

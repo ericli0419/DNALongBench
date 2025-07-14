@@ -25,8 +25,7 @@ from tqdm import tqdm
 import tabix
 import pyBigWig
 import kipoiseq
-from torch.utils.data import Dataset, DataLoader, Subset
-
+from torch.utils.data import Dataset, DataLoader
 
 
 def load_data(root='./DNALongBench/data', task_name = 'regulatory_sequence_activity', subset = 'human', batch_size=16, sequence_length=196608):
