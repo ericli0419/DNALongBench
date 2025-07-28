@@ -15,7 +15,7 @@ authors = [
 readme = "README.md"
 license = {text = "CC BY 4.0"}
 dependencies = [
-    "selene-sdk",
+    "selene-sdk==0.5.3",
     "torchmetrics",
     "kipoiseq==0.5.2",
     "biopython",
