@@ -130,13 +130,13 @@ Be careful if you would like to use flash attention. Sometimes there are some is
 For RSAP and TISP tasks, please refer to the readme under experiments/HyenaDNA_RSAP_TISP/README.md 
 
 ```ruby
-experiments/HyenaDNA_RSAP_TISP/README.md
+experiments/HyenaDNA/HyenaDNA_RSAP_TISP/README.md
 ```
 
 For CMP, eQTLP and ETGP tasks, please refer to experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
 
 ```ruby
-experiments/HyenaDNA_ETGP_CMP_eQTLP/README.md
+experiments/HyenaDNA/HyenaDNA_ETGP_CMP_eQTLP/README.md
 ```
 
 <h2>Caduceus</h2>
@@ -148,7 +148,7 @@ We used the official environment provided by Caduceus.
 To get started, create a conda environment containing the required dependencies.
 
 ```bash
-cd experiments/Caduceus_CMP_eQTLP_ETGP
+cd experiments/Caduceus/Caduceus_CMP_eQTLP_ETGP
 
 conda env create -f caduceus_env.yml
 ```
@@ -170,7 +170,7 @@ experiments/Caduceus_RSAP_TISP/README.md
 For CMP, eQTLP and ETGP tasks, please refer to experiments/Caduceus_CMP_eQTLP_ETGP/README.md
 
 ```ruby
-experiments/Caduceus_CMP_eQTLP_ETGP/README.md
+experiments/Caduceus/Caduceus_CMP_eQTLP_ETGP/README.md
 ```
 
 <h2>Evo2</h2>
@@ -194,7 +194,7 @@ pip install .
 For CMP, ETGP and eQTLP tasks, please refer to experiments/Evo2_CMP_ETGP_eQTLP/README.md
 
 ```ruby
-experiments/Evo2_CMP_ETGP_eQTLP/README.md
+experiments/Evo2/README.md
 ```
 
 <h2>Citation</h2>
