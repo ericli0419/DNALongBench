@@ -177,7 +177,7 @@ experiments/Caduceus/Caduceus_CMP_eQTLP_ETGP/README.md
 
 <h3>Environment Setup</h3>
 
-We used the official environment setup of GENERator.
+We used the official environment setup of GENERator: https://github.com/GenerTeam/GENERator.git.
 
 
 ```bash
@@ -186,7 +186,6 @@ cd GENERator
 pip install -r requirements.txt
 ```
 
-<
 <h3>Training & Inference</h3>
 
 Please refer to experiments/GENERator/README.md.
