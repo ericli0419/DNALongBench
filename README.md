@@ -16,13 +16,13 @@ DNALongBench is a benchmark of realistic and biologically meaningful genomic DNA
 | Regulatory Sequence Activity   | Binned (128bp) 1D Regression     | 196,608      | Human: (896, 5,313)<br>Mouse: (896, 1,643)      | Human: 38,171<br>Mouse: 33,521 | PCC       |
 | Transcription Initiation Signal | Nucleotide-wise 1D Regression    | 100,000      | (100,000, 10)                                   | 100,000\*               | PCC       |
 
-The data for each task could be downloaded via the following link, and the corresponding dataloader file is also provided. Therefore, you could run your own experiments by just replacing the dataloader files. 
+The data for each task could be downloaded via the following link. Alternatively, you could download the data from [Box](https://cmu.box.com/s/cyn3tqfej3v4tg4xwv1god3jemq7916y).
 
 <h3>Regulatory Sequence Activity Prediction</h3>
 
 <h4>Data Link</h4>
 
-The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=4c6b250c-26fc-412a-b3e1-bc15f1332f0c">Regulatory Sequence Activity Prediction</a>. 
+The data can be downloaded at <a href="https://doi.org/10.7910/DVN/MNUEZR">Regulatory Sequence Activity Prediction</a>. 
 
 <h4>Data Details</h4>
 
@@ -32,7 +32,7 @@ We provide the sequences.bed, statistics.json, hg38.ml.fa.fai and hg38.ml.fa.gz 
 
 <h4>Data Link</h4>
 
-The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=9810103a-b8b8-4a4d-95c4-b26b6e153446">Transcription Initiation Signal Prediction</a>. 
+The data can be downloaded at <a href="https://doi.org/10.7910/DVN/VXQKWO">Transcription Initiation Signal Prediction</a>. 
 
 <h4>Data Details</h4>
 
@@ -42,7 +42,7 @@ We provide all the correspoding bed files.
 
 <h4>Data Link</h4>
 
-The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=c238c0dd-528f-4d04-a3c8-0ff1eee1d651">Enhancer-Target Gene Prediction</a>. 
+The data can be downloaded at <a href="https://doi.org/10.7910/DVN/CTEQXX">Enhancer-Target Gene Prediction</a>. 
 
 <h4>Data Details</h4>
 
@@ -52,7 +52,7 @@ The sequences, fa and metrics data are provided.
 
 <h4>Data Link</h4>
 
-The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=a990b515-d76e-4b63-ba74-5c78c469ae53">Contact Map Prediction</a>. 
+The data can be downloaded at <a href="https://doi.org/10.7910/DVN/AZM25S">Contact Map Prediction</a>. 
 
 <h4>Data Details</h4>
 
@@ -62,7 +62,7 @@ We provide the well-split train/valid/test files.
 
 <h4>Data Link</h4>
 
-The data can be downloaded at <a href="https://dataverse.harvard.edu/privateurl.xhtml?token=93d446a5-9c75-44bf-be1c-7622563c48d0">eQTL</a>. 
+The data can be downloaded at <a href="https://doi.org/10.7910/DVN/YUP2G5">eQTL</a>. 
 
 <h4>Data Details</h4>
 
@@ -191,7 +191,7 @@ pip install .
 
 <h3>Training & Inference</h3>
 
-For CMP, ETGP and eQTLP tasks, please refer to experiments/Evo2_CMP_ETGP_eQTLP/README.md
+Please refer to experiments/Evo2/README.md.
 
 ```ruby
 experiments/Evo2/README.md
