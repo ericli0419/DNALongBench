@@ -115,7 +115,7 @@ We also provide data loaders for each task in scripts/data_loaders.ipynb.
 
 <h2>CNN</h2>
 
-Please refer to experiments/CNN/README.md
+Please refer to experiments/CNN/README.md.
 
 <h2>HyenaDNA</h2>
 
@@ -171,6 +171,28 @@ For CMP, eQTLP and ETGP tasks, please refer to experiments/Caduceus_CMP_eQTLP_ET
 
 ```ruby
 experiments/Caduceus/Caduceus_CMP_eQTLP_ETGP/README.md
+```
+
+<h2>GENERator</h2>
+
+<h3>Environment Setup</h3>
+
+We used the official environment setup of GENERator.
+
+
+```bash
+git clone https://github.com/GenerTeam/GENERator.git
+cd GENERator
+pip install -r requirements.txt
+```
+
+<
+<h3>Training & Inference</h3>
+
+Please refer to experiments/GENERator/README.md.
+
+```ruby
+experiments/GENERator/README.md
 ```
 
 <h2>Evo2</h2>
