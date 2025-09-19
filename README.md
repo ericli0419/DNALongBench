@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17162664.svg)](https://doi.org/10.5281/zenodo.17162664)
+
+
 <h1>DNALongBench: A Benchmark Suite for Long-Range DNA Prediction Tasks</h1>
 
 <h2>Introduction</h2>
