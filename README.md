@@ -7,7 +7,7 @@
 
 DNALongBench is a benchmark of realistic and biologically meaningful genomic DNA prediction tasks that require long-range sequence input and involve long-range dependencies. There are five tasks in our DNALongBench.
 
-![image](./Figure1.v1.png)
+![image](./Figure1.v3.png)
 
 <h2>Data Download</h2>
 
